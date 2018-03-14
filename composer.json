@@ -1,0 +1,13 @@
+{
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    },
+    "require-dev": {
+    },
+    "require": {
+        "twig/twig": "v2.4.6"
+    }
+}

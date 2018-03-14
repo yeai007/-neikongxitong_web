@@ -1,0 +1,6 @@
+{% for item in menulist %}
+{% if item.MenuParentId==0 %}
+<li ><a href="#" >{{item.Name}}</a>
+</li>  
+{% endif%}
+{% endfor %}

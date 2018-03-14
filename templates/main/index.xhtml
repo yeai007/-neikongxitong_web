@@ -1,0 +1,30 @@
+{% extends "base.xhtml" %}
+{% block title %}内控管理系统{% endblock %}
+{% block meta %}
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{url}}css/index.css" type="text/css">
+    {% endblock %}
+    {% block js %}
+    <script type="text/javascript" src="{{url}}js/jquery-3.3.1.min.js"></script>  
+    <script type="text/javascript" src="{{url}}js/index.js"></script>
+    {% endblock %}
+    {% block main %}
+    <body>
+        <div class="top_div">
+            <img class="icon_top" src="{{url}}/image/home.png"/>
+            <img class="icon_top" src="{{url}}/image/load.png"/>
+            <img class="icon_top" src="{{url}}/image/setting.png"/>
+        </div>
+        <div class="main_div">
+            <div class="list">  
+                <ul>  
+                    {% include ('main/menu.html') %}  
+                </ul>  
+            </div>
+            <div class="right_div" id="right">
+ 
+            </div>
+    </body>
+    {% endblock %}
+
