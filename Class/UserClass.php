@@ -92,7 +92,8 @@ class UserClass {
         }
         $sql = "insert into AppUser set $condition ";
         $this->db->query($sql);
-        return $this->db->lastInsertId();
+        return $sql;
+        //return $this->db->lastInsertId();
     }
 
     function getUserId() {

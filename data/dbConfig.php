@@ -8,7 +8,7 @@
 $db_config = array();
 $db_config['database'] = 'mysql';
 $db_config['pconnect'] = '0';
-$db_config['db_host'] = 'localhost';
+$db_config['db_host'] = '127.0.0.1';
 $db_config['db_name'] = 'neikong';
 $db_config['db_user'] = 'root';
 $db_config['db_pass'] = 'root';

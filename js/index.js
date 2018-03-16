@@ -32,7 +32,27 @@ $(document).ready(function () {
 });
 function toPage(obj1) {
     $.post(obj1, {}, function (data) {
-        document.getElementById('right').innerHTML = data;
-        // $('#right').html(data);
+        //document.getElementById('right').innerHTML = data;
+        $('#right').html(data);
     });
+}
+function iframeLoad(iframe) {
+    var doc = iframe.contentWindow.document;
+    var html = doc.body.innerHTML;
+    if (html != '') {
+        //将获取到的json数据转为json对象
+        var obj = eval("(" + html + ")");
+        //判断返回的状态
+        if (obj.status < 1) {
+            alert(obj.msg);
+            $("#reset").click();
+        } else {
+            alert(obj.msg);
+            window.location.href = "http://www.baidu.com";
+        }
+    }
+}
+function back()
+{
+    history.back();
 }

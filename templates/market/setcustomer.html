@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <link rel="stylesheet" href="{{url}}css/allcustomer.css" type="text/css" />
+
 <div>
     <div>
         <div class="top_top">
@@ -7,79 +8,84 @@
             <div class="title">新建客户信息</div>          
             <div class="line2"></div>
         </div>
-        <div class="set_content_tb" >
-            <table class="tb_set">
-                <tr>
-                    <td>单位名称</td>
-                    <td><input id="customer_name" class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>统一社会信用代码</td>
-                    <td><input id="customer_num" class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>地址</td>
-                    <td><input id="customer_address" class="input_text" type="text"/></td>
-                    <td>电话</td>
-                    <td><input id="customer_phone" class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>开户行</td>
-                    <td><input id="customer_openbank" class="input_text" type="text"/></td>
-                    <td>账号</td>
-                    <td><input id="customer_bankaccount" class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>客户单位负责人</td>
-                    <td><select class="select" style="width: 180px;    border-radius:0px;" name="chargeperson" id="chargeperson">
-                            {% for item in chargeperson %}
-                            <option class="select" value="{{item.UserId}}" >{{item.UserName}}</option>
-                            {% endfor %}
-                        </select></td>
-                    <td>联系电话</td>
-                    <td><input id="customer_phone" class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>QQ</td>
-                    <td><input class="input_text" type="text"/></td>
-                    <td>微信</td>
-                    <td><input class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>客户联系人</td>
-                    <td><input class="input_text" type="text"/></td>
-                    <td>联系电话</td>
-                    <td><input class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>QQ</td>
-                    <td><input class="input_text" type="text"/></td>
-                    <td>微信</td>
-                    <td><input class="input_text" type="text"/></td>
-                </tr>
-                <tr>
-                    <td>客户单位介绍</td>
-                    <td colspan="3"><input style="width: 100%; height: 100%"  type="text"/></td>
-                </tr>
-                <tr>
-                    <td>单位所属市场人员</td>
-                    <td><select class="select" style="width: 180px;    border-radius:0px;" name="marketperson" id="marketperson">
-                            {% for item in marketperson %}
-                            <option class="select" value="{{item.UserId}}" >{{item.UserName}}</option>
-                            {% endfor %}
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>信息录入日期</td>
-                    <td><input class="input_text" type="text"/></td>
-                </tr>
-            </table>
-            <div class="bottom_button">
-                <input type="button" class="comm_button button_save" value="保存"/>
-                <input type="button" class="comm_button button_clear" value="清空"/>
-                <input type="button" class="comm_button button_close" value="关闭"/>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/action/setCustomerClass.php" method="post"
+              enctype='multipart/form-data' target="myiframe">
+            <div class="set_content_tb" >
+                <table class="tb_set">
+                    <tr>
+                        <td>单位名称</td>
+                        <td><input name="customer_name" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>统一社会信用代码</td>
+                        <td><input name="customer_num" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>地址</td>
+                        <td><input name="customer_address" class="input_text" type="text"/></td>
+                        <td>电话</td>
+                        <td><input name="customer_phone" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>开户行</td>
+                        <td><input name="customer_openbank" class="input_text" type="text"/></td>
+                        <td>账号</td>
+                        <td><input name="customer_bankaccount" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>客户单位负责人</td>
+                        <td><select class="select" style="width: 180px;    border-radius:0px;" name="chargeperson" id="chargeperson">
+                                {% for item in chargeperson %}
+                                <option class="select" value="{{item.UserName}}" >{{item.UserName}}</option>
+                                {% endfor %}
+                            </select></td>
+                        <td>联系电话</td>
+                        <td><input name="charger_phone" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>QQ</td>
+                        <td><input name="charger_QQ" class="input_text" type="text"/></td>
+                        <td>微信</td>
+                        <td><input name="charger_Wechat" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>客户联系人</td>
+                        <td><input name="customer_contact" class="input_text" type="text"/></td>
+                        <td>联系电话</td>
+                        <td><input name="contact_phone" class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>QQ</td>
+                        <td><input name="contact_QQ" class="input_text" type="text"/></td>
+                        <td>微信</td>
+                        <td><input  name="contact_Wechat"  class="input_text" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>客户单位介绍</td>
+                        <td colspan="3"><input name="customer_desc"  style="width: 100%; height: 100%"  type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>单位所属市场人员</td>
+                        <td><select class="select" style="width: 180px;    border-radius:0px;" name="marketperson" id="marketperson">
+                                {% for item in marketperson %}
+                                <option class="select" value="{{item.UserName}}" >{{item.UserName}}</option>
+                                {% endfor %}
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>信息录入日期</td>
+                        <td><input name="writedate" class="input_text" type="text"/></td>
+                    </tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="submit" name="add"  class="comm_button button_save" value="保存"/>
+                    <input type="reset" name="reset" class="comm_button button_clear" value="清空"/>
+                    <input type="button" onclick="toPage('../../modules/market/allcustomer.php');" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+
 

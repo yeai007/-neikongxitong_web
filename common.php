@@ -37,4 +37,14 @@ $twig->__construct($config, $twig_data);
 //定义系统定量
 define('DT_CHARSET', $CFG['charset']);
 define('DT_PATH', $CFG ['url']);
+
+/**
+ * action返回
+ */
+function returnResult($msg, $status = 0) {
+    $msg = array('status' => $status, 'msg' => $msg);
+    $str = json_encode($msg);
+    return $str;
+}
+
 ?>

@@ -61,10 +61,12 @@ a:link, a:visited {
   position: relative; }
 
 .list ul li .inactive {
-  background: url(images/off.png) no-repeat 184px center; }
+/*  background: url(images/off.png) no-repeat 184px center;*/
+}
 
 .list ul li .inactives {
-  background: url(images/on.png) no-repeat 184px center; }
+/*  background: url(images/on.png) no-repeat 184px center; */
+}
 
 .list ul li ul {
   display: none; }

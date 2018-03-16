@@ -11,7 +11,7 @@
 
 
 
-class CustomerClass {
+class Customer{
 
     private $CustomerId; //客户唯一id
     private $Customerlevel; //所在单位级别
@@ -69,7 +69,6 @@ class CustomerClass {
         $sql = "update customerinfo set $condition where CustomerId=$this->CustomerId";
         return $this->db->query($sql);
     }
-
     function insertInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
@@ -83,6 +82,7 @@ class CustomerClass {
         }
         $sql = "insert into customerinfo set $condition ";
         $this->db->query($sql);
+       // return $sql;
         return $this->db->lastInsertId();
     }
 

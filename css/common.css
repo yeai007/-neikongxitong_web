@@ -81,6 +81,33 @@ and open the template in the editor.
   text-align: center;
   font-family: Microsoft Yahei; }
 
+.caozuo_1 {
+  margin-left: 20px;
+  background-color: #009688;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border-color: #009688; }
+
+.caozuo_2 {
+  margin-left: 20px;
+  border-color: #ff9800;
+  background-color: #ff9800;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei; }
+
+.caozuo_3 {
+  margin-left: 20px;
+  border-color: #e51c23;
+  background-color: #e51c23;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei; }
+
 .tb_set tr {
   line-height: 40px; }
 
