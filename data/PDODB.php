@@ -33,7 +33,6 @@ class PDODB {
         $this->Host = $Host;
         $this->DBName = $DBName;
         $this->DBUser = $DBUser;
-        ;
         $this->DBPassword = $DBPassword;
         $this->Connect();
         $this->parameters = array();

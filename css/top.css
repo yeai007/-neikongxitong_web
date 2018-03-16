@@ -8,14 +8,12 @@ and open the template in the editor.
     Author     : PVer
 */
 .top {
-  left: 0px;
-  top: 0px;
-  width: 1920px;
+  width: 100%;
   height: 56px;
   line-height: 56px;
   background-color: #3f4e5c;
   text-align: left;
-  line-height: 56px;
+  max-height: 56px;
   display: inline-block;
   margin: 0 auto; }
 
@@ -44,17 +42,16 @@ and open the template in the editor.
 
 .d_text {
   width: 139px;
-  height: 26px;
-  line-height: 26px;
+  height: 56px;
+  line-height: 56px;
   color: white;
   font-size: 18px;
   text-align: center;
   font-family: Roboto; }
 
 .top_list {
-  border-bottom: solid 1px #3F4E5C;
   float: left;
-  margin-top: 15px; }
+  max-height: 56px; }
 
 .top_list ul li {
   max-width: 210px;
@@ -67,8 +64,15 @@ and open the template in the editor.
   text-align: left;
   display: block;
   font-weight: bold;
-  height: 36px;
-  line-height: 36px;
+  height: 56px;
+  line-height: 56px;
   position: relative; }
+
+.icon_img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  max-height: 30px;
+  max-width: 30px; }
 
 /*# sourceMappingURL=top.css.map */

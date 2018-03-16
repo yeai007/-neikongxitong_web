@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+var arr = [];
 $(document).ready(function () {
     $('.inactive').click(function () {
         var className = $(this).parents('li').parents().attr('class');
@@ -30,7 +30,9 @@ $(document).ready(function () {
         }
     });
 });
-
-function toPage(obj) {
-    // document.getElementById('right').innerHTML = obj;
+function toPage(obj1) {
+    $.post(obj1, {}, function (data) {
+        document.getElementById('right').innerHTML = data;
+        // $('#right').html(data);
+    });
 }

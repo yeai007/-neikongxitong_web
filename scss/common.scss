@@ -1,0 +1,129 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-15, 16:10:34
+    Author     : PVer
+*/
+//通用搜索框样式
+.select{
+    min-width: 50px;
+    height: 30px;
+    line-height: 20px;
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    font-family: Roboto;
+    border: 1px solid rgba(187, 187, 187, 1);
+    border-radius:5px;
+}
+//通用input
+.input_text{
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    text-align: left;
+    font-family: Roboto;
+    border: 1px solid rgba(187, 187, 187, 1);
+}
+//table中通用title
+.th_title{
+    width: 224px;
+    height: 23px;
+    line-height: 23px;
+    background-color: rgba(46, 49, 51, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    text-align: center;
+    font-family: Roboto;
+}
+//通用新添加功能table Style
+.tb_set{
+    margin-top: 60px;
+    padding-top: 60px;
+    text-align: right;
+    font-size: 16px;
+}
+//通用底部按钮
+.bottom_button{
+    padding-top: 20px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+}
+//通用操作按钮
+.comm_button{
+    width: 60px;
+    height: 30px;
+    border-radius: 4px;
+
+}
+.button_save{
+    margin-left: 20px;
+    background-color: rgba(0, 150, 136, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Microsoft Yahei;
+    border-color: rgba(0, 150, 136, 1);
+}
+.button_clear{
+    margin-left: 20px;
+    border-color: rgba(255, 152, 0, 1);
+    background-color: rgba(255, 152, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Microsoft Yahei;
+}
+.button_close{
+    margin-left: 20px;
+    border-color:rgba(229, 28, 35, 1);
+    background-color: rgba(229, 28, 35, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Microsoft Yahei;
+}
+.tb_set tr{
+    line-height: 40px;
+}
+.tb_set td{
+    width: 80px;
+}
+//首页菜单栏
+.comm_menu {
+    margin-left: 248px;
+    margin-top: 55px;
+    width: vw;
+    height: 50px;
+    background-color: rgba(240, 240, 240, 1);
+    color: rgba(63, 78, 92, 1);
+    font-family: Roboto;
+}
+.comm_menu .menu_content_view{
+    position: relative;
+    top: 25%;
+    height: 30px;
+    line-height: 30px;
+    max-height: 30px;
+    text-align: left;
+    font-family: Roboto;
+}
+
+
+.comm_menu .comm_menu_text {
+    float: left;
+    margin-left: 20px;
+    height: 30px;
+    line-height: 30px;
+    max-height: 30px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    text-align: inherit;
+    font-family: Roboto;
+}
+

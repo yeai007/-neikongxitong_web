@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<link rel="stylesheet" href="{{url}}css/allcustomer.css" type="text/css" />
+<div>
+    <div>
+        <div class="top_top">
+            <div class="line1"></div>
+            <div class="title">客户信息列表</div>          
+            <div class="line2"></div>
+        </div>
+        <div>
+            <table class="tb_view">
+                <tr>
+                    <td><label>单位级别</label> 
+                        <select class="select" name="customerlevel" id="customerlevel">
+                            {% for item in customerlevel %}
+                            <option class="select" value="{{item.Id}}" >{{item.LevelName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td ><label class="interval">单位层次</label> 
+                        <select class="select" name="PerformanceLevel" id="PerformanceLevel">
+                            {% for item in PerformanceLevel %}
+                            <option class="select" value="{{item.Id}}" >{{item.PerformanceLevelName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="select userrole" name="market" id="market">
+                            {% for item in market %}
+                            <option class="select" value="{{item.UserId}}" >{{item.UserName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
+                        <input type="button" class="btn_search" value="搜索"/>
+                    </td>
+                    <td>
+                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                    </td>      
+                    <td>
+                        <input type="button" class="add_new" onclick="toPage('../../modules/market/setCustomer.php')" value="新建用户"/>
+                        <input type="button" class="delete interval" value="批量删除"/>
+                    </td>   
+                </tr>
+            </table>
+            <table>
+                <table >
+                    <tr>
+                        <th class="th_title">选择</th>
+                        <th class="th_title">序号</th>
+                        <th class="th_title">单位名称</th>
+                        <th class="th_title">市场人员</th>
+                        <th class="th_title">单位级别</th>
+                        <th class="th_title">单位层次</th>
+                        <th class="th_title">更新时间</th>
+                        <th class="th_title">审核状态</th>
+                        <th class="th_title">绩效级别</th>
+                        <th class="th_title">拜访次数</th>
+                        <th class="th_title">操作</th>
+                    </tr>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>单位名称</th>
+                        <th>市场人员</th>
+                        <th>单位级别</th>
+                        <th>单位层次</th>
+                        <th>更新时间</th>
+                        <th>审核状态</th>
+                        <th>绩效级别</th>
+                        <th>拜访次数</th>
+                        <th>操作</th>
+                    </tr>
+                </table>
+            </table>
+        </div>
+    </div>
+</div>
+

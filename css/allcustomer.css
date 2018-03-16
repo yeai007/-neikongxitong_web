@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-15, 14:16:29
+    Author     : PVer
+*/
+td {
+  white-space: nowrap; }
+
+.top_top {
+  margin-top: 20px; }
+
+.top_top .line1 {
+  float: left;
+  margin-top: 42px;
+  width: 54px;
+  height: 1px;
+  color: #101010;
+  background: #bbbbbb; }
+
+.top_top .title {
+  float: left;
+  width: 142px;
+  height: 40px;
+  line-height: 40px;
+  color: #101010;
+  font-size: 20px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #bbbbbb;
+  border-bottom-color: #ffffff; }
+
+.top_top .line2 {
+  float: left;
+  margin-top: 40px;
+  width: 900px;
+  height: 1px;
+  color: #101010;
+  background: #bbbbbb; }
+
+.tb_view {
+  margin-left: 54px; }
+
+.tb_view .search_box {
+  width: 149px;
+  height: 26px;
+  line-height: 20px;
+  color: #b0b0b0;
+  font-size: 12px;
+  text-align: left;
+  font-family: Roboto;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px; }
+
+.tb_view .export_excel {
+  min-width: 90px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #16b398;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #16b398;
+  font-family: Microsoft Yahei;
+  border-radius: 5px; }
+
+.tb_view .btn_search {
+  min-width: 40px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #16b398;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #16b398;
+  font-family: Microsoft Yahei;
+  border-radius: 5px; }
+
+.tb_view .add_new {
+  width: 80px;
+  margin-left: 40px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #ff9800;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #ff9800; }
+
+.tb_view .delete {
+  width: 80px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #e51c23;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #e51c23; }
+
+.interval {
+  margin-left: 10px; }
+
+.userrole {
+  margin-left: 30px; }
+
+.set_content_tb {
+  width: 100%; }
+
+.customer_desc {
+  width: vw; }
+
+/*# sourceMappingURL=allcustomer.css.map */

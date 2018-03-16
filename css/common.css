@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-15, 16:10:34
+    Author     : PVer
+*/
+.select {
+  min-width: 50px;
+  height: 30px;
+  line-height: 20px;
+  color: #101010;
+  font-size: 14px;
+  font-family: Roboto;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px; }
+
+.input_text {
+  width: 180px;
+  height: 30px;
+  line-height: 30px;
+  color: #101010;
+  font-size: 14px;
+  text-align: left;
+  font-family: Roboto;
+  border: 1px solid #bbbbbb; }
+
+.th_title {
+  width: 224px;
+  height: 23px;
+  line-height: 23px;
+  background-color: #2e3133;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Roboto; }
+
+.tb_set {
+  margin-top: 60px;
+  padding-top: 60px;
+  text-align: right;
+  font-size: 16px; }
+
+.bottom_button {
+  padding-top: 20px;
+  height: 50px;
+  text-align: center;
+  align-items: center; }
+
+.comm_button {
+  width: 60px;
+  height: 30px;
+  border-radius: 4px; }
+
+.button_save {
+  margin-left: 20px;
+  background-color: #009688;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border-color: #009688; }
+
+.button_clear {
+  margin-left: 20px;
+  border-color: #ff9800;
+  background-color: #ff9800;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei; }
+
+.button_close {
+  margin-left: 20px;
+  border-color: #e51c23;
+  background-color: #e51c23;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei; }
+
+.tb_set tr {
+  line-height: 40px; }
+
+.tb_set td {
+  width: 80px; }
+
+.comm_menu {
+  margin-left: 248px;
+  margin-top: 55px;
+  width: vw;
+  height: 50px;
+  background-color: #f0f0f0;
+  color: #3f4e5c;
+  font-family: Roboto; }
+
+.comm_menu .menu_content_view {
+  position: relative;
+  top: 25%;
+  height: 30px;
+  line-height: 30px;
+  max-height: 30px;
+  text-align: left;
+  font-family: Roboto; }
+
+.comm_menu .comm_menu_text {
+  float: left;
+  margin-left: 20px;
+  height: 30px;
+  line-height: 30px;
+  max-height: 30px;
+  color: black;
+  font-size: 20px;
+  text-align: inherit;
+  font-family: Roboto; }
+
+/*# sourceMappingURL=common.css.map */

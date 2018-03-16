@@ -5,7 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-header('Location:modules/index/index.php');
-//file_put_contents('bee.txt','execute');
 
-?>
+require( "../../common.php");
+require (DT_ROOT . "/data/dbClass.php");
+$data = array();
+echo $twig->render('main/main.html', $data);
