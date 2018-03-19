@@ -10,5 +10,12 @@
     <img class="img_tx" src="{{url}}/image/img_tx.png"/>
     <text  class="d_text">待办事项</text>
     <img class="img_tx" src="{{url}}/image/avatar.png"/>
-    <text  class="d_text">欢迎，管理员</text>
+
+    {% if islogin %}
+    <text  class="d_text">欢迎，{{session.UserName}}</text>
+    <a href="{{url}}comm/logout.php" >退出</a>&nbsp;
+    {% else %}
+    <a  id="example" onclick="login()">登录</a>&nbsp;
+    {% endif %}
+    islogin
 </div>

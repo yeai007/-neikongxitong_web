@@ -5,13 +5,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 //客户信息类
 
 
 
 
 
-class Customer{
+class CustomerClass {
 
     private $CustomerId; //客户唯一id
     private $Customerlevel; //所在单位级别
@@ -38,11 +39,18 @@ class Customer{
     private $CustomerStatus; //客户状态
     private $ExamPerson; //审核人
     private $ExamDate; //审核时间
+    private $Flag; //作废标记
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
         $this->db = $db;
         $this->columns = $this->db->getColumn("customerinfo", null);
+    }
+
+    function getInfo($id) {
+        $sql = "select * from customerinfo where CustomerId=$id limit 0,1";
+        $result = $this->db->row($sql); //返回查询结果到数组
+        return $result;
     }
 
     function setInfo($id) {
@@ -69,6 +77,7 @@ class Customer{
         $sql = "update customerinfo set $condition where CustomerId=$this->CustomerId";
         return $this->db->query($sql);
     }
+
     function insertInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
@@ -82,7 +91,7 @@ class Customer{
         }
         $sql = "insert into customerinfo set $condition ";
         $this->db->query($sql);
-       // return $sql;
+        // return $sql;
         return $this->db->lastInsertId();
     }
 
@@ -308,6 +317,15 @@ class Customer{
 
     function setExamDate($ExamDate) {
         $this->ExamDate = $ExamDate;
+        return $this;
+    }
+
+    function getFlag() {
+        return $this->Flag;
+    }
+
+    function setFlag($Flag) {
+        $this->Flag = $Flag;
         return $this;
     }
 

@@ -40,6 +40,7 @@ body{text-align:center;    margin: auto;margin-top: 200px;}
 }
 .input_text{
     width: 250px;
+    min-width: 250px;
     height: 40px;
     line-height: 40px;  
     font-size: 16px;
@@ -79,7 +80,10 @@ body{text-align:center;    margin: auto;margin-top: 200px;}
     font-family: Roboto;
     border: 1px solid rgba(63, 81, 181, 1);
 }
-.zh_error{
+.div_login{
+    align:center
+}
+.div_login .zh_error{
     width: 20px;
     height: 20px;
     max-height: 20px;
@@ -96,4 +100,8 @@ body{text-align:center;    margin: auto;margin-top: 200px;}
 }
 .zh_error_text{
     color: #E51C23;
+
+}
+.login_msg{
+    display: none;
 }

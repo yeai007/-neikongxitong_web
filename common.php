@@ -9,6 +9,8 @@
  * @Description
  *  */
 //定义文件路径
+
+
 define('DT_ROOT', str_replace("\\", '/', dirname(__FILE__)));
 //引入全局配置文件
 $CFG = array();

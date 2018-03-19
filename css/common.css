@@ -27,6 +27,9 @@ and open the template in the editor.
   font-family: Roboto;
   border: 1px solid #bbbbbb; }
 
+.input_text_readonly {
+  readonly: readonly; }
+
 .th_title {
   width: 224px;
   height: 23px;
@@ -42,6 +45,16 @@ and open the template in the editor.
   padding-top: 60px;
   text-align: right;
   font-size: 16px; }
+
+.td_left {
+  align-items: left;
+  align-content: left;
+  text-align: left; }
+
+.td_right {
+  align-items: right;
+  align-content: right;
+  text-align: right; }
 
 .bottom_button {
   padding-top: 20px;

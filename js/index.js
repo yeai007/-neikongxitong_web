@@ -36,23 +36,24 @@ function toPage(obj1) {
         $('#right').html(data);
     });
 }
-function iframeLoad(iframe) {
-    var doc = iframe.contentWindow.document;
-    var html = doc.body.innerHTML;
-    if (html != '') {
-        //将获取到的json数据转为json对象
-        var obj = eval("(" + html + ")");
-        //判断返回的状态
-        if (obj.status < 1) {
-            alert(obj.msg);
-            $("#reset").click();
-        } else {
-            alert(obj.msg);
-            window.location.href = "http://www.baidu.com";
-        }
-    }
+function toPage(obj1, type, id) {
+
+    $.post(obj1, {type: type, id: id}, function (data) {
+        //document.getElementById('right').innerHTML = data;
+        $('#right').html(data);
+    });
 }
 function back()
 {
     history.back();
 }
+function changeFrameHeight() {
+    var ifm = document.getElementById("myiframe");
+    ifm.height = document.documentElement.clientHeight;
+
+}
+
+window.onresize = function () {
+    changeFrameHeight();
+
+} 

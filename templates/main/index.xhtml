@@ -9,10 +9,10 @@
     <script type="text/javascript" src="{{url}}js/index.js"></script>
     {% endblock %}
     {% block main %}
-    <body>
+    <body class="main_div">
         <div class="main_div">
             <div class="list">  
-                <img class="icon_top" src="{{url}}/image/home.png"/>
+                <a href="javascript:;" onclick="toPage('../../modules/index/main.php')"> <img class="icon_top" src="{{url}}/image/home.png"/></a>
                 <img class="icon_top" src="{{url}}/image/load.png"/>
                 <img class="icon_top" src="{{url}}/image/setting.png"/>
                 <ul style="margin-top: 10px;">  
@@ -20,8 +20,8 @@
                 </ul>  
             </div>
             <div class="right_div" name="right" id="right">
-
-            </div>
+            </div>        
+        </div>
     </body>
     {% endblock %}
 

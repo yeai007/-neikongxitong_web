@@ -29,6 +29,9 @@ and open the template in the editor.
     font-family: Roboto;
     border: 1px solid rgba(187, 187, 187, 1);
 }
+.input_text_readonly{
+    readonly:readonly;
+}
 //table中通用title
 .th_title{
     width: 224px;
@@ -46,6 +49,16 @@ and open the template in the editor.
     padding-top: 60px;
     text-align: right;
     font-size: 16px;
+}
+.td_left{
+    align-items: left;
+    align-content: left;
+    text-align: left;
+}
+.td_right{
+    align-items: right;
+    align-content: right;
+    text-align: right;  
 }
 //通用底部按钮
 .bottom_button{

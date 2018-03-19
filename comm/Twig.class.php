@@ -27,7 +27,7 @@ class TwigClass {
 
         $this->data = $twig_data;
         $this->config = array_merge($config_default, $config);
-       // Composer::register();
+        // Composer::register();
         $loader = new Twig_Loader_Filesystem($this->config['template_dir']);
         $this->twig = new Twig_Environment($loader, array(
             'cache' => $this->config['cache_dir'],
@@ -63,10 +63,9 @@ class TwigClass {
     public function render($template, $data = array(), $return = TRUE) {
         @$template = $this->twig->loadTemplate($this->getTemplateName($template));
         @$data = array_merge($this->data, $data);
-        $islogin = isset($_SESSION['userinfo']) ? true : false;
+        $islogin = isset($_SESSION['user']) ? true : false;
         $data['islogin'] = $islogin;
-        $data['session'] = $islogin ? json_decode($_SESSION['userinfo'], true) : null;
-        $data['localuser'] = isset($_SESSION['local_user']) ? $_SESSION['local_user'] : null;
+        $data['session'] = $islogin ? $_SESSION['user'][0] : null;
         if ($return === TRUE) {
             return $template->render($data);
         } else {

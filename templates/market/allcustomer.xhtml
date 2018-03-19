@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <link rel="stylesheet" href="{{url}}css/allcustomer.css" type="text/css" />
+<script src="{{url}}js/allcustomer.js" type="text/javascript"></script>
 <div>
     <div>
         <div class="top_top">
@@ -44,40 +45,9 @@
                     </td>   
                 </tr>
             </table>
-            <table>
-                <table >
-                    <tr>
-                        <th class="th_title">选择</th>
-                        <th class="th_title">序号</th>
-                        <th class="th_title">单位名称</th>
-                        <th class="th_title">市场人员</th>
-                        <th class="th_title">单位级别</th>
-                        <th class="th_title">单位层次</th>
-                        <th class="th_title">更新时间</th>
-                        <th class="th_title">审核状态</th>
-                        <th class="th_title">绩效级别</th>
-                        <th class="th_title">拜访次数</th>
-                        <th class="th_title">操作</th>
-                    </tr>
-                    {% for item in customerlist %}
-                    <tr>
-                        <td><check type="checkbox"/></th>
-                            <th>{{item.CustomerId}}</th>
-                            <th style="white-space: nowrap">{{item.CustomerName}}</th>
-                            <th>{{item.MarketPerson}}</th>
-                            <th>{{item.Customerlevel}}</th>
-                            <th>{{item.PerformanceLevel}}</th>
-                            <th>{{item.WriteDate}}</th>
-                            <th>{{item.CustomerStatus==0?'未审核':'已审核'}}</th>
-                            <th>{{item.PerformanceLevel}}</th>
-                            <th>{{item.VisitCount}}</th>
-                            <td>
-                                <input type="button" class="caozuo_2" value="联系人"/>
-                                <input type="button" class="caozuo_1" value="修改"/>
-                                <input type="button" class="caozuo_3" value="删除"/></td>
-                    </tr>
-                    {% endfor %}
-                </table>
+
+            <table id="list">
+
             </table>
         </div>
     </div>

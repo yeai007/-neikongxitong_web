@@ -8,26 +8,22 @@
 
 class UserClass {
 
-    private $UserId; //
-    private $UserName; //用户名称
-    private $UserCode; //用户登录编码、用户名
-    private $UserDepart; //部门
-    private $UserPost; //职务
-    private $Phone; //联系方式
-    private $UserNum; //身份证号码
-    private $Address; //家庭住址
-    private $UserStatus; //用户作废、状态标记
-    private $UserRoleId; //用户所对应角色Id
-    private $UserPassword; //
+    private $UserId;
+    private $UserName;
+    private $UserCode;
+    private $CreateTime;
+    private $UserStatus;
+    private $Telephone;
+    private $PassWord;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
         $this->db = $db;
-        $this->columns = $this->db->getColumn("users", null);
+        $this->columns = $this->db->getColumn("AppUser", null);
     }
 
-    function loginInfo($code, $pass) {
-        $sql = "select * from users where UserCode='$code' and UserPassword='$pass' limit 0,1";
+    function loginInfo($phone, $pass) {
+        $sql = "select * from AppUser where UserCode='$phone' and UserPassword='$pass' limit 0,1";
         $result = $this->db->query($sql); //返回查询结果到数组
         if (count($result) > 0) {
             return $result;
@@ -36,14 +32,30 @@ class UserClass {
         }
     }
 
-    function checkInfo($code) {
-        $sql = "select * from users where UserCode='$code'";
+    function checkInfo($phone) {
+        $sql = "select * from AppUser where Telephone='$phone'";
         $result = $this->db->query($sql); //返回查询结果到数组
         return count($result) > 0 ? true : false;
     }
 
+    function getInfo($id) {
+        $sql = "select * from AppUser where UserId=$id limit 0,1";
+        $result = $this->db->row($sql); //返回查询结果到数组
+        return $result;
+    }
+
+    function setInfoByPhone($phone) {
+        $sql = "select * from AppUser where Telephone='$phone'";
+        $result = $this->db->row($sql); //返回查询结果到数组
+        foreach ($this->columns as $column) {
+            $aa = "set" . "$column";
+            $this->$aa($result["$column"]);
+        }
+        return $result;
+    }
+
     function setInfo($id) {
-        $sql = "select * from users where UserId=$id";
+        $sql = "select * from AppUser where UserId=$id";
         $result = $this->db->row($sql); //返回查询结果到数组
         foreach ($this->columns as $column) {
             $aa = "set" . "$column";
@@ -63,7 +75,7 @@ class UserClass {
                 }
             }
         }
-        $sql = "update users set $condition where UserId=$this->UserId";
+        $sql = "update AppUser set $condition where Id=$this->UserId";
         return $this->db->query($sql);
     }
 
@@ -78,10 +90,10 @@ class UserClass {
                 }
             }
         }
-        $sql = "insert into users set $condition ";
+        $sql = "insert into AppUser set $condition ";
         $this->db->query($sql);
-        // return $sql;
-        return $this->db->lastInsertId();
+        return $sql;
+        //return $this->db->lastInsertId();
     }
 
     function getUserId() {
@@ -96,91 +108,50 @@ class UserClass {
         return $this->UserCode;
     }
 
-    function getUserDepart() {
-        return $this->UserDepart;
-    }
-
-    function getUserPost() {
-        return $this->UserPost;
-    }
-
-    function getPhone() {
-        return $this->Phone;
-    }
-
-    function getUserNum() {
-        return $this->UserNum;
-    }
-
-    function getAddress() {
-        return $this->Address;
+    function getCreateTime() {
+        return $this->CreateTime;
     }
 
     function getUserStatus() {
         return $this->UserStatus;
     }
 
-    function getUserRoleId() {
-        return $this->UserRoleId;
-    }
-
-    function getUserPassword() {
-        return $this->UserPassword;
+    function getTelephone() {
+        return $this->Telephone;
     }
 
     function setUserId($UserId) {
         $this->UserId = $UserId;
-        return $this;
     }
 
     function setUserName($UserName) {
         $this->UserName = $UserName;
-        return $this;
     }
 
     function setUserCode($UserCode) {
         $this->UserCode = $UserCode;
-        return $this;
     }
 
-    function setUserDepart($UserDepart) {
-        $this->UserDepart = $UserDepart;
-        return $this;
-    }
-
-    function setUserPost($UserPost) {
-        $this->UserPost = $UserPost;
-        return $this;
-    }
-
-    function setPhone($Phone) {
-        $this->Phone = $Phone;
-        return $this;
-    }
-
-    function setUserNum($UserNum) {
-        $this->UserNum = $UserNum;
-        return $this;
-    }
-
-    function setAddress($Address) {
-        $this->Address = $Address;
-        return $this;
+    function setCreateTime($CreateTime) {
+        $this->CreateTime = $CreateTime;
     }
 
     function setUserStatus($UserStatus) {
         $this->UserStatus = $UserStatus;
-        return $this;
     }
 
-    function setUserRoleId($UserRoleId) {
-        $this->UserRoleId = $UserRoleId;
-        return $this;
+    function setTelephone($Telephone) {
+        $this->Telephone = $Telephone;
     }
 
-    function setUserPassword($UserPassword) {
-        $this->UserPassword = $UserPassword;
-        return $this;
+    function getPassWord() {
+        return $this->PassWord;
+    }
+
+    function setPassWord($PassWord) {
+        $this->PassWord = $PassWord;
     }
 
 }
+
+?>
