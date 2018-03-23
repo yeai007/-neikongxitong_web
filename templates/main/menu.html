@@ -1,11 +1,11 @@
 {% for item in menulist %}
 {% if item.MenuParentId==0 %}
-<li><a class="inactive active">{{item.Name}}</a>
+<li><a class="inactive active" onclick="toPage('../../modules/index/main.php','{{item.Name}}')">{{item.Name}}</a>
     <ul>  
         {% for item_item in menulist %}
         {% if item_item.MenuParentId !=0 and item_item.MenuParentId==item.Id %}
         <li>
-            <a href="javascript:;" onclick="toPage('{{item_item.Url}}')" >{{item_item.Name}}</a>
+            <a href="javascript:;" onclick="toPage('{{item_item.Url}}','{{item_item.Name}}')" >{{item_item.Name}}</a>
             <b class="arrow fa fa-angle-right normal"></b>
         </li>  
         {% endif%}

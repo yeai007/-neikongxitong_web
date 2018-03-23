@@ -10,39 +10,9 @@ and open the template in the editor.
 td {
   white-space: nowrap; }
 
-.top_top {
-  margin-top: 20px; }
-
-.top_top .line1 {
-  float: left;
-  margin-top: 42px;
-  width: 54px;
-  height: 1px;
-  color: #101010;
-  background: #bbbbbb; }
-
-.top_top .title {
-  float: left;
-  width: 142px;
-  height: 40px;
-  line-height: 40px;
-  color: #101010;
-  font-size: 20px;
-  text-align: center;
-  font-family: Microsoft Yahei;
-  border: 1px solid #bbbbbb;
-  border-bottom-color: #ffffff; }
-
-.top_top .line2 {
-  float: left;
-  margin-top: 40px;
-  width: 900px;
-  height: 1px;
-  color: #101010;
-  background: #bbbbbb; }
-
 .tb_view {
-  margin-left: 54px; }
+  margin-left: 54px;
+  width: 100%; }
 
 .tb_view .search_box {
   width: 149px;

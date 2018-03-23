@@ -1,0 +1,41 @@
+{% extends "base.xhtml" %}
+{% block title %}内控管理系统{% endblock %}
+{% block meta %}
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{url}}css/index.css" type="text/css">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url}}js/index.js"></script>
+{% endblock %}
+{% block main %}
+<body>
+    <table class="table_main">
+        <tr>
+            <td style="width:250px" rowspan="2" class="left_td"> 
+                <div class="list">  
+                    <a href="javascript:;" onclick="toPage('../../modules/index/main.php')"> <img class="icon_top" src="{{url}}/image/home.png"/></a>
+                    <img class="icon_top" src="{{url}}/image/load.png"/>
+                    <img class="icon_top" src="{{url}}/image/setting.png"/>
+                    <ul style="margin-top: 10px;">  
+                        {% include ('main/menu.html') %}  
+                    </ul>  
+                </div>
+            </td>
+            <td class="right_td">
+                <table class="table_right">
+                    <tr class="right_td_top"><div id="title_page" class="right_div_top"></div>
+        </tr>
+        <tr class="right_td_main">
+            <td > 
+                <div class="right_div" name="right" id="right">
+                </div>  
+            </td>
+        </tr>
+    </table>
+</td>
+</tr> 
+</table>
+</body>
+{% endblock %}
+

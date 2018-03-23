@@ -1,0 +1,23 @@
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title" style="width: 800px;">一级分类</th>
+    <th class="th_title" style="width: 800px;">二级分类</th>
+    <th class="th_title" style="width: 800px;">三级分类</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in projecttype_list %}
+<tr>
+    <td><check type="checkbox"/></td>
+<td>{{item.Id_1}}</td>
+<th>{{item.Name_3}}</th>
+<th>{{item.Name_2}}</th>
+<th>{{item.Name_1}}</th>
+<td>
+    <input type="button" class="caozuo_1"  onclick="toPage('../../modules/project/setProjectTypeThird.php', 'modify','{{item.Id}}')"  value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

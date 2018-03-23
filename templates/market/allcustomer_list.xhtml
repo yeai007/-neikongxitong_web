@@ -24,8 +24,8 @@
         <th>{{item.PerformanceLevel}}</th>
         <th>{{item.VisitCount}}次</th>
         <td>
-            <input type="button" class="caozuo_2" onclick="toPage('../../modules/market/setCustomer.php', 'see','{{item.CustomerId}}')" value="查看"/>
-            <input type="button" class="caozuo_1"  onclick="toPage('../../modules/market/setCustomer.php', 'modify','{{item.CustomerId}}')"  value="修改"/>
+            <input type="button" class="caozuo_2" onclick="toSubPage('../../modules/market/setCustomer.php', '客户管理', 2, 'see','{{item.CustomerId}}')" value="查看"/>
+            <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/market/setCustomer.php', '客户管理', 2, 'modify','{{item.CustomerId}}')"  value="修改"/>
             <input type="button" class="caozuo_3"  onclick="CommandConfirm({{item.CustomerId}})" value="删除"/></td>
 </tr>
 {% endfor %}

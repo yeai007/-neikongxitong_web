@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-21, 11:04:48
+    Author     : PVer
+*/
+td {
+  white-space: nowrap; }
+
+.tb_view {
+  margin-left: 54px; }
+
+.tb_view .search_box {
+  width: 149px;
+  height: 26px;
+  line-height: 20px;
+  color: #b0b0b0;
+  font-size: 12px;
+  text-align: left;
+  font-family: Roboto;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px; }
+
+.tb_view .btn_search {
+  min-width: 40px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #16b398;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #16b398;
+  font-family: Microsoft Yahei;
+  border-radius: 5px; }
+
+.tb_view .add_new {
+  width: 80px;
+  margin-left: 40px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #ff9800;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #ff9800; }
+
+.tb_view .delete {
+  width: 80px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #e51c23;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #e51c23; }
+
+.interval {
+  margin-left: 10px; }
+
+/*# sourceMappingURL=performancelevel.css.map */

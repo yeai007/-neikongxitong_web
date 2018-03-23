@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/action/actionContract.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb" >
+                <table class="tb_set" >
+                    <tr >
+                        <td>合同编号</td>
+                        <td class="td_left"><input {{readonly}} id="contract_code" name="contract_code" class="input_text" type="text" value="{{info.ContractCode}}" required></td >
+                    </tr>
+                    <tr>
+                        <td>合同名称</td>
+                        <td  class="td_left"><input {{readonly}} id="contract_name" name="contract_name" class="input_text"  value="{{info.ContractName}}"  type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>客户单位名称</td>
+                        <td  class="td_left"><input {{readonly}} id="contract_customer_name" name="contract_customer_name" class="input_text"  value="{{info.ContractCustomerName}}"  type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>合同签订主体</td>
+                        <td  class="td_left"><input {{readonly}} id="contract_sub" name="contract_sub" class="input_text"  value="{{info.ContractSub}}"  type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>合同金额</td>
+                        <td  class="td_left">
+                            <input {{readonly}}  id="contract_amount" name="contract_amount" value="{{info.ContractAmount}}" class="input_text" type="text"  required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>实施期限</td>
+                        <td  class="td_left"><input {{readonly}}  id="contract_limit_date" name="contract_limit_date" value="{{info.ContractLimitDate}}" class="input_text" type="text" value="CommunicatePerson" required></td>
+                    </tr>
+                    <tr>
+                        <td>合同简介</td>
+                        <td  class="td_left"><textarea {{readonly}} id="contract_introduct" name="contract_introduct"class="input_textarea" type="text" required>{{info.ContractIntroduct}}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>签订日期</td>
+                        <td  class="td_left"><input {{readonly}} {% if info.ContractSignDate %}value="{{info.ContractSignDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %} id="contract_signdate"  name="contract_signdate"  class="input_text" type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>录入人</td>
+                        <td  class="td_left"><input readonly id="writeperson" name="writeperson" value="{{user.UserName}}" class="input_text" type="text" value="CommunicatePerson" required></td>
+                    </tr>
+                    <tr>
+                        <td>录入日期</td>
+                        <td  class="td_left"><input {{readonly}} {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %} id="writedate"  name="writedate"  class="input_text" type="text" required></td>
+                    </tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="text" name="id" hidden="hidden" value="{{info.ContractId}}"/>
+                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    <input type="button" onclick="toPage('../../modules/market/allContract.php')" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

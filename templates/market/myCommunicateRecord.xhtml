@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<link rel="stylesheet" href="{{url}}css/mycommunicaterecord.css" type="text/css" />
+<script src="{{url}}js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="{{url}}js/mycommunicate.js" type="text/javascript"></script>
+<div id="main_page">
+    <div>
+        <div>
+            <table class="tb_view">
+                <tr>  
+                    <td width="80%"></td>
+                    <td>
+                        <input type="button" class="add_new" onclick="toSubPage('../../modules/market/setMyCommunicate.php', '沟通记录管理', 2, 'modify','{{item.id}}')" value="添加沟通记录"/>
+                        <input type="button" class="delete interval" value="批量删除"/>
+                    </td>   
+                </tr>
+            </table>
+            <table id="list">
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="sub_page"></div>

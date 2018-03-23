@@ -8,39 +8,10 @@ and open the template in the editor.
     Author     : PVer
 */
 td{ white-space: nowrap;}
-.top_top{
-    margin-top: 20px;
-}
-.top_top .line1{
-    float: left;
-    margin-top: 42px;
-    width: 54px;
-    height: 1px;
-    color: rgba(16, 16, 16, 1);
-    background: rgba(187, 187, 187, 1);
-}
-.top_top .title{
-    float: left;
-    width: 142px;
-    height: 40px;
-    line-height: 40px;
-    color: rgba(16, 16, 16, 1);
-    font-size: 20px;
-    text-align: center;
-    font-family: Microsoft Yahei;
-    border: 1px solid rgba(187, 187, 187, 1);
-    border-bottom-color: #ffffff;
-}
-.top_top .line2{
-    float: left;
-    margin-top: 40px;
-    width:900px;
-    height: 1px;
-    color: rgba(16, 16, 16, 1);
-    background: rgba(187, 187, 187, 1);
-}
+
 .tb_view{
     margin-left: 54px;
+    width: 100%;
 }
 .tb_view .search_box{
     width: 149px;
@@ -112,7 +83,7 @@ td{ white-space: nowrap;}
 //begin setCustomer
 .set_content_tb{
     width: 100%;
-    
+
 }
 .customer_desc{
     width: vw;

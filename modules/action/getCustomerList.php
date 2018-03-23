@@ -5,15 +5,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
 $Customerlevel = _post("Customerlevel") ? "and Customerlevel=" . _post("Customerlevel") : "";
-
 $PerformanceLevel = _post("PerformanceLevel") ? "and PerformanceLevel=" . _post("PerformanceLevel") : "";
-
-
 
 $customerlist = "select CustomerId,CustomerName,Customerlevel,CreditCode,CustomerAddress,CustomerPhone,OpenBank,BankAccount,PerformanceLevel,
 ChargePerson,DATE_FORMAT(WriteDate,'%Y-%m-%e') WriteDate,CustomerStatus,VisitCount,MarketPerson ,b.PerformanceLevelCode,b.PerformanceLevelName,c.LevelCode,c.LevelName

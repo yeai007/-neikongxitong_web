@@ -5,7 +5,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+if (!session_id()) {
+    session_start();
+}
+if (!isset($_SESSION['user'])) {
+    $_SESSION['userurl'] = $_SERVER['REQUEST_URI'];
+    header("location:../login.php?"); //重新定向到其他页面
+    exit();
+} else {
+    $user = $_SESSION['user'][0];
+}
 require("../../common.php");
 require DT_ROOT . '/Class/CustomerClass.php';
 $info = new CustomerClass();
@@ -16,11 +25,10 @@ if ($type == "delete") {
     $arr = array();
     $arr["Flag"] = 1;
     $result = $info->updateInfo($arr);
-    echo returnResult($result, 0);
+    echo returnResult($result, 1);
     exit();
 }
 if (isset($_POST ["add"])) {
-
     $arr = array();
     $arr["CustomerName"] = _post("customer_name");
     $arr["CreditCode"] = _post("customer_num");
@@ -38,9 +46,10 @@ if (isset($_POST ["add"])) {
     $arr["ContactWechat"] = _post("contact_Wechat");
     $arr["CustomerDesc"] = _post("customer_desc");
     $arr["MarketPerson"] = _post("marketperson");
+    $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("writedate");
     $result = $info->insertInfo($arr);
-    echo returnResult($result, 0);
+    echo returnResult($result, 1);
     exit();
 } elseif (isset($_POST ["modify"])) {
 
@@ -62,8 +71,13 @@ if (isset($_POST ["add"])) {
     $arr["ContactWechat"] = _post("contact_Wechat");
     $arr["CustomerDesc"] = _post("customer_desc");
     $arr["MarketPerson"] = _post("marketperson");
+    $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("writedate");
     $result = $info->updateInfo($arr);
-    echo returnResult($result, 0);
+    echo returnResult($result, 1);
+    exit();
+} elseif (isset($_POST ["see"])) {
+    $result = "查看成功";
+    echo returnResult($result, 1);
     exit();
 }

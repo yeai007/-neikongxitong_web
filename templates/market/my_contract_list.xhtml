@@ -1,0 +1,37 @@
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">合同编号</th>
+    <th class="th_title">合同名称</th>
+    <th class="th_title">客户单位名称</th>
+    <th class="th_title">合同签订主体</th>
+    <th class="th_title">合同金额</th>
+    <th class="th_title">实施期限</th>
+    <th class="th_title">合同简介</th>
+    <th class="th_title">签订日期</th>
+    <th class="th_title">录入人</th>
+    <th class="th_title">录入日期</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in contract_list %}
+<tr>
+    <td><check type="checkbox"/></th>
+        <th>{{item.ContractId}}</th>
+        <th style="white-space: nowrap">{{item.ContractCode}}</th>
+        <th>{{item.ContractName}}</th>
+        <th>{{item.ContractCustomerName}}</th>
+        <th>{{item.ContractSub}}</th>
+        <th>{{item.ContractAmount}}</th>
+        <th>{{item.ContractLimitDate}}</th>
+        <th>{{item.ContractIntroduct}}</th>
+        <th>{{item.ContractSignDate}}</th>
+        <th>{{item.WritePersonName}}</th>
+        <th>{{item.WriteDate}}</th>
+        <td>
+            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/market/setMyContract.php', '合同管理', 2, 'modify','{{item.ContractId}}')"  value="修改"/>
+            <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ContractId}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

@@ -40,6 +40,7 @@ class CustomerClass {
     private $ExamPerson; //审核人
     private $ExamDate; //审核时间
     private $Flag; //作废标记
+    private $RefuseText; //作废标记
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -326,6 +327,15 @@ class CustomerClass {
 
     function setFlag($Flag) {
         $this->Flag = $Flag;
+        return $this;
+    }
+
+    function getRefuseText() {
+        return $this->RefuseText;
+    }
+
+    function setRefuseText($RefuseText) {
+        $this->RefuseText = $RefuseText;
         return $this;
     }
 

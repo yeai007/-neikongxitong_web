@@ -1,0 +1,3 @@
+{% for item in second %}
+<option class="select" value="{{item.Id}}"  {% if info.Id==item.Id %}selected="selected"{% else %}''{% endif %} >{{item.Name}}</option>
+{% endfor %}

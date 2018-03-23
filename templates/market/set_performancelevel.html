@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/action/actionPerformanceLevel.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb" >
+                <table class="tb_set" >
+                    <tr>
+                        <td>单位层次</td>
+                        <td class="td_left"><input  id="level_name" name="level_name" class="input_text" type="text" value="{{info.PerformanceLevelName}}" required></td >
+                    </tr>
+                    <tr>
+                        <td>层次代码</td>
+                        <td  class="td_left"><input  id="level_code" name="level_code" class="input_text"  value="{{info.PerformanceLevelCode}}"  type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>市场提成比例</td>
+                        <td  class="td_left"><input  id="level_pro" name="level_pro" class="input_text"  value="{{info.PerformanceLevelPro}}"  type="text" required>%</td>
+                    </tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="text" name="id" hidden="hidden" value="{{info.Id}}"/>
+                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    <input type="button" onclick="toPage('../../modules/market/performanceLevel.php')" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

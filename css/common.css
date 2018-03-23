@@ -27,12 +27,24 @@ and open the template in the editor.
   font-family: Roboto;
   border: 1px solid #bbbbbb; }
 
+.input_textarea {
+  width: 500px;
+  height: 100px;
+  line-height: 30px;
+  color: #101010;
+  font-size: 14px;
+  text-align: left;
+  font-family: Roboto;
+  border: 1px solid #bbbbbb;
+  resize: none; }
+
 .input_text_readonly {
   readonly: readonly; }
 
 .th_title {
-  width: 224px;
+  width: 200px;
   height: 23px;
+  max-width: 200px;
   line-height: 23px;
   background-color: #2e3133;
   color: white;
@@ -128,9 +140,8 @@ and open the template in the editor.
   width: 80px; }
 
 .comm_menu {
-  margin-left: 248px;
-  margin-top: 55px;
-  width: vw;
+  width: 100%;
+  min-width: 850px;
   height: 50px;
   background-color: #f0f0f0;
   color: #3f4e5c;
@@ -140,6 +151,7 @@ and open the template in the editor.
   position: relative;
   top: 25%;
   height: 30px;
+  width: 100%;
   line-height: 30px;
   max-height: 30px;
   text-align: left;
@@ -155,5 +167,48 @@ and open the template in the editor.
   font-size: 20px;
   text-align: inherit;
   font-family: Roboto; }
+
+.main_div_main {
+  height: 600px;
+  min-height: 600px;
+  width: 100%; }
+
+.dialog {
+  width: 300px;
+  height: 100px; }
+
+.right_top_div {
+  width: 100%;
+  max-width: 100%;
+  float: none; }
+
+.top_top {
+  /*    margin-top: 20px;*/
+  float: none;
+  width: 100%;
+  min-width: 100%;
+  max-height: 60px;
+  background: red; }
+
+.top_top .title {
+  float: left;
+  min-width: 100px;
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  color: #101010;
+  font-size: 15px;
+  text-align: left;
+  font-family: Microsoft Yahei;
+  /*    border: 1px solid rgba(187, 187, 187, 1);
+      border-bottom-color:#ffffff;*/
+  background: red; }
+
+.right_div {
+  position: absolute;
+  float: top;
+  width: calc(100% - 260px);
+  align-content: center;
+  margin-top: 40px; }
 
 /*# sourceMappingURL=common.css.map */

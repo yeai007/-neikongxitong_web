@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<link rel="stylesheet" href="{{url}}css/allcustomer.css" type="text/css" />
-<script src="{{url}}js/allcustomer.js" type="text/javascript"></script>
 <style>
     .error{
         color:red;
@@ -8,11 +6,6 @@
 </style>
 <div>
     <div>
-        <div class="top_top">
-            <div class="line1"></div>
-            <div class="title">客户信息维护</div>          
-            <div class="line2"></div>
-        </div>
         <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
         <form action="../../modules/action/setCustomerClass.php" method="post"
               enctype='multipart/form-data' target="myiframe" id="commentForm" >
@@ -20,32 +13,32 @@
                 <table class="tb_set" >
                     <tr>
                         <td>单位名称</td>
-        <td class="td_left"><input {{readonly}}  name="customer_name" class="input_text {{readonly}}" type="text" value="{{info.CustomerName}}" required></td>
-</tr>
-<tr>
-    <td>统一社会信用代码</td>
-    <td  class="td_left"><input {{readonly}}  name="customer_num" class="input_text"  value="{{info.CreditCode}}" type="text" ></td>
-</tr>
-<tr>
-    <td>地址</td>
-    <td  class="td_left"><input {{readonly}}  name="customer_address" value="{{info.CustomerAddress}}" class="input_text" type="text" ></td>
-    <td>电话</td>
-    <td  class="td_left"><input {{readonly}}  name="customer_phone"  value="{{info.CustomerPhone}}"  class="input_text" type="text" ></td>
-</tr>
-<tr>
-    <td>开户行</td>
-    <td  class="td_left"><input {{readonly}}  name="customer_openbank"   value="{{info.OpenBank}}"  class="input_text" type="text" ></td>
-    <td>账号</td>
-    <td  class="td_left"><input {{readonly}}  name="customer_bankaccount"  value="{{info.BankAccount}}" class="input_text" type="text" ></td>
-</tr>
-<tr>
-    <td>客户单位负责人</td>
-    <td  class="td_left"><select {{readonly}}  class="select" style="width: 180px;    border-radius:0px;" name="chargeperson" id="chargeperson">
-            {% for item in chargeperson %}
-            <option class="select" value="{{item.UserId}}"  {% if info.ChargePerson==item.UserId %}selected="selected"{% else %}''{% endif %} >{{item.UserName}}</option>
-            {% endfor %}
-        </select></td>
-    <td>联系电话</td>
+                        <td class="td_left"><input {{readonly}}  name="customer_name" class="input_text {{readonly}}" type="text" value="{{info.CustomerName}}" required></td>
+                    </tr>
+                    <tr>
+                        <td>统一社会信用代码</td>
+                        <td  class="td_left"><input {{readonly}}  name="customer_num" class="input_text"  value="{{info.CreditCode}}" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td>地址</td>
+                        <td  class="td_left"><input {{readonly}}  name="customer_address" value="{{info.CustomerAddress}}" class="input_text" type="text" ></td>
+                        <td>电话</td>
+                        <td  class="td_left"><input {{readonly}}  name="customer_phone"  value="{{info.CustomerPhone}}"  class="input_text" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td>开户行</td>
+                        <td  class="td_left"><input {{readonly}}  name="customer_openbank"   value="{{info.OpenBank}}"  class="input_text" type="text" ></td>
+                        <td>账号</td>
+                        <td  class="td_left"><input {{readonly}}  name="customer_bankaccount"  value="{{info.BankAccount}}" class="input_text" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td>客户单位负责人</td>
+                        <td  class="td_left"><select {{readonly}}  class="select" style="width: 180px;    border-radius:0px;" name="chargeperson" id="chargeperson">
+                                {% for item in chargeperson %}
+                                <option class="select" value="{{item.UserId}}"  {% if info.ChargePerson==item.UserId %}selected="selected"{% else %}''{% endif %} >{{item.UserName}}</option>
+                                {% endfor %}
+                            </select></td>
+                        <td>联系电话</td>
                         <td  class="td_left"><input {{readonly}}  name="charger_phone" value="{{info.ChargerPhone}}"  class="input_text" type="text"/></td>
                     </tr>
                     <tr>
@@ -80,14 +73,18 @@
                     </tr>
                     <tr>
                         <td>信息录入日期</td>
-                        <td  class="td_left"><input {{readonly}}  name="writedate" value="{{info.WriteDate}}"    class="input_text" type="text"/></td>
+                        <td  class="td_left"><input {{readonly}}  name="writedate" value="{{info.WriteDate?info.WriteDate:"now"|date("Y-m-d") }}"     class="input_text" type="text"/></td>
                     </tr>
                 </table>
                 <div class="bottom_button">
                     <input type="text" name="id" hidden="hidden" value="{{info.CustomerId}}"/>
+                    {% if btn=='see' %}
+                    {% else %}
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
                     <input type="reset" name="reset" class="comm_button button_clear" value="清空"/>
-                    <input type="button" onclick="toPage('../../modules/market/allcustomer.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    {% endif %}
+
+                    <input type="button" onclick="toPage('../../modules/market/allcustomer.php', '全部客户信息')" name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

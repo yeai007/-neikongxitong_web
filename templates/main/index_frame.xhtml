@@ -16,11 +16,15 @@
                 <img class="icon_top" src="{{url}}/image/load.png"/>
                 <img class="icon_top" src="{{url}}/image/setting.png"/>
                 <ul style="margin-top: 10px;">  
-                    {% include ('main/menu.html') %}  
+                    {% include ('main/menu_frame.html') %}  
                 </ul>  
             </div>
-            <div class="right_div" name="right" id="right">
-            </div>        
+            <iframe id="BoardRight" name="BoardRight" src="../../modules/index/main.php" frameborder=false scrolling="no" width="80%" height="100%" frameborder=no onload="changeFrameHeight()" >
+
+            </iframe>
+
+            <!--            <div class="right_div" name="right" id="right">
+                        </div>        -->
         </div>
     </body>
     {% endblock %}

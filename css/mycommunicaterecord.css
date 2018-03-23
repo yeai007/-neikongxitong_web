@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-15, 14:16:29
+    Author     : PVer
+*/
+td {
+  white-space: nowrap; }
+
+.tb_view {
+  margin-left: 54px; }
+
+.tb_view .add_new {
+  width: 90px;
+  margin-left: 40px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #ff9800;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #ff9800; }
+
+.tb_view .delete {
+  width: 80px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: #e51c23;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid #e51c23; }
+
+.set_content_tb {
+  width: 100%; }
+
+.tb_set_tr {
+  align-content: center;
+  align-items: center;
+  width: 100%; }
+
+/*# sourceMappingURL=mycommunicaterecord.css.map */

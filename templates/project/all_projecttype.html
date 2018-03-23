@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{url}}css/projecttype.css" type="text/css" />
+<script src="{{url}}js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="{{url}}js/projects/projecttype.js" type="text/javascript"></script>
+<div>
+    <div>
+        <div>
+            <table class="tb_view">
+                <tr>  
+                    <td width="80%"> 
+                        <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
+                        <input type="button" class="btn_search" value="搜索"/></td>
+                    <td>
+                        <input type="button" class="add_new" style="margin-left: 10px;" onclick="toPage('../../modules/project/setProjectTypeFirst.php')" value="添加项目分类"/>
+                        <input type="button" class="add_new" style="margin-left: 10px;"  onclick="toPage('../../modules/project/setProjectTypeSecond.php')" value="添加培训科目"/>
+                        <input type="button" class="add_new" style="margin-left: 10px;"  onclick="toPage('../../modules/project/setProjectTypeThird.php')" value="添加培训类别"/>
+                        <input type="button" class="delete interval" value="批量删除"/>
+                    </td>   
+                </tr>
+            </table>
+            <table id="list">
+
+            </table>
+        </div>
+    </div>
+</div>
+

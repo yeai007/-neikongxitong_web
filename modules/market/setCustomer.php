@@ -23,6 +23,7 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $info = new CustomerClass();
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
+        $data["btn"] = "see";
         $readonly = "disabled='disabled'";
     } elseif ($request_type == "modify") {
         require DT_ROOT . '/Class/CustomerClass.php';
