@@ -1,0 +1,44 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编号</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">项目分类</th>
+    <th class="th_title">培训科目</th>
+    <th class="th_title">培训类别</th>
+    <th class="th_title">课程天数</th>
+    <th class="th_title">班主任</th>
+    <th class="th_title">上课教师1</th>
+    <th class="th_title">上课教师2</th>
+    <th class="th_title">上课教师3</th>
+    <th class="th_title">其他说明</th>
+    <th class="th_title">教学负责人</th>
+    <th class="th_title">安排日期</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in arrange_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.Id}}</th>
+<th>{{item.ProCode}}</th>
+<th>{{item.ProName}}</th>
+<th>{{item.Pro_Type}}</th>
+<th>{{item.SubTrainingName}}</th>
+<th>{{item.SubTypeName}}</th>
+<th>{{item.TeachDays}}</th>
+<th>{{item.first_teacher}}</th>
+<th>{{item.second_teacher}}</th>
+<th>{{item.third_teacher}}</th>
+<th>{{item.OtherDesc}}</th>
+<th>{{item.ChargePersonName}}</th>
+<th>{{item.ArrangeDate}}</th>
+<th>{{item.WriteDate}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/teach/setTeacher.php', '教师管理', 2, 'modify', '{{item.TeacherId}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

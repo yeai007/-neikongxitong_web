@@ -1,0 +1,24 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">部门名称</th>
+    <th class="th_title">部门描述</th>
+    <th class="th_title">状态</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in depart_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.DepartId}}</th>
+<th>{{item.DepartName}}</th>
+<th>{{item.DepartDesc}}</th>
+<th>{{item.Flag}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/setting/setDepart.php', '部门管理', 2, 'modify', '{{item.DepartId}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.RoleId}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

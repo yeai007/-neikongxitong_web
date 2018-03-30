@@ -1,0 +1,49 @@
+{# empty Twig template #}
+<?xml version="1.0" encoding="UTF-8"?>
+<link rel="stylesheet" href="{{url}}css/set_depart.css" type="text/css" />
+<script src="{{url}}js/setting/set_roles.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="{{url}}css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="{{url}}js/jquery.ztree.all-3.5.min.js"></script>
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/setting/action/actionUser.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb">
+                <table class="tb_set_left" >
+                    <tr>
+                        <td>
+                            <table>
+                                <tr style="width:600px;"><td>角色名称</td></tr>
+                                <tr> <td class="td_left"><input  id="depart_name" name="depart_name" class="depart_text" type="text" value="{{info.RoleName}}" required></td ></tr> 
+                                <tr><td>角色描述</td></tr>
+                                <tr>
+                                    <td class="td_left">   <textarea {{readonly}} id="depart_desc" name="depart_desc"  class="input_textarea" type="text">{{info.RoleDesc}}</textarea>  
+                                    </td ></tr> 
+                            </table>
+                        </td>
+                        <td><div style="margin-left:200px;line-height: 50px;">
+                                <ul id="treeDemo" class="ztree"></ul>
+                            </div></td>
+                    </tr>
+
+                </table>
+                <div class="bottom_button">
+                    <input type="text" id="id" name="id" hidden="hidden" value="{{info.RoleId}}"/>
+                    <input type="text" id="menuids" name="menuids" hidden="hidden" value="{{info.RoleId}}"/>
+<!--                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>-->
+                    <input type="button" onclick="toSub('{{btn}}')" name="close" class="comm_button button_close" value="保存"/>
+                    <input type="button" onclick="toPage('../../modules/setting/allRoles.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,4 @@
+{# empty Twig template #}
+{% for item in sub_names %}
+    <option class="select" {% if sel==item %}selected="selected"{% else %}''{% endif %} value="{{item}}" >{{item}}</option>
+{% endfor %}

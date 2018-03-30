@@ -1,0 +1,3 @@
+{% for item in sub_type %}
+<option class="select" value="{{item.Id}}"  {% if info.SubType==item.Id %}selected="selected"{% else %}''{% endif %} >{{item.Name}}</option>
+{% endfor %}

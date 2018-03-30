@@ -26,9 +26,13 @@ if ($pagetype == "my") {
 }
 $project_list = "select a.ProjectId, a.ProjectCode, a.ProjectYear, a.ProjectBatch, a.ProjectType, a.SubTraining, a.SubType, a.BusType, DATE_FORMAT(ProjectDate,'%Y-%m-%e') ProjectDate, 
 a.PlanNum, a.PlanAmount,DATE_FORMAT(PlanStartDate,'%Y-%m-%e') PlanStartDate,DATE_FORMAT(PlanEndDate,'%Y-%m-%e') PlanEndDate, a.PlanDays, a.ProjectPerson, a.ProjectDesc, 
-a.ProjectStatus, a.ChargeMode,a.ProjectLeader,b.BusTypeName
+a.ProjectStatus, a.ChargeMode,a.ProjectLeader,b.BusTypeName,c.`Name` ProjectTypeName,d.`Name` SubTrainingName,e.`Name` SubTypeName
 from projectsinfo a
-left join bustype b on a.BusType=b.Id where a.ProjectStatus != 4 $condition";
+left join bustype b on a.BusType=b.Id 
+left join projecttype c on a.ProjectType=c.Id
+left join projecttype d on a.SubTraining=d.Id
+left join projecttype e on a.SubType=e.Id
+where a.ProjectStatus != 4 $condition";
 $data["project_list"] = $db->query($project_list);
 $data["pagetype"] = $pagetype;
 echo $twig->render('project/all_project_list.html', $data);

@@ -1,0 +1,38 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编号</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">姓名</th>
+    <th class="th_title">身份证号</th>
+    <th class="th_title">单位名称</th>
+    <th class="th_title">应出勤天数</th>
+    <th class="th_title">实际出勤天数</th>
+    <th class="th_title">考勤说明</th>
+    <th class="th_title">班主任</th>
+    <th class="th_title">录入日期</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in work_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.Id}}</th>
+<th>{{item.ProCode}}</th>
+<th> {{item.ProName}}</th>
+<th>{{item.StudentName}}</th>
+<th>{{item.StudentNum}}</th>
+<th>{{item.UnitName}}</th>
+<th>{{item.ShouldDays}}</th>
+<th>{{item.RealDays}}</th>
+<th>{{item.WorkDescribe}}</th>
+<th>{{item.TeacherName}}</th>
+<th>{{item.WriteDate}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/teach/setStudentWork.php', '教师管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

@@ -1,0 +1,3 @@
+{% for item in sub_training %}
+<option class="select" value="{{item.Id}}"  {% if info.SubTraining==item.Id %}selected="selected"{% else %}''{% endif %} >{{item.Name}}</option>
+{% endfor %}

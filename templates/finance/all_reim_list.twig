@@ -1,0 +1,41 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">年份</th>
+    <th class="th_title">报销人</th>
+    <th class="th_title">项目编号</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">类别</th>
+    <th class="th_title">科目</th>
+    <th class="th_title">报销金额</th>
+    <th class="th_title">用途及票据说明</th>
+    <th class="th_title">录入人</th>
+    <th class="th_title">录入日期</th>
+    <th class="th_title">审批状态</th>
+    <th class="th_title">操作</th>
+
+</tr>
+{% for item in list %}
+    <tr>
+        <th><input type='checkbox' name="line_check"/></th>
+        <th>{{item.ReimId}}</th>
+        <th>{{item.Year}}</th>
+        <th>{{item.ReimPerson}}</th>
+        <th>{{item.ProCode}}</th>
+        <th>{{item.ProName}}</th>
+        <th>{{item.ReimTypeName}}</th>
+        <th>{{item.ReimSub}}</th>
+        <th>{{item.ReimAmount}}</th>
+        <th>{{item.ReimDesc}}</th>
+        <th>{{item.WritePersonName}}</th>
+        <th>{{item.WriteDate}}</th>
+        <th>{% if item.ReimStatus ==0%}未审核{% else %}{% endif %}</th>
+        <td>
+            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '证书管理', 2, 'modify', '{{item.ReimId}}', '{{pagetype}}')"   value="修改"/>
+            <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ReimId}})" value="删除"/></td>
+    </tr>
+{% endfor %}
+
+
+

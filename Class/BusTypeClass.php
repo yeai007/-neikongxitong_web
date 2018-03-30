@@ -38,7 +38,7 @@ class BusTypeClass {
     function updateInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {
@@ -53,7 +53,7 @@ class BusTypeClass {
     function insertInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {

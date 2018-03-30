@@ -29,22 +29,26 @@ if ($type == "delete") {
     exit();
 }
 if (isset($_POST ["add"])) {
-    $arr = array();
-    $arr["ProjectYear"] = _post("project_year");
-    $arr["ProjectCode"] = _post("project_code");
-    $arr["ProjectBatch"] = _post("project_batch");
-    $arr["ProjectType"] = _post("project_type");
-    $arr["SubTraining"] = _post("sub_training");
-    $arr["SubType"] = _post("sub_type");
-    $arr["BusType"] = _post("bus_type");
-    $arr["ProjectDate"] = _post("project_date");
-    $arr["PlanNum"] = _post("plan_num");
-    $arr["PlanAmount"] = _post("plan_amount");
-    $arr["ProjectPerson"] = _post("project_person");
-    $arr["ProjectDesc"] = _post("project_desc");
-    $result = $info->insertInfo($arr);
-    if ($result > 0) {
-        $result = "添加成功";
+    if ($info->checkInfo(_post("project_code"))) {
+        $result = "编码重复";
+    } else {
+        $arr = array();
+        $arr["ProjectYear"] = _post("project_year");
+        $arr["ProjectCode"] = _post("project_code");
+        $arr["ProjectBatch"] = _post("project_batch");
+        $arr["ProjectType"] = _post("project_type");
+        $arr["SubTraining"] = _post("sub_training");
+        $arr["SubType"] = _post("sub_type");
+        $arr["BusType"] = _post("bus_type");
+        $arr["ProjectDate"] = _post("project_date");
+        $arr["PlanNum"] = _post("plan_num");
+        $arr["PlanAmount"] = _post("plan_amount");
+        $arr["ProjectPerson"] = _post("project_person");
+        $arr["ProjectDesc"] = _post("project_desc");
+        $result = $info->insertInfo($arr);
+        if ($result > 0) {
+            $result = "添加成功";
+        }
     }
     echo returnResult($result, 1);
     exit();

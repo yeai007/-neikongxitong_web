@@ -9,6 +9,7 @@
 class UserClass {
 
     private $UserId; //
+    private $UserAccount; //用户帐号
     private $UserName; //用户名称
     private $UserCode; //用户登录编码、用户名
     private $UserDepart; //部门
@@ -36,6 +37,12 @@ class UserClass {
         }
     }
 
+    function getInfo($id) {
+        $sql = "select * from users where UserId=$id limit 0,1";
+        $result = $this->db->row($sql); //返回查询结果到数组
+        return $result;
+    }
+
     function checkInfo($code) {
         $sql = "select * from users where UserCode='$code'";
         $result = $this->db->query($sql); //返回查询结果到数组
@@ -55,7 +62,7 @@ class UserClass {
     function updateInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {
@@ -70,7 +77,7 @@ class UserClass {
     function insertInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {
@@ -82,6 +89,15 @@ class UserClass {
         $this->db->query($sql);
         // return $sql;
         return $this->db->lastInsertId();
+    }
+
+    function getUserAccount() {
+        return $this->UserAccount;
+    }
+
+    function setUserAccount($UserAccount) {
+        $this->UserAccount = $UserAccount;
+        return $this;
     }
 
     function getUserId() {

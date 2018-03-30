@@ -35,11 +35,6 @@ $().ready(function () {
             }, 'json');
         }
     });
-    $("#commentForm").validate({
-        submitHandler: function (form) {
-            form.submit();
-        }
-    });
     getCommunicateList();
 // Initialization
     $('#communicate_date').datepicker({
@@ -51,24 +46,7 @@ $().ready(function () {
 // Access instance of plugin
     $('#communicate_date').data('datepicker');
 });
-function checkName() {
-    $.post('../../modules/action/searchCustomerByName.php', {text: $('#customer_id').val()}, function (data) {
-        $('#customercontact').val(data["CustomerContact"]);
-    }, 'json');
-}
-;
-//客户级别选择检索
-$('#customerlevel').change(function () {
-    $.post('../../modules/action/getCustomerList.php', {Customerlevel: $(this).children('option:selected').val()}, function (data) {
-        $('#list').html(data);
-    });
-})
-//客户单位层次选择检索
-$('#PerformanceLevel').change(function () {
-    $.post('../../modules/action/getCustomerList.php', {PerformanceLevel: $(this).children('option:selected').val()}, function (data) {
-        $('#list').html(data);
-    });
-})
+
 function back()
 {
     history.back();

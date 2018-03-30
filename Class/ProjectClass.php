@@ -41,6 +41,12 @@ class ProjectClass {
         return $result;
     }
 
+    function checkInfo($code) {
+        $sql = "select * from projectsinfo where ProjectCode='$code'";
+        $result = $this->db->query($sql); //返回查询结果到数组
+        return count($result) > 0 ? true : false;
+    }
+
     function setInfo($id) {
         $sql = "select * from projectsinfo where ProjectId=$id";
         $result = $this->db->row($sql); //返回查询结果到数组
@@ -54,7 +60,7 @@ class ProjectClass {
     function updateInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {
@@ -69,7 +75,7 @@ class ProjectClass {
     function insertInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {
-            if (!empty($param[$column])) {
+            if (isset($param[$column])) {
                 if (empty($condition)) {
                     $condition = $column . "='" . $param[$column] . "'";
                 } else {
@@ -253,6 +259,7 @@ class ProjectClass {
         $this->ProjectLeader = $ProjectLeader;
         return $this;
     }
+
     function getRefuseResult() {
         return $this->RefuseResult;
     }
@@ -261,6 +268,5 @@ class ProjectClass {
         $this->RefuseResult = $RefuseResult;
         return $this;
     }
-
 
 }

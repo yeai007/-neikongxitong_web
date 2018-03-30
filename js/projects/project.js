@@ -10,15 +10,7 @@ $().ready(function () {
             form.submit();
         }
     });
-    $('#project_date').datepicker({
-        language: 'zh-CN',
-        autoClose: true,
-        dateFormat: 'yyyy-mm-dd',
-        setDate: new Date()
-    });
 
-// Access instance of plugin
-    $('#project_date').data('datepicker');
     getList($("#pagetype").val());
     arr_page.splice(0, arr_page.length); //清空数组 
     if ($("#pagetype").val() == "all") {

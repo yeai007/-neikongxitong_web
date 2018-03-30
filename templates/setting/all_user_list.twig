@@ -1,0 +1,36 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">帐号</th>
+    <th class="th_title">员工编号</th>
+    <th class="th_title">部门</th>
+    <th class="th_title">角色</th>
+    <th class="th_title">姓名</th>
+    <th class="th_title">联系方式</th>
+    <th class="th_title">身份证号</th>
+    <th class="th_title">家庭住址</th>
+    <th class="th_title">状态</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in user_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.UserId}}</th>
+<th>{{item.UserAccount}}</th>
+<th>{{item.UserCode}}</th>
+<th>{{item.UserDepart}}</th>
+<th>{{item.UserRoleId}}</th>
+<th>{{item.UserName}}</th>
+<th>{{item.Phone}}</th>
+<th>{{item.UserNum}}</th>
+<th>{{item.Address}}</th>
+<th>{{item.UserStatus}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/setting/setUser.php', '人员管理', 2, 'modify', '{{item.UserId}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.UserId}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+
