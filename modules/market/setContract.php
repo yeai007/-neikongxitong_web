@@ -24,6 +24,10 @@ $data["btn"] = "add";
 $chargeperson = "select UserId,UserName,UserCode,UserDepart from users";
 $data["chargeperson"] = $db->query($chargeperson);
 $data["marketperson"] = $db->query($chargeperson);
+$contractsub = "select * from organization";
+$data["contractsub"] = $db->query($contractsub);
+ 
+
 $request_id = _post("id");
 $request_type = _post("type");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {

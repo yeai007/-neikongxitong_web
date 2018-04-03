@@ -11,7 +11,14 @@ $().ready(function () {
     });
     getList($("#pagetype").val());
     arr_page.splice(0, arr_page.length); //清空数组 
-    arr_page[0] = new Array("../../modules/finance/allReim.php", "报销信息列表", 0, '');
+//    arr_page[0] = new Array("../../modules/finance/allReim.php", "报销信息列表", 0, '');
+    if ($("#pagetype").val() == "all") {
+        arr_page[0] = new Array("../../modules/finance/allReim.php?pagetype=all", "报销信息列表", 0, '');
+    } else if ($("#pagetype").val() == "audit") {
+        arr_page[0] = new Array("../../modules/finance/allReim.php?pagetype=audit", "报销审核列表", 0, '');
+    } else if ($("#pagetype").val() == "grant") {
+        arr_page[0] = new Array("../../modules/finance/allReim.php?pagetype=grant", "报销发放列表", 0, '');
+    }
     var pages = "";
     for (var i = 0; i < arr_page.length; i++)
     {

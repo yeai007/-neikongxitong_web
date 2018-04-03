@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-4-3, 10:52:48
+    Author     : PVer
+*/
+.tb_invoice_enclosure {
+  width: 800px;
+  line-height: 30px;
+  margin-top: 20px;
+  text-align: left;
+  margin-left: 20px;
+  font-size: 16px; }
+
+.tb_invoice_enclosure .top_title {
+  text-align: center; }
+
+.td_left_margin {
+  margin-left: 20px;
+  padding-left: 20px;
+  line-height: 30px;
+  min-height: 30px; }
+
+.td_title_text {
+  padding-left: 20px;
+  margin-left: 20px;
+  width: 100%; }
+
+/*# sourceMappingURL=invoice_enclosure.css.map */

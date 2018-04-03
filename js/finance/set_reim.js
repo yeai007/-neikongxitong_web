@@ -48,7 +48,45 @@ $().ready(function () {
         setDate: new Date()
     });
     $('#writedate').data('datepicker');
+    $('#examdate').datepicker({
+        language: 'zh-CN',
+        autoClose: true,
+        dateFormat: 'yyyy-mm-dd',
+        setDate: new Date()
+    });
+    $('#examdate').data('datepicker');
+    $('#grantdate').datepicker({
+        language: 'zh-CN',
+        autoClose: true,
+        dateFormat: 'yyyy-mm-dd',
+        setDate: new Date()
+    });
+    $('#grantdate').data('datepicker');
+
     $.post('../../modules/finance/action/getSub.php', {id: $("#reim_type").children('option:selected').val(), sel: $("#reim_sub_a").val()}, function (data) {
         $("#reim_sub").html(data);
     });
 });
+function RefuseThis(obj) {
+    var d = dialog({
+        title: '请填写拒绝原因',
+        content: "<textarea  id='refuse_text' class='dialog'></textarea>",
+        okValue: '确 定',
+        ok: function () {
+            var that = this;
+            that.title('提交中..');
+            $.post('../../modules/finance/action/actionReim.php', {type: "refuse", text: $("#refuse_text").val(), id: obj}, function (data) {
+                var obj = JSON.parse(data);
+                if (obj.status == 1) {
+                    alert("拒绝成功");
+                } else {
+                    alert(obj.msg);
+                }
+                return true;
+            });
+        },
+        cancelValue: '取消',
+        cancel: function () {}
+    });
+    d.show();
+}

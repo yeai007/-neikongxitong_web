@@ -1,0 +1,15 @@
+{# empty Twig template #}
+<table>
+    <tr>
+        <td class="th_title" style="width: 60px;">选择</td>
+        <td class="th_title"  style="width: 60px;">学员名称</td>
+        <td class="th_title"  style="width: 60px;">开票金额</td>
+    </tr>
+    {% for item in student_list %}
+        <tr>
+            <td><input type='checkbox' name='VoteOption1' id="{{item.Id}}" value="{{item.ChargeAmount}}"/></td>
+            <td>{{item.StudentName}}</td>
+            <td>{{item.ChargeAmount}}</td>
+        </tr>
+    {% endfor %}
+</table>  

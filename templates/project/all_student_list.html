@@ -1,63 +1,39 @@
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
-    <th class="th_title">项目年份</th>
     <th class="th_title">项目编码</th>
-    <th class="th_title">批次</th>
-    <th class="th_title">项目分类</th>
+    <th class="th_title">项目名称</th>
     <th class="th_title">培训科目</th>
     <th class="th_title">培训类别</th>
-    <th class="th_title">业务类别</th>
-    <th class="th_title">立项日期</th>
-    <th class="th_title">计划人数</th>
-    {% if pagetype=='audit' %}
+    <th class="th_title">姓名</th>
+    <th class="th_title">身份证号</th>
+    <th class="th_title">单位名称</th>
+    <th class="th_title">联系电话</th>
+    <th class="th_title">录入人</th>
+    <th class="th_title">录入时间</th>
     <th class="th_title">金额</th>
-    <th class="th_title">收费方式</th>
-    <th class="th_title">项目负责人</th>
-    <th class="th_title">项目说明</th>
-    {% else %}
-    <th class="th_title">计划项目金额</th>
-    <th class="th_title">开始日期</th>
-    <th class="th_title">结束日期</th>
-    <th class="th_title">立项人</th>
-    <th class="th_title">是否结项</th>
-    {% endif %}
-    <th class="th_title">状态</th>
+    <th class="th_title">是否已开发票</th>
     <th class="th_title">操作</th>
 </tr>
 {% for item in project_list %}
 <tr>
     <td><check type="checkbox"/></td>
-<td>{{item.ProjectId}}</td>
-<th>{{item.ProjectYear}}</th>
+<td>{{item.Id}}</td>
 <th>{{item.ProjectCode}}</th>
-<th>{{item.ProjectBatch}}</th>
-<th>{{item.ProjectTypeName}}</th>
+<th>{{item.ProjectName}}</th>
 <th>{{item.SubTrainingName}}</th>
 <th>{{item.SubTypeName}}</th>
-<th>{{item.BusTypeName}}</th>
-<th>{{item.ProjectDate}}</th>
-<th>{{item.PlanNum}}</th>
-<th>{{item.PlanAmount}}</th>
-{% if pagetype=='audit' %}
-<th>{{item.ChargeMode}}</th>
-<th>{{item.ProjectLeader}}</th>
-<th>{{item.ProjectDesc}}</th>
-{% else %}
-<th>{{item.PlanStartDate}}</th>
-<th>{{item.PlanEndDate}}</th>
-<th>{{item.ProjectPerson}}</th>
-<th>{{item.ProjectStatus}}</th>
-{% endif %}
-<th>{{item.ProjectStatus==0?'未审核':(item.ProjectStatus==1?'已审核':'拒绝审核')}}</th>
+<th>{{item.StudentName}}</th>
+<th>{{item.StudentNum}}</th>
+<th>{{item.UnitName}}</th>
+<th>{{item.StudentPhone}}</th>
+<th>{{item.WritePersonName}}</th>
+<th>{{item.WriteDate}}</th>
+<th>{{item.ChargeAmount}}</th>
+<th>{{item.IsInvoice}}</th>
 <td>
-    {% if pagetype=='audit' %}
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/project/setProject.php', '项目管理', 2, 'see','{{item.ProjectId}}','{{pagetype}}')"    value="查看"/>
-    <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/project/setProject.php', '项目管理', 2, 'modify','{{item.ProjectId}}','{{pagetype}}')"  value="修改审核"/>
-    {% else %}
-    <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/project/setProject.php', '项目管理', 2, 'modify','{{item.ProjectId}}','{{pagetype}}')" value="修改"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ProjectId}})" value="删除"/></td>
-{% endif %}
+    <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/project/setStudent.php', '学员管理', 2, 'modify','{{item.Id}}','{{pagetype}}')" value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}
 

@@ -31,7 +31,7 @@ if (isset($_POST ["add"])) {
     $arr = array();
     $arr["ContractCode"] = _post("contract_code");
     $arr["ContractName"] = _post("contract_name");
-    $arr["ContractCustomerId"] = _post("customercontact");
+    $arr["ContractCustomerId"] = _post("customer_id");
     $arr["ContractCustomerName"] = _post("contract_customer_name");
     $arr["ContractSub"] = _post("contract_sub");
     $arr["ContractAmount"] = _post("contract_amount");
@@ -51,6 +51,7 @@ if (isset($_POST ["add"])) {
     $arr = array();
     $arr["ContractCode"] = _post("contract_code");
     $arr["ContractName"] = _post("contract_name");
+    $arr["ContractCustomerId"] = _post("customer_id");
     $arr["ContractCustomerName"] = _post("contract_customer_name");
     $arr["ContractSub"] = _post("contract_sub");
     $arr["ContractAmount"] = _post("contract_amount");

@@ -26,6 +26,7 @@ $data["reimtype"] = $db->query($reimtype);
 $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
+$readonly_grant = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
@@ -43,7 +44,18 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     } elseif ($request_type == "delete") {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
+    } elseif ($request_type == "audit") {
+        $result = $info->getInfo($request_id);
+        $data["info"] = $result;
+
+        $readonly = "disabled='disabled'";
+    } elseif ($request_type == "grant") {
+        $result = $info->getInfo($request_id);
+        $data["info"] = $result;
+        $data["btn"] = "grant";
+        $readonly_grant = "disabled='disabled'";
     }
 }
 $data["readonly"] = $readonly;
+$data["readonly_grant"] = $readonly_grant;
 echo $twig->render('finance/set_reim.twig', $data);

@@ -13,26 +13,30 @@
               enctype='multipart/form-data' target="myiframe" id="commentForm" >
             <div class="set_content_tb">
                 <table class="tb_set" >
-                    <tr>
-                        <td>录入日期</td>
-                        <td class="td_left"><input  id="writedate" name="writedate" class="input_text" type="text" {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %}  required></td >
-                    </tr>   
+                    {% if pagetype=='all'%}
+                        <tr>
+                            <td>录入日期</td>
+                            <td class="td_left"><input {{readonly_grant}} {{readonly}}  id="writedate" name="writedate" class="input_text" type="text" {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %}  required></td >
+                        </tr>   
+                    {% else %}
+                    {% endif %}
+
                     <tr>
                         <td>报销人</td>
-                        <td class="td_left"><input  id="reim_person" name="reim_person" class="input_text" type="text" value="{{info.ReimPerson}}" required></td >
+                        <td class="td_left"><input {{readonly_grant}} {{readonly}}  id="reim_person" name="reim_person" class="input_text" type="text" value="{{info.ReimPerson}}" required></td >
                     </tr>
                     <tr>
                         <td>项目编号</td>
-                        <td class="td_left"><input  id="pro_code" name="pro_code" class="input_text" type="text" value="{{info.ProCode}}" required></td >
+                        <td class="td_left"><input {{readonly_grant}} {{readonly}}  id="pro_code" name="pro_code" class="input_text" type="text" value="{{info.ProCode}}" required></td >
                         <td>项目名称</td>
                         <td  class="td_left">
-                            <input {{readonly}} id="pro_name" name="pro_name"  class="input_text" type="text" value="{{info.ProName}}"/>
+                            <input {{readonly_grant}} {{readonly}} id="pro_name" name="pro_name"  class="input_text" type="text" value="{{info.ProName}}"/>
                         </td>
                     </tr>
                     <tr>
                         <td>类别</td>
                         <td class="td_left">
-                            <select class="select userrole" name="reim_type" id="reim_type">
+                            <select {{readonly_grant}} {{readonly}}  class="select userrole" name="reim_type" id="reim_type">
                                 {% for item in reimtype %}
                                     <option class="select" {% if info.ReimType==item.Id %}selected="selected"{% else %}{% endif %} value="{{item.Id}}" >{{item.ReimTypeName}}</option>
                                 {% endfor %}
@@ -42,36 +46,103 @@
                     <tr>
                         <td>科目</td>
                         <td class="td_left">
-                            <select class="select userrole" name="reim_sub" id="reim_sub">
+                            <select {{readonly_grant}} {{readonly}}  class="select userrole" name="reim_sub" id="reim_sub">
                             </select>   
                         </td >
                     </tr>
                     <tr>
                         <td>报销金额</td>
-                        <td class="td_left"><input  id="reim_amount" name="reim_amount" class="input_text" type="text" value="{{info.ReimAmount}}" required></td >
+                        <td class="td_left"><input {{readonly_grant}} {{readonly}}  id="reim_amount" name="reim_amount" class="input_text" type="text" value="{{info.ReimAmount}}" required></td >
                     </tr>
                     <tr >
                         <td>用途及票据说明</td>
                         <td  class="td_left" colspan='3'>
-                            <textarea {{readonly}} id="reim_desc" name="reim_desc"  class="input_textarea" type="text">{{info.ReimDesc}}</textarea>
+                            <textarea {{readonly_grant}} {{readonly}} id="reim_desc" name="reim_desc"  class="input_textarea" type="text">{{info.ReimDesc}}</textarea>
                         </td>
                     </tr>
-                    <tr>
-                        <td>录入人</td>
-                        <td  class="td_left">
-                            <select class="select userrole" name="write_person" id="write_person">
-                                {% for item in write_person %}
-                                    <option class="select" {% if info.WritePerson==item.UserId %}selected="selected"{% else %}''{% endif %} value="{{item.UserId}}" >{{item.UserName}}</option>
-                                {% endfor %}
-                            </select>
-                        </td>
-                    </tr>
+                    {% if pagetype=='grant'%}
+                        <tr>
+                            <td>发放金额</td>
+                            <td class="td_left"><input  {{readonly}}  id="grant_amount" name="grant_amount" class="input_text" type="text" value="{{info.GrantAmount}}" required></td >
+                        </tr>
+                        <tr>
+                            <td>支出财务主体名称</td>
+                            <td class="td_left"><input {{readonly}}  id="finance_name" name="finance_name" class="input_text" type="text" value="{{info.FinanceName}}" required></td >
+                            <td>凭证号</td>
+                            <td class="td_left"><input  {{readonly}}  id="voucher_num" name="voucher_num" class="input_text" type="text" value="{{info.VoucherNum}}" required></td >
+                        </tr>
+                        <tr>
+                            <td>日期</td>
+                            <td class="td_left"><input  {{readonly}}  id="grantdate" name="grantdate" class="input_text" type="text" {% if info.GrantDate %}value="{{info.GrantDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %}  required></td >
+                        </tr>  
+                        <tr>
+                            <td>发放人</td>
+                            <td  class="td_left">
+                                <select  {{readonly}}  class="select userrole" name="grantperson" id="grantperson">
+                                    {% for item in write_person %}
+                                        <option class="select" {% if info.GrantPerson==item.UserId %}selected="selected"{% else %}''{% endif %} value="{{item.UserId}}" >{{item.UserName}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>发放说明</td>
+                            <td  class="td_left" colspan='3'>
+                                <textarea  {{readonly}} id="grant_desc" name="grant_desc"  class="input_textarea" type="text">{{info.GrantDesc}}</textarea>
+                            </td>
+                        </tr>
+                    {% elseif pagetype=='audit'%}
+                        <tr>
+                            <td>录入人</td>
+                            <td  class="td_left">
+                                <select {{readonly_grant}} {{readonly}}  class="select userrole" name="write_person" id="write_person">
+                                    {% for item in write_person %}
+                                        <option class="select" {% if info.WritePerson==item.UserId %}selected="selected"{% else %}''{% endif %} value="{{item.UserId}}" >{{item.UserName}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>录入日期</td>
+                            <td class="td_left"><input {{readonly_grant}} {{readonly}}  id="writedate" name="writedate" class="input_text" type="text" {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %}  required></td >
+                        </tr>   
+                        <tr>
+                            <td>审批人</td>
+                            <td  class="td_left">
+                                <select {{readonly_grant}} class="select userrole" name="reim_exam" id="reim_exam">
+                                    {% for item in write_person %}
+                                        <option class="select" {% if info.ReimExam==item.UserId %}selected="selected"{% else %}''{% endif %} value="{{item.UserId}}" >{{item.UserName}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>审批日期</td>
+                            <td class="td_left"><input  {{readonly_grant}} id="examdate" name="examdate" class="input_text" type="text" {% if info.ExamDate %}value="{{info.ExamDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %}  required></td >
+                        </tr>  
+                    {% else %}
+                        <tr>
+                            <td>录入人</td>
+                            <td  class="td_left">
+                                <select {{readonly_grant}} {{readonly}}  class="select userrole" name="write_person" id="write_person">
+                                    {% for item in write_person %}
+                                        <option class="select" {% if info.WritePerson==item.UserId %}selected="selected"{% else %}''{% endif %} value="{{item.UserId}}" >{{item.UserName}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    {% endif%}
                 </table>
                 <div class="bottom_button">
                     <input type="text" id="id" name="id" hidden="hidden" value="{{info.ReimId}}"/>
                     <input type="text" id="reim_sub_a" name="reim_sub_a" hidden="hidden" value="{{info.ReimSub}}"/>
                     <input type="text" id="reim_person_id" name="reim_person_id" hidden="hidden" value="{{info.ReimPerson}}"/>
-                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    {% if pagetype=='audit' %}
+                        <input type="submit" name="audit"  class="comm_button button_save" value="通过审核"/>
+                        <input type="button" onclick="RefuseThis({{info.ReimId}})" id="refuse" name="refuse" class="comm_button button_close" value="拒绝审核"/>
+                    {% else %}
+                        <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    {% endif %}
                     <input type="button" onclick="toPage('../../modules/finance/allReim.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>

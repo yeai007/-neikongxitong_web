@@ -29,6 +29,7 @@ class ReimClass {
     private $GrantPerson; //发放人
     private $GrantDesc; //发放说明
     private $ReimPersonId;
+    private $RefuseText;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -270,6 +271,15 @@ class ReimClass {
 
     function setReimPersonId($ReimPersonId) {
         $this->ReimPersonId = $ReimPersonId;
+        return $this;
+    }
+
+    function getRefuseText() {
+        return $this->RefuseText;
+    }
+
+    function setRefuseText($RefuseText) {
+        $this->RefuseText = $RefuseText;
         return $this;
     }
 

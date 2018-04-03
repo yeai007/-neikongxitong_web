@@ -19,8 +19,11 @@ $userid = $user["UserId"];
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
-$contract_list = "select *,b.UserName WritePersonName from contractinfo a
-left join users b on a.WritePersonId=b.UserId where ContractStatus=0 and b.UserId=$userid";
+$contract_list = "select *,b.UserName WritePersonName ,c.OrgName 
+from contractinfo a
+left join users b on a.WritePersonId=b.UserId 
+left join organization c on a.ContractSub=c.Id
+where ContractStatus=0 and b.UserId=$userid";
 $data["contract_list"] = $db->query($contract_list);
 //echo $customerlist;
 echo $twig->render('market/my_contract_list.xhtml', $data);

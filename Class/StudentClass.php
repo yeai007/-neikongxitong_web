@@ -43,6 +43,11 @@ class StudentClass {
         return $result;
     }
 
+    function updateStudentBilling($ids, $statu) {
+        $sql = "update studentinfo set IsBilling=$statu where Id in($ids)";
+        return $this->db->query($sql);
+    }
+
     function updateInfo($param) {
         $condition = '';
         foreach ($this->columns as $column) {

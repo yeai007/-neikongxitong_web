@@ -29,7 +29,7 @@ function back()
 }
 
 function getList(obj) {
-    $.post('../../modules/project/action/getAllRroject.php', {pagetype: obj}, function (data) {
+    $.post('../../modules/project/action/getAllStudent.php', {pagetype: obj}, function (data) {
         $('#list').html(data);
     });
 }
@@ -37,7 +37,7 @@ function getList(obj) {
 //删除用户确认
 function deleteThis(obj) {
     if (window.confirm("你确定删除此记录吗？")) {
-        $.post('../../modules/project/action/actionProject.php', {type: "delete", id: obj}, function (data) {
+        $.post('../../modules/project/action/actionStudent.php', {type: "delete", id: obj}, function (data) {
             getList($("#pagetype").val());
         });
         return true;

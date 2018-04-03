@@ -19,12 +19,10 @@ require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
 $pagetype = _post("pagetype");
-
 $project_person = "select UserId,UserName from users";
 $data["project_person"] = $db->query($project_person);
 $project_leader = "select UserId,UserName from users";
 $data["project_leader"] = $db->query($project_leader);
-
 $bustype = "select Id,BusTypeName from BusType where Flag=0";
 $data["bustype"] = $db->query($bustype);
 $project_type = "select * from projecttype where ParentLevel=1";
@@ -39,8 +37,8 @@ $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
-require DT_ROOT . '/Class/ProjectClass.php';
-$info = new ProjectClass();
+require DT_ROOT . '/Class/StudentClass.php';
+$info = new StudentClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "see") {
         $result = $info->getInfo($request_id);

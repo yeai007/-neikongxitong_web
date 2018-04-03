@@ -19,6 +19,15 @@ require("../../../common.php");
 require DT_ROOT . '/Class/ReimClass.php';
 $info = new ReimClass();
 $type = _post("type");
+if ($type == "refuse") {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["ReimStatus"] = 3;
+    $arr["RefuseText"] = _post("text");
+    $result = $info->updateInfo($arr);
+    echo returnResult($result, 1);
+    exit();
+}
 if ($type == "delete") {
     $info->setInfo(_post("id"));
     $arr = array();
@@ -27,6 +36,7 @@ if ($type == "delete") {
     echo returnResult($result, 1);
     exit();
 }
+
 if (isset($_POST ["add"])) {
     $arr = array();
 
@@ -50,7 +60,7 @@ if (isset($_POST ["add"])) {
 } elseif (isset($_POST ["modify"])) {
     $info->setInfo(_post("id"));
     $arr = array();
-     $arr["Year"] = gmdate("Y", strtotime(_post("writedate")));
+    $arr["Year"] = gmdate("Y", strtotime(_post("writedate")));
     $arr["WriteDate"] = _post("writedate");
     $arr["ReimPersonId"] = _post("reim_person_id");
     $arr["ReimPerson"] = _post("reim_person");
@@ -69,4 +79,36 @@ if (isset($_POST ["add"])) {
     }
     echo returnResult($result, 1);
     exit();
-} 
+} elseif (isset($_POST ["audit"])) {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["ReimStatus"] = 2;
+    $arr["ReimExam"] = _post("reim_exam");
+    $arr["ExamDate"] = _post("examdate");
+    $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "审核成功";
+    } else {
+        $result = "审核失败，请重试！";
+    }
+    echo returnResult($result, 1);
+    exit();
+} elseif (isset($_POST ["grant"])) {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["ReimStatus"] = 4;
+    $arr["GrantAmount"] = _post("grant_amount");
+    $arr["FinanceName"] = _post("finance_name");
+    $arr["VoucherNum"] = _post("voucher_num");
+    $arr["GrantDate"] = _post("grantdate");
+    $arr["GrantPerson"] = _post("grantperson");
+    $arr["GrantDesc"] = _post("grant_desc");
+    $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "发放成功";
+    } else {
+        $result = "发放失败，请重试！";
+    }
+    echo returnResult($result, 1);
+    exit();
+}

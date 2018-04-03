@@ -1,0 +1,32 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">年份</th>
+    <th class="th_title">金额</th>
+    <th class="th_title">经办人</th>
+    <th class="th_title">凭证号</th>
+    <th class="th_title">收入说明</th>
+    <th class="th_title">录入人</th>
+    <th class="th_title">录入日期</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in income_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.Id}}</th>
+<th>{{item.Year}}</th>
+<th>{{item.Amount}}</th>
+<th>{{item.AgentName}}</th>
+<th>{{item.VoucherNum}}</th>
+<th>{{item.IncomeDesc}}</th>
+<th>{{item.WritePersonName}}</th>
+<th>{{item.WriteDate}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setOtherInCome.php', '证书管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

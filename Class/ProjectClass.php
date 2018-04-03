@@ -36,7 +36,13 @@ class ProjectClass {
     }
 
     function getInfo($id) {
-        $sql = "select * from projectsinfo where ProjectId=$id limit 0,1";
+        $sql = "select a.*,b.`Name` SubStrainingName,c.`Name` SubTypeName,CONCAT(a.ProjectYear,a.ProjectBatch,b.`Name`,c.`Name`) ProjectName,
+(select sum(ChargeAmount)  from studentinfo where ProjectCode =a.ProjectCode) ReceiveAmount,
+(select sum(ThisAmount) from applyinvoice where ProCode =a.ProjectCode) InvoicedAmount
+from projectsinfo a
+left join projecttype b on a.SubTraining=b.Id
+left join projecttype c on a.SubType=c.Id
+ where a.ProjectId=$id limit 0,1";
         $result = $this->db->row($sql); //返回查询结果到数组
         return $result;
     }

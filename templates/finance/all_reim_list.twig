@@ -10,8 +10,17 @@
     <th class="th_title">科目</th>
     <th class="th_title">报销金额</th>
     <th class="th_title">用途及票据说明</th>
-    <th class="th_title">录入人</th>
-    <th class="th_title">录入日期</th>
+        {% if pagetype=='all'%}
+        <th class="th_title">录入人</th>
+        <th class="th_title">录入日期</th>
+        {% elseif pagetype=='grant' %}
+        <th class="th_title">发放金额</th>
+        <th class="th_title">支出财务主体名称</th>
+        <th class="th_title">凭证号</th>
+        <th class="th_title">日期</th>
+        <th class="th_title">发放人</th>
+        {% else %}
+        {% endif %}
     <th class="th_title">审批状态</th>
     <th class="th_title">操作</th>
 
@@ -28,13 +37,31 @@
         <th>{{item.ReimSub}}</th>
         <th>{{item.ReimAmount}}</th>
         <th>{{item.ReimDesc}}</th>
-        <th>{{item.WritePersonName}}</th>
-        <th>{{item.WriteDate}}</th>
-        <th>{% if item.ReimStatus ==0%}未审核{% else %}{% endif %}</th>
+            {% if pagetype=='all'%}
+            <th>{{item.WritePersonName}}</th>
+            <th>{{item.WriteDate}}</th>
+            {% elseif pagetype=='grant' %}
+            <th >{{item.GrantAmount}}</th>
+            <th >{{item.FinanceName}}</th>
+            <th >{{item.VoucherNum}}</th>
+            <th >{{item.GrantDate}}</th>
+            <th >{{item.GrantPerson}}</th>
+            {% else %}
+            {% endif %}
+
+        <th>{% if item.ReimStatus ==0%}未审核{% elseif item.ReimStatus ==2 %}审核通过{% elseif item.ReimStatus ==3 %}审核未通过 {% elseif item.ReimStatus ==4 %}已发放 {% else %}{% endif %}</th>
         <td>
-            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '证书管理', 2, 'modify', '{{item.ReimId}}', '{{pagetype}}')"   value="修改"/>
-            <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ReimId}})" value="删除"/></td>
-    </tr>
+            {% if pagetype=='all'%}
+                <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'modify', '{{item.ReimId}}', '{{pagetype}}')"   value="修改"/>
+                <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ReimId}})" value="删除"/></td>
+            {% elseif pagetype=='audit' %}
+        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'audit', '{{item.ReimId}}', '{{pagetype}}')"   value="查看"/>
+    {% else %}
+        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'grant', '{{item.ReimId}}', '{{pagetype}}')"   value="查看"/>
+    {% endif %}
+
+
+</tr>
 {% endfor %}
 
 
