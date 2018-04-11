@@ -39,7 +39,20 @@ class TeachArrangeClass {
     }
 
     function getInfo($id) {
-        $sql = "select * from teacharrange where Id=$id limit 0,1";
+        $sql = "select a.Id, a.ProCode, a.ProName,c.Name Pro_Type,d.Name SubTrainingName,e.Name SubTypeName,a.TeachDays
+,f.TeacherName first_teacher,g.TeacherName second_teacher,h.TeacherName third_teacher,a.OtherDesc,i.UserName ChargePersonName
+,a.ArrangeDate,j.TeacherName HeaderMasterName,a.TeachDaysFirst,a.TeachDaysSecond,a.TeachDaysThird
+ from teacharrange a
+left join projectsinfo b on a.ProCode=b.ProjectCode
+left join projecttype c on b.ProjectType=c.Id
+left join projecttype d on b.SubTraining=d.Id
+left join projecttype e on b.SubType=e.Id
+left join teacherinfo f on a.TeacherFirst=f.TeacherId
+left join teacherinfo g on a.TeacherSecond=g.TeacherId
+left join teacherinfo h on a.TeacherThird=h.TeacherId
+left join users i on a.ChargePerson=i.UserId 
+left join teacherinfo j on a.HeaderMaster=j.TeacherId
+where a.Flag=0 and a.Id=$id limit 0,1";
         $result = $this->db->row($sql); //返回查询结果到数组
         return $result;
     }

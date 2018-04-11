@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{url}}css/all_teacher.css" type="text/css" />
 <script src="{{url}}js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="{{url}}js/invoice/all_applyinvoice.js" type="text/javascript"></script>
+<script src="{{url}}js/invoice/all_invoice_info.js" type="text/javascript"></script>
 <div id="main_page">
     <div>
         <input type="text" id="pagetype" name="pagetype" hidden="hidden" value="{{pagetype}}"/>
@@ -11,6 +11,12 @@
                         <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
                         <input type="button" class="btn_search" value="搜索"/></td>
                     <td>
+                        {% if pagetype=='rec' %}
+                            <input type="button" class="add_new" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'rec', '', '{{pagetype}}')" value="添加签收信息"/>
+                        {% elseif pagetype=='all' %}
+                            <input type="button" class="add_new" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'add', '', '{{pagetype}}')" value="添加发票信息"/>
+                        {% endif %}
+
                         <input type="button" class="delete interval" value="批量删除"/>
                     </td>   
                 </tr>

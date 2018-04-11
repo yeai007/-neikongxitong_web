@@ -29,9 +29,6 @@ $sub_training = "select * from projecttype where ParentLevel=2";
 $data["sub_training"] = $db->query($sub_training);
 $sub_type = "select * from projecttype where ParentLevel=3";
 $data["sub_type"] = $db->query($sub_type);
-
-
-
 $write_person = "select UserId,UserName,UserCode,UserDepart from users";
 $data["write_person"] = $db->query($write_person);
 $data["pagetype"] = $pagetype;
@@ -40,8 +37,8 @@ $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
-require DT_ROOT . '/Class/TeacherClass.php';
-$info = new TeacherClass();
+require DT_ROOT . '/Class/TeachArrangeClass.php';
+$info = new TeachArrangeClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "see") {
         $result = $info->getInfo($request_id);

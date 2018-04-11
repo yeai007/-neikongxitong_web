@@ -59,12 +59,12 @@
                     </tr>
                     <tr>
                         <td>班主任</td>
-                        <td class="td_left"><input  id="header_master" name="header_master" class="input_text" type="text" value="{{info.HeaderMaster}}" required></td >
+                        <td class="td_left"><input  id="header_master" name="header_master" class="input_text" type="text" value="{{info.HeaderMasterName}}" required></td >
                     </tr>
                     <tr>
                         <td>上课教师1</td>
                         <td  class="td_left">
-                            <input {{readonly}} id="teacher_first" name="teacher_first"  class="input_text" type="text" value="{{info.TeacherFirst}}"/>
+                            <input {{readonly}} id="teacher_first" name="teacher_first"  class="input_text" type="text" value="{{info.first_teacher}}"/>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>上课教师2</td>
                         <td  class="td_left">
-                            <input {{readonly}} id="teacher_second" name="teacher_second"  class="input_text" type="text" value="{{info.TeacherSecond}}"/>
+                            <input {{readonly}} id="teacher_second" name="teacher_second"  class="input_text" type="text" value="{{info.second_teacher}}"/>
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>上课教师3</td>
                         <td  class="td_left">
-                            <input {{readonly}} id="teacher_third" name="teacher_third"  class="input_text" type="text" value="{{info.TeacherThird}}"/>
+                            <input {{readonly}} id="teacher_third" name="teacher_third"  class="input_text" type="text" value="{{info.third_teacher}}"/>
                         </td>
                     </tr>
                     <tr>
@@ -125,13 +125,13 @@
                     </tr>
                 </table>
                 <div class="bottom_button">
-                    <input type="text" name="id" hidden="hidden" value="{{info.TeacherId}}"/>
+                    <input type="text" id="id" name="id" hidden="hidden" value="{{info.Id}}"/>
                     <input type="text" id="header_master_id" name="header_master_id" hidden="hidden" value="{{info.HeaderMaster}}"/>
                     <input type="text" id="first_id"  name="first_id" hidden="hidden" value="{{info.TeacherFirst}}"/>
                     <input type="text" id="second_id"  name="second_id" hidden="hidden" value="{{info.TeacherSecond}}"/>
                     <input type="text" id="third_id"  name="third_id" hidden="hidden" value="{{info.TeacherThird}}"/>
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
-                    <input type="button" onclick="toPage('../../modules/teach/allTeacher.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button" onclick="toPage('../../modules/teach/allTeachArrange.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

@@ -1,0 +1,69 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编码</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">单位名称</th>
+    <th class="th_title">开票金额</th>
+    <th class="th_title">发票号码</th>
+        {% if pagetype=='all'%}
+        <th class="th_title">开票主体单位</th>
+        <th class="th_title">开票类型</th>
+        <th class="th_title">开票日期</th>
+        <th class="th_title">开票人</th>
+        <th class="th_title">送票人</th>
+        <th class="th_title">送票日期</th>
+        {% endif %}
+
+    {% if pagetype=='rec' %}
+        <th class="th_title">开票日期</th>
+        <th class="th_title">客户发票接收人</th>
+        <th class="th_title">联系方式</th>
+        <th class="th_title">接收日期</th>
+        <th class="th_title">送票人</th>
+        <th class="th_title">录入日期</th>
+        {% endif %}
+
+
+    <th class="th_title">操作</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.Id}}</th>
+<th>{{item.ProCode}}</th>
+<th>{{item.ProName}}</th>
+<th>{{item.UnitName}}</th>
+<th>{{item.Amount}}</th>
+<th>{{item.InvoiceNum}}</th>
+    {% if pagetype=='all'%}
+    <th>{{item.SubName}}</th>
+    <th>{{item.InvoiceType}}</th>
+    <th>{{item.InvoiceDate}}</th>
+    <th>{{item.DrawerName}}</th>
+    <th>{{item.GiverName}}</th>
+    <th>{{item.GiveTime}}</th>
+    {% endif %}
+
+{% if pagetype=='rec' %}
+    <th>{{item.InvoiceDate}}</th>
+    <th>{{item.Receiver}}</th>
+    <th>{{item.ReceiverPhone}}</th>
+    <th>{{item.ReceiveDate}}</th>
+    <th>{{item.Giver}}</th>
+    <th>{{item.WriteDate}}</th>
+    {% endif %}
+
+<td>
+    {% if pagetype=="all"%}
+        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
+    {% elseif pagetype=="rec"%}
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'rec', '{{item.Id}}', '{{pagetype}}')"   value="修改1"/>
+{% endif %}
+</tr>
+{% endfor %}
+
+
+

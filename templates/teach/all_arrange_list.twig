@@ -35,8 +35,8 @@
 <th>{{item.ArrangeDate}}</th>
 <th>{{item.WriteDate}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/teach/setTeacher.php', '教师管理', 2, 'modify', '{{item.TeacherId}}', '{{pagetype}}')"   value="修改"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/teach/setTeachArrange.php', '教学安排管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}
 

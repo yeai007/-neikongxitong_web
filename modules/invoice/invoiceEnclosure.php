@@ -5,24 +5,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-if (!session_id()) {
-    session_start();
-}
-if (!isset($_SESSION['user'])) {
-    $_SESSION['userurl'] = $_SERVER['REQUEST_URI'];
-    header("location:../login.php?"); //重新定向到其他页面
-    exit();
-} else {
-    $user = $_SESSION['user'][0];
-}
+
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $pagetype = _post("pagetype");
 $data = array();
-$write_person = "select UserId,UserName,UserCode,UserDepart from users";
-$data["write_person"] = $db->query($write_person);
-$data["pagetype"] = $pagetype;
-$data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");

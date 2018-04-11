@@ -29,9 +29,9 @@
 <th>{{item.ApplicationTime}}</th>
 <th>{{item.InvoiceStatus}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '查看', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="查看"/>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'apply', '{{item.Id}}', '{{pagetype}}')"   value="申请开票"/>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="重新开票"/>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="查看"/>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="下载"/>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="打印"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
 </tr>
 {% endfor %}

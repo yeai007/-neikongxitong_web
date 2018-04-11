@@ -21,18 +21,17 @@ $pagetype = _post("pagetype");
 $data = array();
 $write_person = "select UserId,UserName,UserCode,UserDepart from users";
 $data["write_person"] = $db->query($write_person);
-$organization = "select * from organization ";
-$data["org_list"] = $db->query($organization);
 $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
+$rec_readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
 require DT_ROOT . '/Class/InvoiceClass.php';
 $info = new InvoiceClass();
-if (isset($request_id) && $request_id > 0 && isset($request_type)) {
-    if ($request_type == "apply") {
+if (isset($request_id) && $request_id > 0) {
+    if ($request_type == "see") {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
         $readonly = "readonly";
@@ -40,10 +39,18 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
         $data["btn"] = "modify";
+    } elseif ($request_type == "rec") {
+        $result = $info->getInfo($request_id);
+        $data["info"] = $result;
+        $data["btn"] = "rec";
     } elseif ($request_type == "delete") {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
     }
+} elseif ($request_type == "rec") {
+    $rec_readonly = "readonly";
+    $data["btn"] = "rec";
 }
 $data["readonly"] = $readonly;
-echo $twig->render('invoice/set_apply_invoice.twig', $data);
+$data["rec_readonly"] = $rec_readonly;
+echo $twig->render('invoice/set_invoice_info.twig', $data);
