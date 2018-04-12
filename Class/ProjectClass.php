@@ -28,6 +28,7 @@ class ProjectClass {
     private $ChargeMode; //收费方式
     private $ProjectLeader; //项目负责人
     private $RefuseResult; //拒绝原因
+    private $ProjectName;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -36,7 +37,7 @@ class ProjectClass {
     }
 
     function getInfo($id) {
-        $sql = "select a.*,b.`Name` SubStrainingName,c.`Name` SubTypeName,CONCAT(a.ProjectYear,a.ProjectBatch,b.`Name`,c.`Name`) ProjectName,
+        $sql = "select a.*,b.`Name` SubStrainingName,c.`Name` SubTypeName,
 (select sum(ChargeAmount)  from studentinfo where ProjectCode =a.ProjectCode) ReceiveAmount,
 (select sum(ThisAmount) from applyinvoice where ProCode =a.ProjectCode) InvoicedAmount
 from projectsinfo a
@@ -274,5 +275,14 @@ left join projecttype c on a.SubType=c.Id
         $this->RefuseResult = $RefuseResult;
         return $this;
     }
+    function getProjectName() {
+        return $this->ProjectName;
+    }
+
+    function setProjectName($ProjectName) {
+        $this->ProjectName = $ProjectName;
+        return $this;
+    }
+
 
 }

@@ -22,19 +22,19 @@
 <th>{{item.Id}}</th>
 <th>{{item.ProCode}}</th>
 <th>{{item.ProName}}</th>
-<th>业务类型</th>
+<th>{{item.BusTypeName}}</th>
 <th>{{item.TeachStartDate}}</th>
 <th>{{item.TeachEndDate}}</th>
 <th>{{item.TeachDays}}</th>
 <th>{{item.StuCount}}</th>
 <th>{{item.HeaderMasterName}}</th>
-<th>绩效总额</th>
-<th>结算情况</th>
-<th>结算人</th>
-<th>结算日期</th>
+<th>{{item.TeacherACH}}</th>
+<th>{{item.Status}}</th>
+<th>{{item.UserName}}</th>
+<th>{{item.SettlementDate}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setOtherInCome.php', '证书管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+    <input type="button" class="caozuo_3"  onclick="SettlementThis({{item.Id}})" value="结算"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.RachId}})" value="删除"/></td>
 </tr>
 {% endfor %}
 

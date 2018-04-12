@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/settlement/action/actionExpenditure.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb" >
+                <table>
+                    <tr>
+                        <th class="th_title">项目编号</th>
+                        <th class="th_title">项目名称</th>
+                        <th class="th_title">项目类别</th>
+                        <th class="th_title">培训科目</th>
+                        <th class="th_title">金额</th>
+                        <th class="th_title">支出人</th>
+                        <th class="th_title">用途及支出情况</th>
+                        <th class="th_title">结项情况</th>
+                    </tr>
+                    {% for item in list %}
+                        <tr>
+                            <th>{{item.ProCode}}</th>
+                            <th>{{item.ProName}}</th>
+                            <th>{{item.ProType}}</th>
+                            <th>{{item.SubTraining}}</th>
+                            <th>{{item.Amount}}</th>
+                            <th>{{item.Disbursement}}</th>
+                            <th>{{item.Desctribe}}</th>
+                            <th>{{item.Status}}</th>
+                        </tr>
+                    {% endfor %}
+                    <tr><td>总支出金额： <input type="text" id="amount" name="amount" hidden="hidden" value="{{amount}}"/>{{amount}}</td></tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="text" id="id" name="id" hidden="hidden" value="{{id}}"/>
+                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="结项"/>
+                    <input type="button" onclick="toPage('../../modules/settlement/allExpenditure.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

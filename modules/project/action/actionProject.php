@@ -34,6 +34,7 @@ if (isset($_POST ["add"])) {
     } else {
         $arr = array();
         $arr["ProjectYear"] = _post("project_year");
+        $arr["ProjectName"] = _post("project_year") . _post("project_batch") . _post("sub_training_name") . _post("sub_type_name");
         $arr["ProjectCode"] = _post("project_code");
         $arr["ProjectBatch"] = _post("project_batch");
         $arr["ProjectType"] = _post("project_type");
@@ -56,6 +57,7 @@ if (isset($_POST ["add"])) {
     $info->setInfo(_post("id"));
     $arr = array();
     $arr["ProjectYear"] = _post("project_year");
+    $arr["ProjectName"] = _post("project_year") . _post("project_batch") . _post("sub_training_name") . _post("sub_type_name");
     $arr["ProjectCode"] = _post("project_code");
     $arr["ProjectBatch"] = _post("project_batch");
     $arr["ProjectType"] = _post("project_type");

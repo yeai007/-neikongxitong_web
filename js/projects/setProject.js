@@ -13,11 +13,16 @@ $().ready(function () {
         });
     });
     $('#sub_training').change(function (e) {
+        $('#sub_training_name').val($('#sub_training').text());
         var ss = $(this).children('option:selected').val();
         $.post('../../modules/project/action/getSubType.php', {parentid: ss}, function (data) {
             $('#sub_type').html(data);
         });
     });
+    $('#sub_type').change(function (e) {
+        $('#sub_type_name').val($('#sub_type').text());
+    });
+
     $('#project_date').datepicker({
         language: 'zh-CN',
         autoClose: true,

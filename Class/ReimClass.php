@@ -30,6 +30,7 @@ class ReimClass {
     private $GrantDesc; //发放说明
     private $ReimPersonId;
     private $RefuseText;
+    private $ReimTypeName;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -282,5 +283,14 @@ class ReimClass {
         $this->RefuseText = $RefuseText;
         return $this;
     }
+    function getReimTypeName() {
+        return $this->ReimTypeName;
+    }
+
+    function setReimTypeName($ReimTypeName) {
+        $this->ReimTypeName = $ReimTypeName;
+        return $this;
+    }
+
 
 }

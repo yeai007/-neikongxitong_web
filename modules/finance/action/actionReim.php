@@ -18,6 +18,9 @@ if (!isset($_SESSION['user'])) {
 require("../../../common.php");
 require DT_ROOT . '/Class/ReimClass.php';
 $info = new ReimClass();
+require DT_ROOT . '/Class/ExpenditureClass.php';
+$expend = new ExpenditureClass();
+
 $type = _post("type");
 if ($type == "refuse") {
     $info->setInfo(_post("id"));
@@ -67,6 +70,7 @@ if (isset($_POST ["add"])) {
     $arr["ProCode"] = _post("pro_code");
     $arr["ProName"] = _post("pro_name");
     $arr["ReimType"] = _post("reim_type");
+    $arr["ReimTypeName"] = _post("reim_type_name");
     $arr["ReimSub"] = _post("reim_sub");
     $arr["ReimAmount"] = _post("reim_amount");
     $arr["ReimDesc"] = _post("reim_desc");
@@ -104,8 +108,52 @@ if (isset($_POST ["add"])) {
     $arr["GrantPerson"] = _post("grantperson");
     $arr["GrantDesc"] = _post("grant_desc");
     $result = $info->updateInfo($arr);
+    $info->setInfo(_post("id"));
     if ($result > -1) {
-        $result = "发放成功";
+        if (!$expend->check($info->getReimId())) {
+            $ex_arr = array();
+            $ex_arr['ProCode'] = $info->getProCode();
+            $ex_arr['ProName'] = $info->getProName();
+            $ex_arr['ProType'] = $info->getReimTypeName();
+            $ex_arr['SubTraining'] = $info->getReimSub();
+            $ex_arr['Amount'] = $info->getGrantAmount();
+            $ex_arr['DisbursementId'] = $info->getReimPersonId();
+            $ex_arr['Disbursement'] = $info->getReimPerson();
+            $ex_arr['Desctribe'] = $info->getReimDesc();
+            $ex_arr['AboutId'] = $info->getReimId();
+            $ex_arr['AboutType'] = 0;
+            $lastid = $expend->insertInfo($ex_arr);
+            if ($lastid > 0) {
+                $result = "发放成功-1";
+            } else {
+                $arr = array();
+                $arr["ReimStatus"] = 2;
+                $result = $info->updateInfo($arr);
+                $result = "发放失败，请重试！错误代码：写入支出失败";
+            }
+        } else {
+            $expend->setInfoByAboutId($info->getReimId(), 0);
+            $ex_arr = array();
+            $ex_arr['ProCode'] = $info->getProCode();
+            $ex_arr['ProName'] = $info->getProName();
+            $ex_arr['ProType'] = $info->getReimTypeName();
+            $ex_arr['SubTraining'] = $info->getReimSub();
+            $ex_arr['Amount'] = $info->getGrantAmount();
+            $ex_arr['DisbursementId'] = $info->getReimPersonId();
+            $ex_arr['Disbursement'] = $info->getReimPerson();
+            $ex_arr['Desctribe'] = $info->getReimDesc();
+            $ex_arr['AboutId'] = $info->getReimId();
+            $ex_arr['AboutType'] = 0;
+            $update = $expend->updateInfo($ex_arr);
+            if ($update > -1) {
+                $result = "发放成功-2";
+            } else {
+                $arr = array();
+                $arr["ReimStatus"] = 2;
+                $result = $info->updateInfo($arr);
+                $result = "发放失败，请重试！错误代码：更新支出失败";
+            }
+        }
     } else {
         $result = "发放失败，请重试！";
     }

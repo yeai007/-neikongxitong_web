@@ -20,13 +20,18 @@ require( "../../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $pagetype = _post("pagetype");
 $data = array();
-$list = "select a.Id, a.ProCode, a.ProName,a.TeachDays
+$list = "select *,getTeacherACH(aa.StuCount,aa.TeachDays)  TeacherACH 
+from (select a.Id, a.ProCode, a.ProName,a.TeachDays
 ,a.OtherDesc,a.ArrangeDate,j.TeacherName HeaderMasterName,a.TeachStartDate,a.TeachEndDate
-,(select count(*) from studentinfo stu where stu.ProjectCode=a.ProCode) StuCount
+,(select count(*) from studentinfo stu where stu.ProjectCode=a.ProCode) StuCount,a.HeaderMaster,c.BusTypeName
+,case WHEN ISNULL(d.Status) then '未结算' ELSE '已结算' END Status,e.UserName,d.SettlementDate,d.Id RachId
  from teacharrange a
 left join projectsinfo b on a.ProCode=b.ProjectCode
 left join teacherinfo j on a.HeaderMaster=j.TeacherId
-where a.Flag=0;";
+left join bustype c on b.BusType=c.Id
+left join headermasterach d on a.ProCode=d.ProCode and a.HeaderMaster=d.HeaderMaster and d.`Status`=1
+left join users e on d.SettlementPerson=e.UserId
+where a.Flag=0 ) aa";
 $data["list"] = $db->query($list);
 $data["pagetype"] = $pagetype;
 echo $twig->render('settlement/all_headermaster_ach_list.twig', $data);

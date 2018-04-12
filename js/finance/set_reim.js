@@ -36,6 +36,7 @@ $().ready(function () {
         }
     });
     $("#reim_type").change(function () {
+        $("#reim_type_name").val($("#reim_type option:selected").text());
         var ss = $(this).children('option:selected').val();
         $.post('../../modules/finance/action/getSub.php', {id: ss}, function (data) {
             $("#reim_sub").html(data);

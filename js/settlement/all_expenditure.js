@@ -6,7 +6,7 @@ $().ready(function () {
     });
     getList($("#pagetype").val());
     arr_page.splice(0, arr_page.length); //清空数组 
-    arr_page[0] = new Array("../../modules/settlement/allHeadermasterACH.php", "班主任绩效结算列表", 0, '');
+    arr_page[0] = new Array("../../modules/settlement/allExpenditure.php", "项目支出结项列表", 0, '');
     var pages = "";
     for (var i = 0; i < arr_page.length; i++)
     {
@@ -15,41 +15,34 @@ $().ready(function () {
     }
     $("#title_page").html("<ul class='ul_top_title'>" + pages + "</ul>");
 });
-$().ready(function () {
-    $("#commentForm").validate({
-        submitHandler: function (form) {
-            form.submit();
-        }
-    });
-    getList($("#pagetype").val());
-});
 function back()
 {
     history.back();
 }
 
 function getList(obj) {
-    $.post('../../modules/settlement/action/getAllHeaderACH.php', {pagetype: obj}, function (data) {
+    $.post('../../modules/settlement/action/getAllExpenditure.php', {pagetype: obj}, function (data) {
         $('#list').html(data);
     });
 }
 
 //删除用户确认
 function deleteThis(obj) {
-    if (window.confirm("你确定删除此记录吗？")) {
-        $.post('../../modules/settlement/action/actionHeaderMaster.php', {type: "delete", id: obj}, function (data) {
+    if (window.confirm("确定将该项目支出结项解除吗？")) {
+        $.post('../../modules/settlement/action/actionExpenditure.php', {type: "delete", id: obj}, function (data) {
             getList($("#pagetype").val());
-        });
+            alert(data.msg);
+        }, 'json');
         return true;
     } else {
         return false;
     }
 }
 
-//班主任结算
-function SettlementThis(obj) {
-    if (window.confirm("确定结算该班主任绩效？")) {
-        $.post('../../modules/settlement/action/actionHeaderMaster.php', {type: "settlement", id: obj}, function (data) {
+//项目支出结项
+function knotThis(obj) {
+    if (window.confirm("确定将该项目支出结项？")) {
+        $.post('../../modules/settlement/action/actionExpenditure.php', {type: "knot", id: obj}, function (data) {
             getList($("#pagetype").val());
             alert(data.msg);
         }, 'json');

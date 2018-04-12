@@ -112,6 +112,9 @@
             </table>
             <div class="bottom_button">
                 <input type="text" name="id" hidden="hidden" value="{{info.ProjectId}}"/>
+                <input type="text" id="sub_training_name" name="sub_training_name" hidden="hidden" value="{{info.SubStrainingName}}"/>
+                <input type="text" id="sub_type_name" name="sub_type_name" hidden="hidden" value="{{info.SubTypeName}}"/>
+
                 {% if pagetype=='audit' %}
                 {% if btn=='see' %}
                 {% else %}
