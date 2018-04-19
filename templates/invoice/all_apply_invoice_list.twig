@@ -7,29 +7,32 @@
     <th class="th_title">单位名称</th>
     <th class="th_title">应收款金额</th>
     <th class="th_title">已开票金额</th>
-    <th class="th_title">已收款金额</th>
-    <th class="th_title">开票主体</th>
-    <th class="th_title">单位所属市场人员</th>
+    <th class="th_title">本次申请开票金额</th>
+    <th class="th_title">申请开票类型</th>
+    <th class="th_title">申请开票内容</th>
+    <th class="th_title">申请开票主体</th>
+    <th class="th_title">申请人</th>
+    <th class="th_title">申请日期</th>
     <th class="th_title">说明</th>
     <th class="th_title">操作</th>
 </tr>
 {% for item in work_list %}
     <tr>
         <td><check type="checkbox"/></th>
-<th>{{item.ProjectId}}</th>
-<th>{{item.ProjectCode}}</th>
+<th>{{item.Id}}</th>
+<th>{{item.ProCode}}</th>
 <th>{{item.ProName}}</th>
 <th>{{item.UnitName}}</th>
 <th>{{item.ReceiveAmount}}</th>
 <th>{{item.InvoicedAmount}}</th>
-<th>{{item.PaymentAmount}}</th>
+<th>{{item.ThisAmount}}</th>
+<th>{{item.InvoiceType}}</th>
+<th>{{item.InvoiceContent}}</th>
 <th>{{item.InvoiceSub}}</th>
-<th>{{item.Market}}</th>
-<th>{{item.ThisDesc}}</th>
+<th>{{item.ApplicantName}}</th>
+<th>{{item.ApplicationTime |date('Y-m-d')}}</th>
 <td>
-<!--    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '查看', 2, 'see', '{{item.ProjectId}}', '{{pagetype}}')"   value="查看"/>-->
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'apply', '{{item.ProjectId}}', '{{pagetype}}')"   value="申请开票"/>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'modify', '{{item.ProjectId}}', '{{pagetype}}')"   value="重新开票"/>
+    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="重新开票"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
 </tr>
 {% endfor %}

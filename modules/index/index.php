@@ -20,7 +20,7 @@ if (!isset($_SESSION['user'])) {
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
 $data = array();
-$sql = "select Id,Name,MenuParentId,Url,DivId from MenuConfig where Flag=0";
+$sql = "select Id,Name,MenuParentId,Url,DivId,ImgUrl from MenuConfig where Flag=0";
 $data["menulist"] = $db->query($sql);
 $data["user"] = $user;
 echo $twig->render('main/index_page.html', $data);

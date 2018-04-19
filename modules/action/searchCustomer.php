@@ -12,7 +12,8 @@ $result = $db->query("select CustomerId,CustomerName from customerinfo where Cus
 foreach ($result as $row) {
     $data[] = array(
         'value' => addslashes($row['CustomerName']),
-        'label' => addslashes($row['CustomerName'])
+        'label' => addslashes($row['CustomerName']),
+        'data' => addslashes($row['CustomerId'])
     );
 }
 

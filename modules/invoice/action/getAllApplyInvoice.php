@@ -20,11 +20,11 @@ require( "../../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $pagetype = _post("pagetype");
 $data = array();
-$work_list = "select a.ProjectId, a.ProjectCode, '项目名称' ProName,'单位名称' UnitName,
-(select sum(ChargeAmount)  from studentinfo where ProjectCode =a.ProjectCode) ReceiveAmount,
-(select sum(ThisAmount) from applyinvoice where ProCode =a.ProjectCode) InvoicedAmount,
-(select sum(PaymentAmount) from payment where ProCode =a.ProjectCode) PaymentAmount
-from projectsinfo a";
+$work_list = "select a.*,c.UserName MarketName,d.UserName ApplicantName
+from applyinvoice a
+left join customerinfo b on a.UnitId=b.CustomerId
+left join users c on b.MarketPerson=c.UserId
+left join users d on a.Applicant=d.UserId";
 $data["work_list"] = $db->query($work_list);
 $data["pagetype"] = $pagetype;
 echo $twig->render('invoice/all_apply_invoice_list.twig', $data);

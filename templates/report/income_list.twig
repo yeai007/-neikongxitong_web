@@ -1,0 +1,38 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编码</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">单位名称</th>
+    <th class="th_title">收入类别</th>
+    <th class="th_title">收款金额</th>
+    <th class="th_title">收款主体</th>
+    <th class="th_title">凭证号</th>
+    <th class="th_title">经办人</th>
+    <th class="th_title">收入日期</th>
+    <th class="th_title">说明</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <th><input type='checkbox' name="line_check"/></th>
+        <th>{{item.Id}}</th>
+        <th>{{item.ProCode}}</th>
+        <th>{{item.ProName}}</th>
+        <th>{{item.UnitName}}</th>
+        <th>{{item.IncomeType}}</th>
+        <th>{{item.PaymentAmount}}</th>
+        <th>{{item.PaymentSub}}</th>
+        <th>{{item.VoucherNum}}</th>
+        <th>{{item.AgentName}}</th>
+        <th>{{item.WriteDate |date('Y-m-d')}}</th>
+        <th>{{item.PaymentDesc}}</th>
+            {#       <td>
+                        <input type="button" class="caozuo_1" onclick="knotThis('{{item.ProjectCode}}')" value="结项"/>
+                        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="解除结项"/></td>#}
+    </tr>
+{% endfor %}
+
+
+

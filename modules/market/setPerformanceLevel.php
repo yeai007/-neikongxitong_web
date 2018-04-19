@@ -14,6 +14,7 @@ $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
+$from = _get("from");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "modify") {
         require DT_ROOT . '/Class/PerformanceLevelClass.php';
@@ -28,6 +29,6 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $data["info"] = $result;
     }
 }
-
+$data["from"]=$from;
 $data["readonly"] = $readonly;
 echo $twig->render('market/set_performancelevel.html', $data);

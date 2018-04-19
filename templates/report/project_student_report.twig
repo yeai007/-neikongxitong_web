@@ -1,0 +1,51 @@
+{# empty Twig template #}
+
+<div id="main_page">
+    <div>
+        <input type="text" id="pagetype" name="pagetype" hidden="hidden" value="{{pagetype}}"/>
+        <div>
+            <table class="tb_view">
+                <tr>  
+                    <td width="80%"> 
+                        <select class="select" name="work_class" id="work_class">
+                            <option class="select" value="0" >工作名称</option>
+                            <option class="select" value="1" >工作内容</option>
+                            <option class="select" value="2" >记录人</option>
+                        </select>
+                        <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
+                        <input type="button" class="btn_search" value="搜索"/></td>
+                    <td>
+                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                    </td>  
+                </tr>
+            </table>
+            <table id="list">
+                <table>
+                    <tr>
+                        <th class="th_title">选择</th>
+                        <th class="th_title">序号</th>
+                        <th class="th_title">学员姓名</th>
+                        <th class="th_title">身份证号</th>
+                        <th class="th_title">联系方式</th>
+                        <th class="th_title">已交费金额</th>
+                        <th class="th_title">开票状态</th>
+                        <th class="th_title">日期</th>
+                    </tr>
+                    {% for item in list %}
+                        <tr>
+                            <th><input type='checkbox' name="line_check"/></th>
+                            <th>{{item.Id}}</th>
+                            <th>{{item.StudentName}}</th>
+                            <th>{{item.StudentNum}}</th>
+                            <th>{{item.StudentPhone}}</th>
+                            <th>{{item.ChargeAmount}}</th>
+                            <th>{% if item.IsBilling==0 %}可开票{% elseif item.IsBilling==1 %}已申请{% elseif item.IsBilling==2%}已开票{% endif %}</th>
+                            <th>{{item.WriteDate|date('Y-m-d')}}</th>
+                        </tr>
+                    {% endfor %}
+                </table>
+        </div>
+    </div>
+</div>
+
+<div id="sub_page"></div>

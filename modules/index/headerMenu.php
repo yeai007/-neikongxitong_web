@@ -18,6 +18,6 @@ for ($i = 0; $i < count($arr); $i++) {
     }
 }
 $data = array();
-$sql = "select Id,Name,MenuParentId from MenuConfig where Id in ($condition)";
+$sql = "select Id,Name,MenuParentId,ImgUrl from MenuConfig where Id in ($condition)";
 $data["menulist"] = $db->query($sql);
 echo $twig->render('main/menu_top.html', $data);

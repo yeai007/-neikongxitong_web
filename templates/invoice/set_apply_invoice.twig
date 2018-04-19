@@ -15,12 +15,12 @@
                 <table class="tb_set" >
                     <tr>
                         <td>项目编号</td>
-                        <td class="td_left"><input {{readonly}}  id="pro_code" name="pro_code" class="input_text" type="text" value="{{info.ProjectCode}}" required></td >
+                        <td class="td_left"><input {{readonly}}  id="pro_code" name="pro_code" class="input_text" type="text" value="{{info.ProCode}}" required></td >
                     </tr>
                     <tr>
                         <td>项目名称</td>
                         <td  class="td_left">
-                            <input {{readonly}} id="pro_name" name="pro_name"  class="input_text" type="text" value="{{info.ProjectName}}"/>
+                            <input {{readonly}} id="pro_name" name="pro_name"  class="input_text" type="text" value="{{info.ProName}}"/>
                         </td>
                     </tr>
                     <tr>
@@ -29,23 +29,23 @@
                             <input  id="unit_name" name="unit_name"  class="input_text" type="text" value="{{info.UnitName}}"/>
                         </td>
                     </tr>
-                    <tr><td></td><td><input type="button" onclick="SelectStudent()" value="选择需开票学生名单"/></td></tr>
+                    <tr><td></td><td><input type="button" onclick="SelectStudent('{{btn}}')" value="选择需开票学生名单"/></td></tr>
                     <tr>
                         <td>应收款金额</td><td  class="td_left">
-                            <input {{readonly}} id="receive_amount" name="receive_amount"  class="input_text" type="text" value="{{info.ReceiveAmount}}"/>
+                            <input readonly id="receive_amount" name="receive_amount"  class="input_text" type="text" value="{{info.ReceiveAmount}}"/>
                         </td>
                         <td>已开票金额</td><td  class="td_left">
-                            <input {{readonly}} id="invoiced_amount" name="invoiced_amount"  class="input_text" type="text" value="{{info.InvoicedAmount}}"/>
+                            <input readonly id="invoiced_amount" name="invoiced_amount"  class="input_text" type="text" value="{{info.InvoicedAmount}}"/>
                         </td>
                     </tr>
                     <tr>
                         <td>本次开票金额</td><td  class="td_left">
-                            <input {{readonly}}  id="this_amount" name="this_amount"  class="input_text" type="text" value="{{info.ThisAmount}}" required>
+                            <input readonly  id="this_amount" name="this_amount"  class="input_text" type="text" value="{{info.ThisAmount}}" required>
                         </td>
                         <td>申请开票类型</td><td  class="td_left">
                             <select class="select userrole" name="invoice_type" id="invoice_type">                            
-                                <option class="select"  value="增值税专用发票" >增值税专用发票</option>
-                                <option class="select"  value="增值税普通发票" >增值税普通发票</option>
+                                <option class="select" {% if info.InvoiceType =='增值税专用发票'%} check="checked"{%endif%} value="增值税专用发票" >增值税专用发票</option>
+                                <option class="select" {% if info.InvoiceType =='增值税普通发票'%} check="checked"{%endif%}  value="增值税普通发票" >增值税普通发票</option>
                             </select>
                         </td>
                     </tr>
@@ -79,7 +79,7 @@
                     </tr>
                 </table>
                 <div class="bottom_button">
-                    <input type="text" name="id" hidden="hidden" value="{{info.ProjectId}}"/>
+                    <input type="text" name="id" hidden="hidden" value="{{info.Id}}"/>
                     <input type="text" id="unitid" name="unitid" hidden="hidden" value="{{info.UnitId}}"/>
                     <input type="text" id="subid" name="subid" hidden="hidden" value="{{info.InvoiceSubId}}"/>
                     <input type="text" id="studentids" name="studentids" hidden="hidden" value="{{info.ProjectId}}"/>

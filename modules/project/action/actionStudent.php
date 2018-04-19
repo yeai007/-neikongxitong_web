@@ -35,6 +35,8 @@ if (isset($_POST ["add"])) {
     $arr["StudentPhone"] = _post("student_phone");
     $arr["StudentNum"] = _post("student_num");
     $arr["UnitName"] = _post("unit_name");
+    $arr["UnitId"] = _post("unitid");
+
     $arr["ChargeAmount"] = _post("charge_amount");
     $arr["WriteDate"] = _post("write_date");
     $arr["WritePerson"] = $user["UserName"];
@@ -53,6 +55,7 @@ if (isset($_POST ["add"])) {
     $arr["StudentPhone"] = _post("student_phone");
     $arr["StudentNum"] = _post("student_num");
     $arr["UnitName"] = _post("unit_name");
+    $arr["UnitId"] = _post("unitid");
     $arr["ChargeAmount"] = _post("charge_amount");
     $arr["WriteDate"] = _post("write_date");
     $arr["WritePerson"] = $user["UserName"];

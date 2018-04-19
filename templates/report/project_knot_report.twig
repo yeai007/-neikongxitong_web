@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+<div id="main_page">
+    <div>
+        <input type="text" id="pagetype" name="pagetype" hidden="hidden" value="{{pagetype}}"/>
+        <div>
+            <table id="list">
+                <table>
+                    {# empty Twig template #}
+                    <tr>
+                        <th class="th_title">选择</th>
+                        <th class="th_title">序号</th>
+                        <th class="th_title">项目编号</th>
+                        <th class="th_title">项目名称</th>
+                        <th class="th_title">应收金额</th>
+                        <th class="th_title">已收款金额</th>
+                        <th class="th_title">项目总支出</th>
+                        <th class="th_title">毛利润</th>
+                        <th class="th_title">结项情况</th>
+                        <th class="th_title">结项人</th>
+                        <th class="th_title">结项日期</th>
+                    </tr>
+                    {% for item in list %}
+                        <tr>
+                            <th><input type='checkbox' name="line_check"/></th>
+                            <th>{{item.Id}}</th>
+                            <th>{{item.ProCode}}</th>
+                            <th>{{item.ProName}}</th>
+                            <th>{{ item.ReceiveAmount }}</th>
+                            <th>{{item.PaidAmount}}</th>
+                            <th>{{item.TotalAmount}}</th>
+                            <th>{{item.GrossProfit}}</th>
+                            <th>{% if item.Status==0%}可结项{% elseif item.Status==1%}已结项{% elseif item.Status==2%}不可结项{% endif %}</th>
+                            <th>{{item.KnotPerson}}</th>
+                            <th>{{item.KnotDate|date('Y-m-d')}}</th>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+        </div>
+    </div>
+</div>
+
+<div id="sub_page"></div>

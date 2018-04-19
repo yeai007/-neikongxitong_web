@@ -1,0 +1,39 @@
+{# empty Twig template #}
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>内控管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="{{url}}css/login.css" type="text/css"/>
+        <script type="text/javascript" src="{{url}}js/jquery-3.3.1.min.js"></script>
+        <script src="{{url}}js/login.js" type="text/javascript"></script>
+    </head>
+    <body >
+        <div align="center" class="div_login">
+            <text class="title_text">内控管理系统</text>
+            <table>
+                <tr> <td><text class="content_text">帐号</text></td>
+                    <td><input type="text" id="phone" placeholder="请输入手机号码" class="input_text"></input></td>
+                    <td  id="login_msg" class="login_msg"><div class="zh_error"><text>!</text></div><text id="zh_error_text" class="zh_error_text"></text></td>
+                </tr>
+                <tr><td><text class="content_text">密码</text></td>
+                    <td><input type="password" id="pass" placeholder="请输入密码" class="input_text"></input></td>
+                </tr>
+                <tr >
+                    <td> <text class="content_text">验证码</text>
+                        <td><input id="code" type="text"  placeholder="请输入验证码" class="input_text_yzm" value="{{code}}"></input>
+                            <div onclick="resetCode()"  id="verImg" style="display: inline-block;"></div>
+                            {#<img id="verImg" onclick="resetCode()" class="verImg" src="data:image/png;base64,{{imt_url}}"/>#}
+                        </td>
+                </tr>
+            </table>
+            <button type="button" class="login" onclick="login()" value="登录">登录</button>
+        </div>
+    </body>
+</html>

@@ -11,16 +11,16 @@
 </tr>
 {% for item in list %}
     <tr>
-        <td><check type="checkbox"/></th>
-<th>{{item.ProjectId}}</th>
-<th>{{item.ProjectCode}}</th>
-<th>{{item.ProjectName}}</th>
-<th>{% if item.EX_Status==1 %}已结项{% else %}未结项{% endif %}</th>
-<th>{{item.KnotPerson}}</th>
-<th>{{item.KnotDate}}</th>
-<td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/settlement/setExpenditure.php', '项目支出结项管理', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="项目支出结项"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ProjectCode}})" value="解除项目支出结项"/></td>
+        <td><input type='checkbox' name="line_check"/></th>
+    <th>{{item.ProjectId}}</th>
+    <th>{{item.ProjectCode}}</th>
+    <th>{{item.ProjectName}}</th>
+    <th>{% if item.EX_Status==1 %}已结项{% else %}未结项{% endif %}</th>
+    <th>{{item.KnotPerson}}</th>
+    <th>{{item.KnotDate}}</th>
+    <td>
+        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/settlement/setExpenditure.php', '项目支出结项管理', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="项目支出结项"/>
+        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ProjectCode}})" value="解除项目支出结项"/></td>
 </tr>
 {% endfor %}
 

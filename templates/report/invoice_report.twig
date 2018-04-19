@@ -1,0 +1,42 @@
+{# empty Twig template #}
+
+<div id="main_page">
+    <div>
+        <input type="text" id="pagetype" name="pagetype" hidden="hidden" value="{{pagetype}}"/>
+        <div>
+            <table id="list">
+                <table>
+                    <tr>
+                        <th class="th_title">选择</th>
+                        <th class="th_title">序号</th>
+                        <th class="th_title">项目编码</th>
+                        <th class="th_title">项目名称</th>
+                        <th class="th_title">单位名称</th>
+                        <th class="th_title">开票金额</th>
+                        <th class="th_title">发票号码</th>
+                        <th class="th_title">开票主体单位</th>
+                        <th class="th_title">开票类型</th>
+                        <th class="th_title">开票日期</th>
+                        <th class="th_title">开票人</th>
+                    </tr>
+                    {% for item in list %}
+                        <tr>
+                            <th><input type='checkbox' name="line_check"/></th>
+                            <th>{{item.Id}}</th>
+                            <th>{{item.ProCode}}</th>
+                            <th>{{item.ProName}}</th>
+                            <th>{{item.UnitName}}</th>
+                            <th>{{item.Amount}}</th>
+                            <th>{{item.InvoiceNum}}</th>
+                            <th>{{item.SubName}}</th>
+                            <th>{{item.InvoiceType}}</th>
+                            <th>{{item.InvoiceDate|date('Y-m-d')}}</th>
+                            <th>{{item.Drawer}}</th>   
+                        </tr>
+                    {% endfor %}
+                </table>
+        </div>
+    </div>
+</div>
+
+<div id="sub_page"></div>

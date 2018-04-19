@@ -20,9 +20,12 @@ $().ready(function () {
         });
     });
     $('#sub_type').change(function (e) {
-        $('#sub_type_name').val($('#sub_type').text());
+        $('#sub_type_name').val($('#sub_type option:selected').text());
     });
 
+    $('#unit_id').change(function (e) {
+        $('#unit_name').val($('#unit_id option:selected').text());
+    });
     $('#project_date').datepicker({
         language: 'zh-CN',
         autoClose: true,

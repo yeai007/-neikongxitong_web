@@ -62,19 +62,30 @@ if (isset($_POST ["add"])) {
 } elseif (isset($_POST ["modify"])) {
     $info->setInfo(_post("id"));
     $arr = array();
-    $arr["WorkName"] = _post("work_name");
-    $arr["WorkContent"] = _post("work_content");
-    $arr["WorkResult"] = _post("work_result");
-    $arr["WorkDate"] = _post("work_date");
-    $arr["WritePerson"] = $user["UserId"];
-    $arr["WriteDate"] = _post("write_date");
+    $arr["ProCode"] = _post("pro_code");
+    $arr["ProName"] = _post("pro_name");
+    $arr["UnitId"] = _post("unitid");
+    $arr["UnitName"] = _post("unit_name");
+    $arr["ReceiveAmount"] = _post("receive_amount");
+    $arr["InvoicedAmount"] = _post("invoiced_amount");
+    $arr["ThisAmount"] = _post("this_amount");
+    $arr["InvoiceSub"] = _post("invoice_sub");
+    $arr["InvoiceType"] = _post("invoice_type");
+    $arr["InvoiceContent"] = _post("invoice_content");
+    $arr["Applicant"] = _post("applicant");
+    $arr["ApplicationTime"] = _post("applicationtime");
+    $arr["ThisStudentIds"] = _post("studentids");
+    $studentids = _post("studentids");
     $result = $info->updateInfo($arr);
     if ($result > -1) {
-        $result = "修改成功";
-    } else {
-        $result = "修改失败，请重试！";
+        $upStudentStatu = $student_info->updateStudentBilling($studentids, 1); //更新学员已经申请开票状态
+        if ($upStudentStatu > -1) {
+            $result = "修改成功";
+        } else {
+            $info->deleteError($result);
+            $result = "修改失败，请重试！";
+        }
     }
-
     echo returnResult($result, 1);
     exit();
 }

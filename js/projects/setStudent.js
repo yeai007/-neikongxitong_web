@@ -22,6 +22,21 @@ $().ready(function () {
             }, 'json');
         }
     });
+    $("#unit_name").autocomplete({
+        source: "../../modules/action/searchCustomer.php",
+        minLength: 1,
+        scrollHeight: 300,
+        minChars: 0,
+        height: 60,
+        autoFocus: false,
+        select: function (event, ui) {
+            ss = ui.item.label;
+            $.post('../../modules/action/searchCustomerByName.php', {text: ss}, function (data) {
+                $('#unit_name').val(data["CustomerName"]);
+                $('#unitid').val(data["CustomerId"]);
+            }, 'json');
+        }
+    });
     $('#project_type').change(function (e) {
         var ss = $(this).children('option:selected').val();
         $.post('../../modules/project/action/getSubStraining.php', {parentid: ss}, function (data) {

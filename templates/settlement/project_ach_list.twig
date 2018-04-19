@@ -1,0 +1,42 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编号</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">单位名称</th>
+    <th class="th_title">业务类别</th>
+    <th class="th_title">收款金额</th>
+    <th class="th_title">项目个人费用</th>
+    <th class="th_title">项目公共费用分摊</th>
+    <th class="th_title">绩效金额</th>
+    <th class="th_title">所属人</th>
+    <th class="th_title">核算情况</th>
+    <th class="th_title">核算日起</th>
+    <th class="th_title">核算人</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <td><input type='checkbox' name="line_check"/></th>
+    <th>{{item.Id}}</th>
+    <th>{{item.ProjectCode}}</th>
+    <th>{{item.ProjectName}}</th>
+    <th>{{ item.UnitName }}</th>
+    <th>{{item.BusTypeName}}</th>
+    <th>{{item.ReceiveAmount}}</th>
+    <th>{{item.PersonalAmount}}</th>
+    <th>{{item.PublicAmountFT}}</th>
+    <th>{{item.AmountACH}}</th>
+    <th>{{item.CustomerContact}}</th>
+    <th>{% if item.AccountStatus==0%}可结算{% elseif item.AccountStatus==1%}已结算{% elseif item.AccountStatus==2%}不可结算{% endif %}</th>
+    <th>{{item.AccountDate}}</th>
+    <th>{{item.AccountPerson}}</th>
+    <td>
+        <input type="button" class="caozuo_1" onclick="accountThis('{{item.ProjectCode}}', '{{item.UnitId}}')" value="结算"/>
+        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="解除结算"/></td>
+</tr>
+{% endfor %}
+
+
+

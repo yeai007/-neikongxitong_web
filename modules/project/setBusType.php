@@ -23,6 +23,7 @@ $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
 $request_type = _post("type");
+$from = _get("from");
 require DT_ROOT . '/Class/BusTypeClass.php';
 $info = new BusTypeClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
@@ -39,6 +40,6 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $data["info"] = $result;
     }
 }
-
+$data["from"]=$from;
 $data["readonly"] = $readonly;
 echo $twig->render('project/set_bustype.html', $data);

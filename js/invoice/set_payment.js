@@ -38,6 +38,21 @@ $().ready(function () {
             }, 'json');
         }
     });
+    $("#unit_name").autocomplete({
+        source: "../../modules/action/searchCustomer.php",
+        minLength: 1,
+        scrollHeight: 300,
+        minChars: 0,
+        height: 60,
+        autoFocus: false,
+        select: function (event, ui) {
+            ss = ui.item.label;
+            $.post('../../modules/action/searchCustomerByName.php', {text: ss}, function (data) {
+                $('#unit_name').val(data["CustomerName"]);
+                $('#unitid').val(data["CustomerId"]);
+            }, 'json');
+        }
+    });
     $('#write_date').datepicker({
         language: 'zh-CN',
         autoClose: true,
@@ -49,26 +64,6 @@ $().ready(function () {
         $("#AddSearchSourcePanel").html(data);
     });
 });
-function SelectStudent() {
-    var d = dialog({
-        title: '需开票学员名单',
-        content: $("#AddSearchSourcePanel").html(),
-        okValue: '确 定',
-        ok: function () {
-            var checked = [];
-            var checked = [];
-            var amount = 0;
-            $('input:checkbox:checked').each(function () {
-                checked.push($(this).attr("id"));
-                amount = parseFloat(amount) + parseFloat($(this).val());
-            });
-            $("#this_amount").val(amount);
-            $("#studentids").val(checked);
-        },
-        cancelValue: '取消',
-        cancel: function () {}
-    });
-    d.show();
-}
+
 
 

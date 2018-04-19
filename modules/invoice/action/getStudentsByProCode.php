@@ -18,9 +18,16 @@ if (!isset($_SESSION['user'])) {
 $userid = $user["UserId"];
 require( "../../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
+$type = _post("type");
 $procode = _post("procode");
+$unitid = _post("unitid");
 $data = array();
-$student_list = "select * from studentinfo where ProjectCode ='$procode' and IsBilling=0";
+if ($type == "modify") {
+    $student_list = "select * from studentinfo where ProjectCode ='$procode' and UnitId=$unitid";
+} else {
+    $student_list = "select * from studentinfo where ProjectCode ='$procode' and UnitId=$unitid and IsBilling=0";
+}
+
 $data["student_list"] = $db->query($student_list);
 echo $twig->render('invoice/student_list_check.twig', $data);
 

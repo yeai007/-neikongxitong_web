@@ -1,0 +1,37 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">项目编号</th>
+    <th class="th_title">项目名称</th>
+    <th class="th_title">应收金额</th>
+    <th class="th_title">已收款金额</th>
+    <th class="th_title">项目总支出</th>
+    <th class="th_title">毛利润</th>
+    <th class="th_title">结项情况</th>
+    <th class="th_title">结项人</th>
+    <th class="th_title">结项日期</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <th><input type='checkbox' name="line_check"/></th>
+        <th>{{item.Id}}</th>
+        <th>{{item.ProjectCode}}</th>
+        <th>{{item.ProjectName}}</th>
+        <th>{{ item.ReceiveAmount }}</th>
+        <th>{{item.ApplyAmount}}</th>
+        <th>{{item.ZCAmount}}</th>
+        <th>{{item.MAmount}}</th>
+        <th>{% if item.Status==0%}可结项{% elseif item.Status==1%}已结项{% elseif item.Status==2%}不可结项{% endif %}</th>
+        <th>{{item.KnotPerson}}</th>
+        <th>{{item.KnotDate|date('Y-m-d')}}</th>
+
+        <td>
+            <input type="button" class="caozuo_1" onclick="knotThis('{{item.ProjectCode}}')" value="结项"/>
+            <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="解除结项"/></td>
+    </tr>
+{% endfor %}
+
+
+

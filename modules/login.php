@@ -5,10 +5,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
+// store session data
+
 
 require( "../common.php");
 $data = array();
-//$img = new ImageYZM();
-//$data["img"] = $img->vCode(4, 15);
-echo $twig->render('login.xhtml', $data);
+echo $twig->render('login.twig', $data);
 ?>

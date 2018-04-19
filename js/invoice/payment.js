@@ -12,7 +12,7 @@ $().ready(function () {
     });
     getList($("#pagetype").val());
     arr_page.splice(0, arr_page.length); //清空数组 
-    arr_page[0] = new Array("../../modules/invoice/Payment.php", "汇款信息列表", 0, '');
+    arr_page[0] = new Array("../../modules/invoice/Payment.php", "回款信息列表", 0, '');
     var pages = "";
     for (var i = 0; i < arr_page.length; i++)
     {

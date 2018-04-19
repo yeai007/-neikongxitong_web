@@ -1,0 +1,25 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">人员名称</th>
+    <th class="th_title">职务</th>
+    <th class="th_title">时间</th>
+    <th class="th_title">工作内容</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <th><input type='checkbox' name="line_check"/></th>
+        <th>{{item.RecordId}}</th>
+        <th>{{item.UserName}}</th>
+        <th>{{item.UserPost}}</th>
+        <th>{{ item.WriteDate|date('Y-m-d') }}</th>
+        <th>{{item.WorkContent}}</th>
+            {#       <td>
+                        <input type="button" class="caozuo_1" onclick="knotThis('{{item.ProjectCode}}')" value="结项"/>
+                        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="解除结项"/></td>#}
+    </tr>
+{% endfor %}
+
+
+

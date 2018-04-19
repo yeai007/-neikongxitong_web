@@ -46,6 +46,7 @@ if (isset($_POST ["add"])) {
         $arr["PlanAmount"] = _post("plan_amount");
         $arr["ProjectPerson"] = _post("project_person");
         $arr["ProjectDesc"] = _post("project_desc");
+
         $result = $info->insertInfo($arr);
         if ($result > 0) {
             $result = "添加成功";
@@ -71,6 +72,7 @@ if (isset($_POST ["add"])) {
     $arr["ProjectDesc"] = _post("project_desc");
     $arr["ChargeMode"] = _post("charge_mode");
     $arr["ProjectLeader"] = _post("project_leader");
+
     $result = $info->updateInfo($arr);
     if ($result > -1) {
         $result = "修改成功";

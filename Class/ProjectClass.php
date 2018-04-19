@@ -30,6 +30,7 @@ class ProjectClass {
     private $RefuseResult; //拒绝原因
     private $ProjectName;
 
+
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
         $this->db = $db;
@@ -275,6 +276,7 @@ left join projecttype c on a.SubType=c.Id
         $this->RefuseResult = $RefuseResult;
         return $this;
     }
+
     function getProjectName() {
         return $this->ProjectName;
     }
@@ -283,6 +285,7 @@ left join projecttype c on a.SubType=c.Id
         $this->ProjectName = $ProjectName;
         return $this;
     }
+
 
 
 }

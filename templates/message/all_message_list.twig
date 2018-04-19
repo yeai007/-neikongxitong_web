@@ -1,0 +1,24 @@
+{# empty Twig template #}
+<tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">标题</th>
+    <th class="th_title">时间</th>
+    <th class="th_title">内容</th>
+    <th class="th_title">操作</th>
+</tr>
+{% for item in list %}
+    <tr>
+        <td><input type='checkbox' name="line_check"/></th>
+    <th>{{item.Id}}</th>
+    <th>{{item.Title}}</th>
+    <th>{{item.CreateTime|date('Y-m-d')}}</th>
+    <th>{{item.Content}}</th>
+    <td>
+        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/work/setWorkRecord.php', '工作记录管理', 2, 'modify', '{{item.RecordId}}', '{{pagetype}}')"   value="修改"/>
+        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

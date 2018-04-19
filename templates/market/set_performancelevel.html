@@ -27,7 +27,11 @@
                 <div class="bottom_button">
                     <input type="text" name="id" hidden="hidden" value="{{info.Id}}"/>
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    {% if from=='per' %}
                     <input type="button" onclick="toPage('../../modules/market/performanceLevel.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    {%else%}
+                    <input type="button" onclick="toPage('../../modules/settlement/ProportionACH.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    {% endif %}
                 </div>
             </div>
         </form>

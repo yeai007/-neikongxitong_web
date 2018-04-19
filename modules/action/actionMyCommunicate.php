@@ -31,6 +31,7 @@ if (isset($_POST ["add"])) {
     $arr = array();
     $arr["CommunicateContent"] = _post("communicate_content");
     $arr["CompanyName"] = _post("customer_name");
+         $arr["CompanyId"] = _post("customerid");
     $arr["CompanyPerson"] = _post("customercontact");
     $arr["CommunicateMode"] = _post("communicate_mode");
     $arr["CommunicateDate"] = _post("communicate_date");
@@ -49,7 +50,7 @@ if (isset($_POST ["add"])) {
 //    $arr["CompanyPerson"] = _post("customercontact");
 //    $arr["CommunicateDate"] = _post("communicate_date");
 //    $arr["CommunicatePerson"] = $user["UserId"];
-
+     $arr["CompanyId"] = _post("customerid");
     $arr["CommunicateContent"] = _post("communicate_content");
     $arr["CommunicateMode"] = _post("communicate_mode");
     $arr["CommunicateResult"] = _post("communicate_result");

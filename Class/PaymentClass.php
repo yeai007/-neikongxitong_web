@@ -24,6 +24,8 @@ class PaymentClass {
     private $PaymentStatus; //回款状态
     private $WritePerson; //
     private $WriteDate; //
+    private $UnitId;
+    private $IncomeType;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -222,5 +224,23 @@ class PaymentClass {
         $this->WriteDate = $WriteDate;
         return $this;
     }
+
+    function getUnitId() {
+        return $this->UnitId;
+    }
+
+    function setUnitId($UnitId) {
+        $this->UnitId = $UnitId;
+        return $this;
+    }
+    function getIncomeType() {
+        return $this->IncomeType;
+    }
+
+    function setIncomeType($IncomeType) {
+        $this->IncomeType = $IncomeType;
+        return $this;
+    }
+
 
 }

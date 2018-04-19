@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-4-13, 10:56:08
+    Author     : PVer
+*/
+td {
+  width: 100px;
+  min-width: 100px;
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  text-align: center; }
+
+.input_p {
+  width: 100px;
+  min-width: 100px;
+  min-height: 40px;
+  height: 40px;
+  text-align: center; }
+
+.dia_text {
+  min-width: 200px;
+  width: 200px; }
+
+/*# sourceMappingURL=proportion_ach.css.map */

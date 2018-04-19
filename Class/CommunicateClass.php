@@ -17,6 +17,7 @@ class CommunicateClass {
     private $CommunicatePerson; //拜访沟通人id
     private $CommunicateResult; //沟通成果
     private $Flag; //作废0：正常，1：作废
+    private $CompanyId;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -152,5 +153,14 @@ class CommunicateClass {
         $this->Flag = $Flag;
         return $this;
     }
+    function getCompanyId() {
+        return $this->CompanyId;
+    }
+
+    function setCompanyId($CompanyId) {
+        $this->CompanyId = $CompanyId;
+        return $this;
+    }
+
 
 }

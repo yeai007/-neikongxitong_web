@@ -28,15 +28,13 @@ $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
 $request_id = _post("id");
+$UintId = _get("UintId");
 $request_type = _post("type");
-require DT_ROOT . '/Class/InvoiceClass.php';
-$info = new InvoiceClass();
+
+require DT_ROOT . '/Class/ApplyInvoiceClass.php';
+$info = new ApplyInvoiceClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
-    if ($request_type == "apply") {
-        $result = $info->getInfo($request_id);
-        $data["info"] = $result;
-        $readonly = "readonly";
-    } elseif ($request_type == "modify") {
+    if ($request_type == "modify") {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
         $data["btn"] = "modify";

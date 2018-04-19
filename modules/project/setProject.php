@@ -33,6 +33,9 @@ $sub_training = "select * from projecttype where ParentLevel=2";
 $data["sub_training"] = $db->query($sub_training);
 $sub_type = "select * from projecttype where ParentLevel=3";
 $data["sub_type"] = $db->query($sub_type);
+//单位名称
+$unit = "select * from customerinfo";
+$data["unit"] = $db->query($unit);
 $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;

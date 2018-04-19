@@ -32,6 +32,7 @@ if (isset($_POST ["add"])) {
     $arr["ProCode"] = _post("pro_code");
     $arr["ProName"] = _post("pro_name");
     $arr["UnitName"] = _post("unit_name");
+    $arr["UnitId"] = _post("unitid");
     $arr["InvoiceNum"] = _post("invoice_num");
     $arr["InvoiceDate"] = _post("invoice_date");
     $arr["PaymentAmount"] = _post("payment_amount");
@@ -43,6 +44,8 @@ if (isset($_POST ["add"])) {
     $arr["PaymentDesc"] = _post("payment_desc");
     $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("write_date");
+    $arr["IncomeType"] = '项目收入';
+
     $result = $info->insertInfo($arr);
     if ($result > 0) {
         $result = "添加成功";
@@ -55,6 +58,7 @@ if (isset($_POST ["add"])) {
     $arr["ProCode"] = _post("pro_code");
     $arr["ProName"] = _post("pro_name");
     $arr["UnitName"] = _post("unit_name");
+    $arr["UnitId"] = _post("unitid");
     $arr["InvoiceNum"] = _post("invoice_num");
     $arr["InvoiceDate"] = _post("invoice_date");
     $arr["PaymentAmount"] = _post("payment_amount");
@@ -66,6 +70,7 @@ if (isset($_POST ["add"])) {
     $arr["PaymentDesc"] = _post("payment_desc");
     $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("write_date");
+    $arr["IncomeType"] = '项目收入';
     $result = $info->updateInfo($arr);
     if ($result > -1) {
         $result = "修改成功";

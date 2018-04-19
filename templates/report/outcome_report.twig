@@ -1,0 +1,56 @@
+{# empty Twig template #}
+<script src="{{url}}js/report/outcome.js" type="text/javascript"></script>
+<div id="main_page">
+    <div>
+        <input type="text" id="pagetype" name="pagetype" hidden="hidden" value="{{pagetype}}"/>
+        <div>
+            <table class="tb_view">
+                <tr>  
+                    <td width="80%"> 
+                        <select class="select" name="work_class" id="work_class">
+                            <option class="select" value="0" >工作名称</option>
+                            <option class="select" value="1" >工作内容</option>
+                            <option class="select" value="2" >记录人</option>
+                        </select>
+                        <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
+                        <input type="button" class="btn_search" value="搜索"/></td>
+                    <td>
+                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                    </td>  
+                </tr>
+            </table>
+            <table id="list">
+                <tr>
+                    <th class="th_title">选择</th>
+                    <th class="th_title">序号</th>
+                    <th class="th_title">项目编码</th>
+                    <th class="th_title">项目名称</th>
+                    <th class="th_title">类别</th>
+                    <th class="th_title">科目</th>
+                    <th class="th_title">金额</th>
+                    <th class="th_title">支出说明</th>
+                    <th class="th_title">支出人</th>
+                    <th class="th_title">日期</th>
+                    <th class="th_title">操作</th>
+                </tr>
+                {% for item in list %}
+                    <tr>
+                        <th><input type='checkbox' name="line_check"/></th>
+                        <th>{{item.Id}}</th>
+                        <th>{{item.ProCode}}</th>
+                        <th>{{item.ProName}}</th>
+                        <th>{{item.ProType}}</th>
+                        <th>{{item.SubTraining}}</th>
+                        <th>{{item.Amount}}</th>
+                        <th>{{item.Desctribe}}</th>
+                        <th>{{item.Disbursement}}</th>
+                        <th>{{item.date |date('Y-m-d')}}</th>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="sub_page"></div>

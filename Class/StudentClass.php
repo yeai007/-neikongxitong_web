@@ -20,6 +20,8 @@ class StudentClass {
     private $ChargeDesc; //收费说明
     private $ProjectCode; //项目编码
     private $ProjectName; //项目名称
+    private $UnitId;
+    private $IsBilling;
 
     public function __construct() {
         require (DT_ROOT . "/data/dbClass.php"); //包含配置信息.
@@ -187,5 +189,23 @@ class StudentClass {
         $this->ProjectName = $ProjectName;
         return $this;
     }
+
+    function getUnitId() {
+        return $this->UnitId;
+    }
+
+    function setUnitId($UnitId) {
+        $this->UnitId = $UnitId;
+        return $this;
+    }
+    function getIsBilling() {
+        return $this->IsBilling;
+    }
+
+    function setIsBilling($IsBilling) {
+        $this->IsBilling = $IsBilling;
+        return $this;
+    }
+
 
 }

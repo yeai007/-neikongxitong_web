@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <link rel="stylesheet" href="{{url}}css/bustype.css" type="text/css" />
-<script src="{{url}}js/projects/bustype.js" type="text/javascript"></script>
+
 <style>
     .error{
         color:red;
@@ -23,7 +23,12 @@
 
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
                     <input type="reset" name="reset" class="comm_button button_clear" value="清空"/>
+
+                    {% if from=='bus' %}
                     <input type="button" onclick="toPage('../../modules/project/allBusType.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    {%else%}
+                    <input type="button" onclick="toPage('../../modules/settlement/ProportionACH.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    {% endif %}
                 </div>
             </div>
         </form>

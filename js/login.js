@@ -3,6 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var yzm = "";
+$().ready(function () {
+    resetCode();
+    $(document).keydown(function (event) {
+        if (event.keyCode == 13) {
+            login();
+        }
+    });
+
+});
 function login()
 {
     if (check())
@@ -29,18 +39,37 @@ function check()
     var ischeck = true;
     var pass = $.trim($("#pass").val());
     var phone = $.trim($("#phone").val());
-    if (pass == "")
-    {
-
-        $("#zh_error_text").text("密码不能为空！");
-        $("#login_msg").css("display", "block");
-        ischeck = false;
-    }
+    var code = $.trim($("#code").val());
     if (phone == "")
     {
         $("#zh_error_text").text("请输入帐号！");
         $("#login_msg").css("display", "block");
         ischeck = false;
+        return ischeck;
+    }
+    if (pass == "")
+    {
+        $("#zh_error_text").text("密码不能为空！");
+        $("#login_msg").css("display", "block");
+        ischeck = false;
+        return ischeck;
+    }
+
+    if (code != yzm)
+    {
+
+        $("#zh_error_text").text("验证码错误！");
+        $("#login_msg").css("display", "block");
+        ischeck = false;
+        return ischeck;
     }
     return ischeck;
+}
+function resetCode() {
+    $.post("../modules/action/getNewYZM.php", {}, function (data) {
+        //document.getElementById('right').innerHTML = data;
+        $("#verImg").html(data.data);
+        yzm = data.code;
+//        $("#code").val(data.code);
+    }, 'json');
 }
