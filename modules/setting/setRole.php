@@ -25,23 +25,27 @@ $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 require DT_ROOT . '/Class/RoleInfoClass.php';
 $info = new RoleInfoClass();
-if (isset($request_id) && $request_id > 0 && isset($request_type)) {
-    if ($request_type == "see") {
-        $result = $info->getInfo($request_id);
-        $data["info"] = $result;
-        $readonly = "disabled='disabled'";
-    } elseif ($request_type == "modify") {
-        $result = $info->getInfo($request_id);
-        $data["info"] = $result;
-        $data["btn"] = "modify";
-    } elseif ($request_type == "delete") {
-        $result = $info->getInfo($request_id);
-        $data["info"] = $result;
-    }
+
+if ($request_type == "add") {
+    echo $twig->render('setting/set_role.twig', $data);
+} elseif ($request_type == "modify") {
+    $result = $info->getInfo($request_id);
+    $data["info"] = $result;
+    $data["btn"] = "modify";
+    $data["readonly"] = $readonly;
+    echo $twig->render('setting/modify_role.twig', $data);
+} elseif ($request_type == "delete") {
+    $result = $info->getInfo($request_id);
+    $data["info"] = $result;
+    $data["readonly"] = $readonly;
+    echo $twig->render('setting/set_role.twig', $data);
 }
-$data["readonly"] = $readonly;
-echo $twig->render('setting/set_role.twig', $data);
+
+

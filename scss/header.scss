@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-4-19, 11:38:01
+    Author     : PVer
+*/
+.top{
+    width:  100%;
+    height: 56px;
+    line-height: 56px;
+    background-color: rgba(63, 78, 92, 1);
+    text-align: left;
+    max-height: 56px;
+    display: inline-block;
+    margin: 0 auto;
+}
+.logo{
+    margin-left: 22px;
+    width: 121px;
+    height: 29px;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    text-align: center;
+    font-family: Roboto;
+}
+.div_bq{
+    display: inline-block;
+    color: white;
+    width: 800px;
+    height: 40px;
+}
+.img_tx{
+    line-height: 56px;
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+}
+.d_text{
+    width: 139px;
+    height: 56px;
+    line-height: 56px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    text-align: center;
+    font-family: Roboto;
+
+}
+.top_list{float: left;  max-height: 56px;}  
+.top_list ul li{max-width: 210px;float: left;}  
+.top_list ul li a{padding-left: 10px;color: #FFFFFF;
+                  font-size: 15px;
+                  text-align: left; display: block; font-weight:bold; height:56px;line-height: 56px;position: relative;  
+}  
+.icon_img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    max-height: 30px;
+    max-width: 30px;
+}

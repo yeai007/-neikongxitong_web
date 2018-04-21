@@ -11,10 +11,16 @@ if (!isset($_SESSION['user'])) {
     $user = $_SESSION['user'][0];
 }
 require( "../../common.php");
-$pagetype = _get("pagetype");
-$pro_code = _post("id");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
+$pagetype = _get("pagetype");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$pro_code = $request_data;
+$request_type = _get("type");
+
+
 $sql = "select * from expenditure where ProCode='$pro_code'";
 $result = $db->query($sql);
 $sql_amount = "select sum(Amount) amount from expenditure where ProCode='$pro_code'";

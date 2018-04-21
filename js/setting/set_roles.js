@@ -74,8 +74,8 @@ function toSub(obj)
                 type: obj
             },
             function (data) {
-                alert(data);
-            });
+                alert(data.msg);
+            }, 'json');
 }
 function zTreeInit() {
     $.post('../../modules/setting/action/getAllMenu.php', {id: $("#id").val()}, function (data) {

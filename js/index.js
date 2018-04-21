@@ -3,9 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
 $(document).ready(function () {
     $('.inactive').click(function () {
         var className = $(this).parents('li').parents().attr('class');

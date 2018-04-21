@@ -49,6 +49,11 @@ if (isset($_POST ["add"])) {
     $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("writedate");
     $result = $info->insertInfo($arr);
+    if ($result > 0) {
+        $result = "添加成功";
+    } else {
+        $result = "添加失败，请重试";
+    }
     echo returnResult($result, 1);
     exit();
 } elseif (isset($_POST ["modify"])) {
@@ -74,6 +79,11 @@ if (isset($_POST ["add"])) {
     $arr["WritePerson"] = $user["UserId"];
     $arr["WriteDate"] = _post("writedate");
     $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "修改成功";
+    } else {
+        $result = "修改失败，请重试";
+    }
     echo returnResult($result, 1);
     exit();
 } elseif (isset($_POST ["see"])) {

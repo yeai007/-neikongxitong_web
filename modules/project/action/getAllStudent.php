@@ -28,5 +28,5 @@ left join projecttype e on b.SubType=e.Id
 left join users f on a.WritePerson=f.UserId";
 $data["project_list"] = $db->query($project_list);
 $data["pagetype"] = $pagetype;
-echo $twig->render('project/all_student_list.html', $data);
+echo $twig->render('project/all_student_list.twig', $data);
 

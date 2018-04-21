@@ -1,10 +1,10 @@
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">单位级别</th>
     <th class="th_title">级别代码</th>   
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in customerlevel_list %}
 <tr>
     <td><check type="checkbox"/></th>
@@ -12,7 +12,7 @@
 <th style="white-space: nowrap">{{item.LevelName}}</th>
 <th>{{item.LevelCode}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/market/setCustomerLevel.php', '客户级别管理', 2, 'modify','{{item.Id}}')"  value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(95,{{item.Id}})"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

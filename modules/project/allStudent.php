@@ -15,4 +15,4 @@ $pagetype = _get("pagetype");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
 $data["pagetype"] = $pagetype;
-echo $twig->render('project/all_student.html', $data);
+echo $twig->render('project/all_student.twig', $data);

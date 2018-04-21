@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-4-19, 11:40:42
+    Author     : PVer
+*/
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+.leftsider {
+  line-height: 30px;
+  background-color: #eeeeee;
+  width: 250px;
+  float: left;
+  padding: 5px; }
+
+/*# sourceMappingURL=base.css.map */

@@ -18,13 +18,11 @@ if (!isset($_SESSION['user'])) {
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
-$pagetype = _post("pagetype");
-
+$pagetype = _get("pagetype");
 $project_person = "select UserId,UserName from users";
 $data["project_person"] = $db->query($project_person);
 $project_leader = "select UserId,UserName from users";
 $data["project_leader"] = $db->query($project_leader);
-
 $bustype = "select Id,BusTypeName from BusType where Flag=0";
 $data["bustype"] = $db->query($bustype);
 $project_type = "select * from projecttype where ParentLevel=1";
@@ -40,8 +38,11 @@ $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 require DT_ROOT . '/Class/ProjectClass.php';
 $info = new ProjectClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
@@ -61,4 +62,4 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
 }
 
 $data["readonly"] = $readonly;
-echo $twig->render('project/set_project.html', $data);
+echo $twig->render('project/set_project.twig', $data);

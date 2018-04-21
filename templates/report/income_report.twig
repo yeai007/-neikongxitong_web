@@ -17,17 +17,18 @@
                         <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
                         <input type="button" class="btn_search" value="搜索"/></td>
                     <td>
-                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                        <input type="button" class="export_excel userrole" onclick="toExport('in_come_tb')" value="导出Excel表格"/>
                     </td>  
                     <td>
-                        <input type="button" class="add_new" onclick="toSubPage('../../modules/report/outComeReport.php', '公司支出列表', 2, 'add', '', '{{pagetype}}')" value="支出数据库"/>
+                        <input type="button" class="add_new" onclick="toPage(148)" value="支出数据库"/>
                         <input type="button" class="delete interval" value="批量删除"/>
                     </td>   
                 </tr>
             </table>
+        <div id="in_come_tb">
             <table id="list">
-
             </table>
+        </div>
         </div>
     </div>
 </div>

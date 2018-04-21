@@ -64,6 +64,12 @@ if (isset($_POST ["add"])) {
     $arr["Drawer"] = _post("drawer");
     $arr["GiveTime"] = _post("givetime");
     $arr["Giver"] = _post("giver");
+    $arr["Receiver"] = _post("receiver");
+    $arr["ReceiverPhone"] = _post("receiverphone");
+    $arr["ReceiveDate"] = _post("receivedate");
+    $arr["InvoiceStatus"] = 2;
+    $arr["WirtePerson"] = $user["UserName"];
+    $arr["WirteDate"] = date('y-m-d h:i:s', time());
     $result = $info->updateInfo($arr);
     if ($result > -1) {
         $result = "修改成功";
@@ -80,6 +86,8 @@ if (isset($_POST ["add"])) {
     $arr["ReceiverPhone"] = _post("receiverphone");
     $arr["ReceiveDate"] = _post("receivedate");
     $arr["InvoiceStatus"] = 2;
+    $arr["WirtePerson"] = $user["UserName"];
+    $arr["WirteDate"] = date('y-m-d h:i:s', time());
     $result = $info->updateInfo($arr);
     if ($result > -1) {
         $result = "修改成功（接收）";

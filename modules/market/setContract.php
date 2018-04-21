@@ -26,10 +26,11 @@ $data["chargeperson"] = $db->query($chargeperson);
 $data["marketperson"] = $db->query($chargeperson);
 $contractsub = "select * from organization";
 $data["contractsub"] = $db->query($contractsub);
- 
-
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "see") {
         require DT_ROOT . '/Class/CustomerClass.php';
@@ -52,4 +53,4 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
 }
 
 $data["readonly"] = $readonly;
-echo $twig->render('market/set_contract.html', $data);
+echo $twig->render('market/set_contract.twig', $data);

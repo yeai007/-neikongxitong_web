@@ -14,26 +14,22 @@ $().ready(function () {
             form.submit();
         }
     });
-    //getList($("#pagetype").val());
-    arr_page.splice(0, arr_page.length); //清空数组 
-    arr_page[0] = new Array("../../modules/cert/allCert.php", "证书到期列表", 0, '');
-    var pages = "";
-    for (var i = 0; i < arr_page.length; i++)
-    {
-        var last_page = "toLastPage()";
-        pages = "<li class='li_top_title' style='margin-left:10px;' onclick=\"" + last_page + "\">" + arr_page[i][1] + "</li>";
-    }
-    $("#title_page").html("<ul class='ul_top_title'>" + pages + "</ul>");
-    $("select#isremind").change(function () {
-        console.log($(this).children('option:selected').val() + $(this).children('option:selected').text());
-        $.post('../../modules/cert/action/actionCert.php', {
-            type: "remind",
-            id: $(this).children('option:selected').val(),
-            sel: $(this).children('option:selected').text()
-        }, function (data) {
-            alert(data);
-        });
-    });
+//    $("#isremind").change(function () {
+//        console.log($(this).children('option:selected').val() + $(this).children('option:selected').text());
+//        if (window.confirm("你确定修改下次提醒吗？")) {
+//            $.post('../../modules/cert/action/actionCert.php', {
+//                type: "remind",
+//                id: $(this).children('option:selected').val(),
+//                sel: $(this).children('option:selected').text()
+//            }, function (data) {
+//                alert(data.msg);
+//            }, 'json');
+//            return true;
+//        } else {
+//            return false;
+//        }
+//
+//    });
 });
 function back()
 {
@@ -57,3 +53,20 @@ function deleteThis(obj) {
 }
 
 
+function remind(id, obj) {
+    console.log($(this).children('option:selected').val() + $(this).children('option:selected').text());
+    if (window.confirm("你确定修改下次提醒吗？")) {
+        $.post('../../modules/cert/action/actionCert.php', {
+            type: "remind",
+            id: id,
+            sel: obj
+        }, function (data) {
+            alert(data.msg);
+            getList();
+        }, 'json');
+        return true;
+    } else {
+        return false;
+    }
+
+}

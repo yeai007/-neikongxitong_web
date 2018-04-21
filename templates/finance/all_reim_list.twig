@@ -1,4 +1,5 @@
 {# empty Twig template #}
+<thead>
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
@@ -24,7 +25,7 @@
     <th class="th_title">审批状态</th>
     <th class="th_title">操作</th>
 
-</tr>
+</tr></thead>
 {% for item in list %}
     <tr>
         <th><input type='checkbox' name="line_check"/></th>
@@ -52,12 +53,12 @@
         <th>{% if item.ReimStatus ==0%}未审核{% elseif item.ReimStatus ==2 %}审核通过{% elseif item.ReimStatus ==3 %}审核未通过 {% elseif item.ReimStatus ==4 %}已发放 {% else %}{% endif %}</th>
         <td>
             {% if pagetype=='all'%}
-                <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'modify', '{{item.ReimId}}', '{{pagetype}}')"   value="修改"/>
+                <input type="button" class="caozuo_1" onclick="toPage(129,{{item.ReimId}} )"   value="修改"/>
                 <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ReimId}})" value="删除"/></td>
             {% elseif pagetype=='audit' %}
-        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'audit', '{{item.ReimId}}', '{{pagetype}}')"   value="查看"/>
+        <input type="button" class="caozuo_1" onclick="toPage(130,{{item.ReimId}} )"  value="查看"/>
     {% else %}
-        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReim.php', '报销管理', 2, 'grant', '{{item.ReimId}}', '{{pagetype}}')"   value="查看"/>
+        <input type="button" class="caozuo_1" onclick="toPage(131,{{item.ReimId}} )"   value="查看"/>
     {% endif %}
 
 

@@ -21,7 +21,7 @@ require (DT_ROOT . "/data/dbClass.php");
 $pagetype = _post("pagetype");
 $data = array();
 $work_list = "select a.Id,a.ProCode,a.ProName,a.UnitName,a.Amount,a.InvoiceNum,a.SubName,a.InvoiceType,
-b.UserName DrawerName,c.UserName GiverName,a.InvoiceDate,a.GiveTime
+b.UserName DrawerName,c.UserName GiverName,a.InvoiceDate,a.GiveTime,a.Receiver,a.ReceiverPhone,a.ReceiveDate,a.Giver,a.WirteDate 
 from invoice a
 left join users b on a.Drawer=b.UserId
 left join users c on a.Giver=c.UserId";

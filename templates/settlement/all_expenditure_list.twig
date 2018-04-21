@@ -1,5 +1,5 @@
 {# empty Twig template #}
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">项目编号</th>
@@ -8,7 +8,7 @@
     <th class="th_title">结项人</th>
     <th class="th_title">结项日期</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in list %}
     <tr>
         <td><input type='checkbox' name="line_check"/></th>
@@ -19,7 +19,7 @@
     <th>{{item.KnotPerson}}</th>
     <th>{{item.KnotDate}}</th>
     <td>
-        <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/settlement/setExpenditure.php', '项目支出结项管理', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="项目支出结项"/>
+        <input type="button" class="caozuo_1" onclick="toPage(145, '{{item.ProjectCode}}')"   value="项目支出结项"/>
         <input type="button" class="caozuo_3"  onclick="deleteThis({{item.ProjectCode}})" value="解除项目支出结项"/></td>
 </tr>
 {% endfor %}

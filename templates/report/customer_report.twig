@@ -17,31 +17,33 @@
                         <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
                         <input type="button" class="btn_search" value="搜索"/></td>
                     <td>
-                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                        <input type="button" class="export_excel userrole"  onclick="toExport('customer_report_tb')" value="导出Excel表格"/>
                     </td>   
                 </tr>
-            </table>
-            <table id="list">
-                <tr>
-                    <th class="th_title">选择</th>
-                    <th class="th_title">序号</th>
-                    <th class="th_title">单位名称</th>
-                    <th class="th_title">时间</th>
-                    <th class="th_title">操作</th>
-                </tr>
-                {% for item in list %}
-                    <tr>
-                        <th><input type='checkbox' name="line_check"/></th>
-                        <th>{{item.CustomerId}}</th>
-                        <th>{{item.CustomerName}}</th>
-                        <th>{{item.ExamDate|date('Y-m-d')}}</th>
-                        <td>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/CommunicateReport.php', '拜访沟通记录', 2, 'knot', '{{item.CustomerId}}', '{{pagetype}}')"   value="拜访沟通记录"/>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/StudentReport.php', '学员情况', 2, 'knot', '{{item.CustomerId}}', '{{pagetype}}')"   value="学员情况"/>
-                            {#                           <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/setExpenditure.php', '收费情况', 2, 'knot', '{{item.CustomerId}}', '{{pagetype}}')"   value="收费情况"/>#}
-                    </tr>
-                {% endfor %}
-            </table>
+            </table>      
+            <div id="customer_report_tb">
+                <table id="list">
+                    <thead><tr>
+                            <th class="th_title">选择</th>
+                            <th class="th_title">序号</th>
+                            <th class="th_title">单位名称</th>
+                            <th class="th_title">时间</th>
+                            <th class="th_title">操作</th>
+                        </tr></thead>
+                        {% for item in list %}
+                        <tr>
+                            <th><input type='checkbox' name="line_check"/></th>
+                            <th>{{item.CustomerId}}</th>
+                            <th>{{item.CustomerName}}</th>
+                            <th>{{item.ExamDate|date('Y-m-d')}}</th>
+                            <td>
+                                <input type="button" class="caozuo_1" onclick="toPage(161,{{item.CustomerId}} )"   value="拜访沟通记录"/>
+                                <input type="button" class="caozuo_1" onclick="toPage(162,{{item.CustomerId}} )"   value="学员情况"/>
+                                {#                           <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/setExpenditure.php', '收费情况', 2, 'knot', '{{item.CustomerId}}', '{{pagetype}}')"   value="收费情况"/>#}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 {# empty Twig template #}
+<thead>
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
@@ -15,7 +16,7 @@
     <th class="th_title">申请日期</th>
     <th class="th_title">说明</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in work_list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -32,8 +33,8 @@
 <th>{{item.ApplicantName}}</th>
 <th>{{item.ApplicationTime |date('Y-m-d')}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setApplyInvoice.php', '开票管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="重新开票"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
+    <input type="button" class="caozuo_1" onclick="toPage(137,{{item.Id}} )"   value="重新开票"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}
 

@@ -1,0 +1,23 @@
+<thead><tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title" style="width: 800px;">一级分类</th>
+    <th class="th_title" style="width: 800px;">二级分类</th>
+    <th class="th_title" style="width: 800px;">三级分类</th>
+    <th class="th_title">操作</th>
+</tr></thead>
+{% for item in projecttype_list %}
+    <tr>
+        <td><check type="checkbox"/></td>
+<td>{{item.Id_1}}</td>
+<th>{{item.Name_3}}{% if item.Id_3%}  <input type="button" class="caozuo_1"  onclick="toPage(113,{{item.Id_3}} )"  value="修改"/>{%endif%}</th>
+<th>{{item.Name_2}} {% if item.Id_2%} <input type="button" class="caozuo_1"  onclick="toPage(112,{{item.Id_2}} )"  value="修改"/>{%endif%}</th>
+<th>{{item.Name_1}}{% if item.Id_1%} <input  type="button" class="caozuo_1"  onclick="toPage(111,{{item.Id_1}} )"  value="修改"/>{%endif%}</th>
+<td>
+    <input type="button" class="caozuo_1"  onclick="toPage(111,{{item.Id}} )"  value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id_1}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

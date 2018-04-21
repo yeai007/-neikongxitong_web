@@ -22,7 +22,7 @@ $type = _post("type");
 if ($type == "delete") {
     $info->setInfo(_post("id"));
     $arr = array();
-    $arr["Flag"] = 1;
+    $arr["PaymentStatus"] = 1;
     $result = $info->updateInfo($arr);
     echo returnResult($result, 1);
     exit();

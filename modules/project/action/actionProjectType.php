@@ -80,4 +80,49 @@ if (isset($_POST ["add_first"])) {
 
     echo returnResult($result, 1);
     exit();
+} elseif (isset($_POST ["modify_first"])) {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["Name"] = _post("projecttype_name");
+    $arr["ParentId"] = 0;
+    $arr["ParentLevel"] = 1;
+    $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "修改成功1";
+    } else {
+        $result = "修改失败，请重试！";
+    }
+
+    echo returnResult($result, 1);
+    exit();
+} elseif (isset($_POST ["modify_second"])) {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["Name"] = _post("projecttype_name");
+    $arr["ParentId"] = _post("first_level");
+    $arr["ParentLevel"] = 2;
+    $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "修改成功2";
+    } else {
+        $result = "修改失败，请重试！";
+    }
+
+    echo returnResult($result, 1);
+    exit();
+} elseif (isset($_POST ["modify_third"])) {
+    $info->setInfo(_post("id"));
+    $arr = array();
+    $arr["Name"] = _post("projecttype_name");
+    $arr["ParentId"] = _post("second_level");
+    $arr["ParentLevel"] = 3;
+    $result = $info->updateInfo($arr);
+    if ($result > -1) {
+        $result = "修改成功3";
+    } else {
+        $result = "修改失败，请重试！";
+    }
+
+    echo returnResult($result, 1);
+    exit();
 }

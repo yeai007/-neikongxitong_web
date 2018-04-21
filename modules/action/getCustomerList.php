@@ -18,4 +18,4 @@ left join performancelevelinfo b on a.PerformanceLevel=b.Id
 left join customerlevelinfo c on a.Customerlevel=c.Id where a.Flag=0 $Customerlevel $PerformanceLevel";
 $data["customerlist"] = $db->query($customerlist);
 //echo $customerlist;
-echo $twig->render('market/allcustomer_list.xhtml', $data);
+echo $twig->render('market/allcustomer_list.twig', $data);

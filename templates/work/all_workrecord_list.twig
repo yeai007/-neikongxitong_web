@@ -1,0 +1,27 @@
+<thead><tr>
+        <th class="th_title">选择</th>
+        <th class="th_title">序号</th>
+        <th class="th_title">工作名称</th>
+        <th class="th_title">工作内容</th>
+        <th class="th_title">工作成果</th>
+        <th class="th_title">记录人</th>
+        <th class="th_title">录入日期</th>
+        <th class="th_title">操作</th>
+    </tr></thead>
+    {% for item in work_list %}
+    <tr>
+        <td><input type='checkbox' name="line_check"/></th>
+    <th>{{item.RecordId}}</th>
+    <th style="white-space: nowrap">{{item.WorkName}}</th>
+    <th>{{item.WorkContent}}</th>
+    <th>{{item.WorkResult}}</th>
+    <th>{{item.WritePerson}}</th>
+    <th>{{item.WriteDate}}</th>
+    <td>
+        <input type="button" class="caozuo_1" onclick="toPage({% if pagetype=='all'%}99{% elseif pagetype=='my'%}101{% endif %},{{item.RecordId}} )"    value="修改"/>
+        <input type="button" class="caozuo_3"  onclick="deleteThis({{item.RecordId}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

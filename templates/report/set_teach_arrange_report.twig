@@ -1,5 +1,4 @@
 {# empty Twig template #}
-<?xml version="1.0" encoding="UTF-8"?>
 <script src="{{url}}js/teach/set_teacharrange.js" type="text/javascript"></script>
 <style>
     .error{
@@ -131,7 +130,7 @@
                     <input type="text" id="second_id"  name="second_id" hidden="hidden" value="{{info.TeacherSecond}}"/>
                     <input type="text" id="third_id"  name="third_id" hidden="hidden" value="{{info.TeacherThird}}"/>
 
-                    <input type="button" onclick="toPage('../../modules/report/ProjectReport.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button"  onclick="toClose({{mid}},{{pid}} )"  name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

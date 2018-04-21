@@ -30,5 +30,5 @@ DATE_FORMAT(a.WriteDate,'%Y-%m-%e') WriteDate,b.UserName WritePersonName
 left join users b on a.WritePerson=b.UserId where a.Flag=0 $condition";
 $data["work_list"] = $db->query($work_list);
 $data["pagetype"] = $pagetype;
-echo $twig->render('work/all_workrecord_list.html', $data);
+echo $twig->render('work/all_workrecord_list.twig', $data);
 

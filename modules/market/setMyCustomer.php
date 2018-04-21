@@ -9,14 +9,17 @@
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
-$data = array();
 $readonly = false;
 $data["btn"] = "add";
 $chargeperson = "select UserId,UserName,UserCode,UserDepart from users";
 $data["chargeperson"] = $db->query($chargeperson);
 $data["marketperson"] = $db->query($chargeperson);
-$request_id = _post("id");
-$request_type = _post("type");
+$readonly = "";
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "see") {
         require DT_ROOT . '/Class/CustomerClass.php';
@@ -24,6 +27,7 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
         $data["see"] = $result;
+        $data["btn"] = "see";
         $readonly = "disabled='disabled'";
     } elseif ($request_type == "modify") {
         require DT_ROOT . '/Class/CustomerClass.php';
@@ -40,4 +44,4 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
 }
 
 $data["readonly"] = $readonly;
-echo $twig->render('market/setmycustomer.html', $data);
+echo $twig->render('market/setmycustomer.twig', $data);

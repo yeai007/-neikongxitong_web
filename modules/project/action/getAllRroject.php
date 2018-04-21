@@ -35,5 +35,5 @@ left join projecttype e on a.SubType=e.Id
 where a.ProjectStatus != 4 $condition";
 $data["project_list"] = $db->query($project_list);
 $data["pagetype"] = $pagetype;
-echo $twig->render('project/all_project_list.html', $data);
+echo $twig->render('project/all_project_list.twig', $data);
 

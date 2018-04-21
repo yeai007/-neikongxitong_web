@@ -27,8 +27,11 @@ $data["second"] = $db->query($second);
 $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add_third";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 require DT_ROOT . '/Class/ProjectTypeClass.php';
 $info = new ProjectTypeClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
@@ -38,6 +41,14 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $readonly = "disabled='disabled'";
     } elseif ($request_type == "modify") {
         $result = $info->getInfo($request_id);
+        $second_id = $result["ParentId"];
+        $first_id = $db->row("select * from projecttype where Id=$second_id")["ParentId"];
+        $data["firstid"] = $first_id;
+        $data["secondid"] = $second_id;
+
+        $second = "select Id,Name from  ProjectType where ParentLevel=2 and ParentId=$first_id";
+        $data["second"] = $db->query($second);
+
         $data["info"] = $result;
         $data["btn"] = "modify_third";
     } elseif ($request_type == "delete") {
@@ -45,6 +56,5 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $data["info"] = $result;
     }
 }
-
 $data["readonly"] = $readonly;
-echo $twig->render('project/set_projecttype_third.html', $data);
+echo $twig->render('project/set_projecttype_third.twig', $data);

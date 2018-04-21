@@ -52,7 +52,7 @@ left join teacherinfo g on a.TeacherSecond=g.TeacherId
 left join teacherinfo h on a.TeacherThird=h.TeacherId
 left join users i on a.ChargePerson=i.UserId 
 left join teacherinfo j on a.HeaderMaster=j.TeacherId
-where a.Flag=0 and a.ProCode=$code limit 0,1";
+where a.Flag=0 and a.ProCode='$code' limit 0,1";
         $result = $this->db->row($sql); //返回查询结果到数组
         return $result;
     }

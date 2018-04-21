@@ -1,4 +1,5 @@
 {# empty Twig template #}
+<thead>
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
@@ -13,7 +14,7 @@
     <th class="th_title">申请日期</th>
     <th class="th_title">是否已开票</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -29,10 +30,10 @@
 <th>{{item.ApplicationTime}}</th>
 <th>{{item.InvoiceStatus}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="查看"/>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="下载"/>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/invoiceEnclosure.php', '发票附件管理', 2, 'see', '{{item.Id}}', '{{pagetype}}')"   value="打印"/>
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.TeacherId}})" value="删除"/></td>
+    <input type="button" class="caozuo_1" onclick="toPage(138,{{item.Id}} )"   value="查看"/>
+    <input type="button" class="caozuo_1" onclick="toPage(138,{{item.Id}} )"   value="下载"/>
+    <input type="button" class="caozuo_1" onclick="toPage(138,{{item.Id}} )"   value="打印"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}
 

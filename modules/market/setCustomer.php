@@ -10,13 +10,16 @@ require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
 $data = array();
-$readonly = false;
+$readonly = "";
 $data["btn"] = "add";
 $chargeperson = "select UserId,UserName,UserCode,UserDepart from users";
 $data["chargeperson"] = $db->query($chargeperson);
 $data["marketperson"] = $db->query($chargeperson);
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "see") {
         require DT_ROOT . '/Class/CustomerClass.php';
@@ -38,6 +41,5 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $data["info"] = $result;
     }
 }
-
 $data["readonly"] = $readonly;
-echo $twig->render('market/setcustomer.html', $data);
+echo $twig->render('market/setcustomer.twig', $data);

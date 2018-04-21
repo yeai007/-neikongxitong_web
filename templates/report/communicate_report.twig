@@ -13,18 +13,18 @@
               enctype='multipart/form-data' target="myiframe" id="commentForm" >
             <div class="set_content_tb" >
                 <table>
-                    <tr>
-                        <th class="th_title">选择</th>
-                        <th class="th_title">序号</th>
-                        <th class="th_title">单位名称</th>
-                        <th class="th_title">单位联系人</th>
-                        <th class="th_title">拜访沟通方式</th>
-                        <th class="th_title">沟通日期</th>
-                        <th class="th_title">拜访沟通人</th>
-                        <th class="th_title">沟通成果</th>
-                        <th class="th_title">沟通内容</th>
-                    </tr>
-                    {% for item in list %}
+                    <thead> <tr>
+                            <th class="th_title">选择</th>
+                            <th class="th_title">序号</th>
+                            <th class="th_title">单位名称</th>
+                            <th class="th_title">单位联系人</th>
+                            <th class="th_title">拜访沟通方式</th>
+                            <th class="th_title">沟通日期</th>
+                            <th class="th_title">拜访沟通人</th>
+                            <th class="th_title">沟通成果</th>
+                            <th class="th_title">沟通内容</th>
+                        </tr></thead>
+                        {% for item in list %}
                         <tr>
                             <th><input type='checkbox' name="line_check"/></th>
                             <th>{{item.id}}</th>
@@ -40,7 +40,7 @@
                 </table>
                 <div class="bottom_button">
                     <input type="text" id="id" name="id" hidden="hidden" value="{{id}}"/>
-                    <input type="button" onclick="toPage('../../modules/report/CustomerReport.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button" onclick="toClose({{mid}},{{pid}} )" name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

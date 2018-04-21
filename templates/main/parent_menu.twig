@@ -1,0 +1,8 @@
+{# empty Twig template #}
+{% for item in menulist%}
+    {% if loop.index == "1" %}
+        <li id="s_{{item.Id}}" style="margin-left: 20px;" class="s-menu-item" title="{{item.Id}}" onclick="toHavePage({{item.Id}})"> <span>{{item.Name}}</span></li>
+        {% else %} 
+        <li id="s_{{item.Id}}" class="s-menu-item" title="{{item.Id}}" onclick="toHavePage({{item.Id}})"> <span>{{item.Name}}</span></li>
+    {% endif %}
+{% endfor %}

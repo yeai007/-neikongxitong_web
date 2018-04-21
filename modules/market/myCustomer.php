@@ -25,4 +25,4 @@ $data["market"] = $db->query($market);
 //left join performancelevelinfo b on a.PerformanceLevel=b.Id
 //left join customerlevelinfo c on a.Customerlevel=c.Id where a.Flag=0";
 //$data["customerlist"] = $db->query($customerlist);
-echo $twig->render('market/my_customer.xhtml', $data);
+echo $twig->render('market/my_customer.twig', $data);

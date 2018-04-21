@@ -13,17 +13,17 @@
               enctype='multipart/form-data' target="myiframe" id="commentForm" >
             <div class="set_content_tb" >
                 <table>
-                    <tr>
-                        <th class="th_title">选择</th>
-                        <th class="th_title">序号</th>
-                        <th class="th_title">学员姓名</th>
-                        <th class="th_title">身份证号</th>
-                        <th class="th_title">联系方式</th>
-                        <th class="th_title">已交费金额</th>
-                        <th class="th_title">开票状态</th>
-                        <th class="th_title">日期</th>
-                    </tr>
-                    {% for item in list %}
+                    <thead> <tr>
+                            <th class="th_title">选择</th>
+                            <th class="th_title">序号</th>
+                            <th class="th_title">学员姓名</th>
+                            <th class="th_title">身份证号</th>
+                            <th class="th_title">联系方式</th>
+                            <th class="th_title">已交费金额</th>
+                            <th class="th_title">开票状态</th>
+                            <th class="th_title">日期</th>
+                        </tr></thead>
+                        {% for item in list %}
                         <tr>
                             <th><input type='checkbox' name="line_check"/></th>
                             <th>{{item.Id}}</th>
@@ -39,7 +39,7 @@
                 </table>
                 <div class="bottom_button">
                     <input type="text" id="id" name="id" hidden="hidden" value="{{id}}"/>
-                    <input type="button" onclick="toPage('../../modules/report/CustomerReport.php')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button" onclick="toClose({{mid}},{{pid}} )" name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

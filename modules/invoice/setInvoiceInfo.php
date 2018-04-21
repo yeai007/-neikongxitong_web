@@ -17,7 +17,7 @@ if (!isset($_SESSION['user'])) {
 }
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
-$pagetype = _post("pagetype");
+$pagetype = _get("pagetype");
 $data = array();
 $write_person = "select UserId,UserName,UserCode,UserDepart from users";
 $data["write_person"] = $db->query($write_person);
@@ -26,8 +26,11 @@ $data["user"] = $user;
 $readonly = false;
 $rec_readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 require DT_ROOT . '/Class/InvoiceClass.php';
 $info = new InvoiceClass();
 if (isset($request_id) && $request_id > 0) {
@@ -48,7 +51,8 @@ if (isset($request_id) && $request_id > 0) {
         $data["info"] = $result;
     }
 } elseif ($request_type == "rec") {
-    $rec_readonly = "readonly";
+    $result = $info->getInfo($request_id);
+    $data["info"] = $result;
     $data["btn"] = "rec";
 }
 $data["readonly"] = $readonly;

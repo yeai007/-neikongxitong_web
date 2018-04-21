@@ -1,11 +1,12 @@
 {# empty Twig template #}
+<thead>
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">报销类别</th>
     <th class="th_title">报销科目</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in type_list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -14,7 +15,7 @@
 <th>{{item.ProName}}</th>
 <th>{{item.ReimSubName}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/finance/setReimType.php', '证书管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(135,{{item.Id}} )"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

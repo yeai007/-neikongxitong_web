@@ -1,11 +1,11 @@
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">单位层次</th>
     <th class="th_title">层次代码</th>
     <th class="th_title">市场提成比例</th>   
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in performancelevel_list %}
 <tr>
     <td><check type="checkbox"/></th>
@@ -14,7 +14,7 @@
 <th>{{item.PerformanceLevelCode}}</th>
 <th>{{item.PerformanceLevelPro}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/market/setPerformanceLevel.php', '客户管理', 2, 'modify','{{item.Id}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(97,{{item.Id}})"  value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

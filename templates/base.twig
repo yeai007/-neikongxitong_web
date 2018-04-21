@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>{% block title %}内控管理系统{% endblock %} </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block meta %}{% endblock %}
+<link href="{{url}}css/base.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{{url}}css/header.css" type="text/css" />
+<link href="{{url}}css/common.css" rel="stylesheet" type="text/css"/>
+<link href="{{url}}css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{{url}}css/zTreeStyle/zTreeStyle.css" type="text/css">
+{% block css %}{% endblock %}
+<script src="{{url}}js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="{{url}}js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="{{url}}js/messages_zh.min.js" type="text/javascript"></script>
+<script src="{{url}}js/dialog.js" type="text/javascript"></script>
+<script src="{{url}}js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="{{url}}js/datepicker.min.js" type="text/javascript"></script>
+<script src="{{url}}js/i18n/datepicker.zh-CN.js" type="text/javascript"></script>
+<script src="{{url}}js/jQuery.print.min.js" type="text/javascript"></script>
+<script src="{{url}}js/export/libs/FileSaver/FileSaver.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{url}}js/export/libs/js-xlsx/xlsx.core.min.js"></script>
+<script src="{{url}}js/export/tableExport.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{url}}js/jquery.ztree.all-3.5.min.js"></script>
+{% block js %}{% endblock %}
+
+<body>
+    <div id="header">
+        {% include 'header.twig' %}
+    </div>
+    <div id="main">
+        {% block main %}Hello {{name}}{% endblock %}
+        <div id="leftsider" class="leftsider">
+        {% block leftsider %}{% endblock %}
+    </div>
+    <div id="rightsider" class="rightsider">
+    {% block rightsider %}{% endblock %}
+</div>
+</div>
+<div class="clear"></div>
+</body>
+</html>

@@ -17,44 +17,46 @@
                         <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
                         <input type="button" class="btn_search" value="搜索"/></td>
                     <td>
-                        <input type="button" class="export_excel userrole" value="导出Excel表格"/>
+                        <input type="button" class="export_excel userrole" onclick="toExport('project_report_tb')" value="导出Excel表格"/>
                     </td>   
                 </tr>
-            </table>
-            <table id="list">
-                <tr>
-                    <th class="th_title">选择</th>
-                    <th class="th_title">序号</th>
-                    <th class="th_title">项目年份</th>
-                    <th class="th_title">项目编码</th>
-                    <th class="th_title">项目名称</th>
-                    <th class="th_title">项目分类</th>
-                    <th class="th_title">培训科目</th>
-                    <th class="th_title">立项人</th>
-                    <th class="th_title">立项日期</th>
-                    <th class="th_title">结项日期</th>
-                    <th class="th_title">操作</th>
-                </tr>
-                {% for item in list %}
-                    <tr>
-                        <th><input type='checkbox' name="line_check"/></th>
-                        <th>{{item.ProjectId}}</th>
-                        <th>{{item.ProjectYear}}</th>
-                        <th>{{item.ProjectCode}}</th>
-                        <th>{{item.ProjectName}}</th>
-                        <th>{{item.ProjectType}}</th>
-                        <th>{{item.SubTraining}}</th>
-                        <th>{{item.ProjectPerson}}</th>
-                        <th>{{item.ProjectDate|date('Y-m-d')}}</th>
-                        <th>{{item.KnotDate|date('Y-m-d')}}</th>
-                        <td>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/setTeachArrangeReport.php', '教学信息', 2, 'see', '{{item.ProjectCode}}', '{{pagetype}}')"   value="教学信息"/>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/ProjectStudentReport.php', '学员名单', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="学员名单"/>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/InvoiceReport.php', '发票信息', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="发票信息"/>
-                            <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/report/ProjectKnotReport.php', '收支信息', 2, 'knot', '{{item.ProjectCode}}', '{{pagetype}}')"   value="收支信息"/>
-                    </tr>
-                {% endfor %}
-            </table>
+            </table>  
+            <div id="project_report_tb">
+                <table id="list">
+                    <thead><tr>
+                            <th class="th_title">选择</th>
+                            <th class="th_title">序号</th>
+                            <th class="th_title">项目年份</th>
+                            <th class="th_title">项目编码</th>
+                            <th class="th_title">项目名称</th>
+                            <th class="th_title">项目分类</th>
+                            <th class="th_title">培训科目</th>
+                            <th class="th_title">立项人</th>
+                            <th class="th_title">立项日期</th>
+                            <th class="th_title">结项日期</th>
+                            <th class="th_title">操作</th>
+                        </tr></thead>
+                        {% for item in list %}
+                        <tr>
+                            <th><input type='checkbox' name="line_check"/></th>
+                            <th>{{item.ProjectId}}</th>
+                            <th>{{item.ProjectYear}}</th>
+                            <th>{{item.ProjectCode}}</th>
+                            <th>{{item.ProjectName}}</th>
+                            <th>{{item.ProjectType}}</th>
+                            <th>{{item.SubTraining}}</th>
+                            <th>{{item.ProjectPerson}}</th>
+                            <th>{{item.ProjectDate|date('Y-m-d')}}</th>
+                            <th>{{item.KnotDate|date('Y-m-d')}}</th>
+                            <td>
+                                <input type="button" class="caozuo_1" onclick="toPage(149, '{{item.ProjectCode}}')"   value="教学信息"/>
+                                <input type="button" class="caozuo_1" onclick="toPage(150, '{{item.ProjectCode}}')"   value="学员名单"/>
+                                <input type="button" class="caozuo_1" onclick="toPage(151, '{{item.ProjectCode}}')"  value="发票信息"/>
+                                <input type="button" class="caozuo_1" onclick="toPage(152, '{{item.ProjectCode}}')"  value="收支信息"/>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>  
         </div>
     </div>
 </div>

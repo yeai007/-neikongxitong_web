@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/work/action/actionWorkRecord.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb" >
+                <table class="tb_set" >
+                    <tr>
+                        <td>工作名称</td>
+                        <td class="td_left"><input  id="work_name" name="work_name" class="input_text" type="text" value="{{info.WorkName}}" required></td >
+                    </tr>
+                    <tr>
+                        <td>工作内容</td>
+                        <td  class="td_left">
+                            <textarea {{readonly}} id="work_content" name="work_content"  class="input_textarea" type="text">{{info.WorkContent}}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作成果</td><td  class="td_left">
+                            <textarea {{readonly}} id="work_result" name="work_result"  class="input_textarea" type="text">{{info.WorkResult}}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作日期</td>
+                        <td  class="td_left"><input  id="work_date" name="work_date" class="work_result"  {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %} type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>记录人</td>
+                        <td  class="td_left"><input  id="write_person" name="write_person" class="work_result"  value="{{info.WritePerson}}"  type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>录入日期</td>
+                        <td  class="td_left"><input  id="write_date" name="write_date" class="write_date" {% if info.WriteDate %}value="{{info.WriteDate}}"{% else %} value="{{"now"|date("Y-m-d")}}"{% endif %} type="text" required></td>
+                    </tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="text" name="id" hidden="hidden" value="{{info.RecordId}}"/>
+                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    <input type="button"  onclick="toClose({{mid}},{{pid}} )"  name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+{# empty Twig template #}
+{% for item in menulist %}
+    {% if item.MenuParentId==0 %}
+        <li> <a style="display: inline-block;" class="inactive active" onclick="toPage({{item.Id}})"><img class="menu_img"  src="../../{{item.ImgUrl}}"  alt="" />&nbsp;{{item.Name}}</a>
+            <ul>  
+                {% for item_item in menulist %}
+                    {% if item_item.MenuParentId !=0 and item_item.MenuParentId==item.Id %}
+                        <li>
+                            <a class="inactive active" href="javascript:;" onclick="toPage({{item_item.Id}})">&nbsp;&nbsp;&nbsp;{{item_item.Name}}</a>
+                            <b class="arrow fa fa-angle-right normal"></b>
+                        </li>  
+                    {% endif%}
+                {% endfor %}  
+            </ul>  
+        </li>  
+    {% endif%}
+{% endfor %}

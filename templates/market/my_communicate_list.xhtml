@@ -1,4 +1,4 @@
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">单位名称</th>
@@ -9,7 +9,7 @@
     <th class="th_title">拜访沟通人</th>
     <th class="th_title">沟通成果</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in communicate_list %}
 <tr>
     <td><check type="checkbox"/></th>
@@ -22,7 +22,7 @@
         <th>{{item.UserName}}</th>
         <th>{{item.CommunicateResult}}</th>
         <td>
-            <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/market/setMyCommunicate.php', '沟通记录管理', 2, 'modify','{{item.id}}')"  value="修改"/>
+            <input type="button" class="caozuo_1"  onclick="toPage(89,{{item.id}})"  value="修改"/>
             <input type="button" class="caozuo_3"  onclick="deleteThis({{item.id}})" value="删除"/></td>
 </tr>
 {% endfor %}

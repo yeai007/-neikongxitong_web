@@ -22,8 +22,11 @@ $communicatemode = "select * from CommunicateMode";
 $data["communicatemode"] = $db->query($communicatemode);
 $readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
     if ($request_type == "modify") {
         require DT_ROOT . '/Class/CommunicateClass.php';
@@ -40,4 +43,4 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
 }
 $data["readonly"] = $readonly;
 $data["user"] = $user;
-echo $twig->render('market/set_allcommunicate.html', $data);
+echo $twig->render('market/set_allcommunicate.twig', $data);

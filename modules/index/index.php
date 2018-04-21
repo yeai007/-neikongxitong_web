@@ -23,5 +23,5 @@ $data = array();
 $sql = "select Id,Name,MenuParentId,Url,DivId,ImgUrl from MenuConfig where Flag=0";
 $data["menulist"] = $db->query($sql);
 $data["user"] = $user;
-echo $twig->render('main/index_page.html', $data);
+echo $twig->render('main/index.twig', $data);
 ?>

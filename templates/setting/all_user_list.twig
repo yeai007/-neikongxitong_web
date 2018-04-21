@@ -1,5 +1,5 @@
 {# empty Twig template #}
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">帐号</th>
@@ -12,7 +12,7 @@
     <th class="th_title">家庭住址</th>
     <th class="th_title">状态</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in user_list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -27,7 +27,7 @@
 <th>{{item.Address}}</th>
 <th>{{item.UserStatus}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/setting/setUser.php', '人员管理', 2, 'modify', '{{item.UserId}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(156,{{item.UserId}} )"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.UserId}})" value="删除"/></td>
 </tr>
 {% endfor %}

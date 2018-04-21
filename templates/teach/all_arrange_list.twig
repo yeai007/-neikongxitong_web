@@ -1,5 +1,5 @@
 {# empty Twig template #}
-<tr>
+<thead><tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
     <th class="th_title">项目编号</th>
@@ -16,7 +16,7 @@
     <th class="th_title">教学负责人</th>
     <th class="th_title">安排日期</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in arrange_list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -35,7 +35,7 @@
 <th>{{item.ArrangeDate}}</th>
 <th>{{item.WriteDate}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/teach/setTeachArrange.php', '教学安排管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(119,{{item.Id}} )"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

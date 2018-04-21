@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 $().ready(function () {
     $('#project_type').change(function (e) {
         var ss = $(this).children('option:selected').val();

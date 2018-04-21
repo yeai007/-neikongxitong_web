@@ -23,7 +23,7 @@ $data = array();
 $list = "select a.Id, a.ProCode, a.ProName, a.UnitName, a.InvoiceNum, a.InvoiceDate,
  a.PaymentAmount, a.PaymentDate, a.PaymentSub, a.PaymentType, a.VoucherNum, 
 a.Agent, a.PaymentDesc, a.PaymentStatus,a.WritePerson,a.WriteDate
-from payment a";
+from payment a where a.PaymentStatus!=1";
 $data["list"] = $db->query($list);
 $data["pagetype"] = $pagetype;
 echo $twig->render('invoice/all_payment_list.twig', $data);

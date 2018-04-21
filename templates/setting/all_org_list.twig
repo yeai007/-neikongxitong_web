@@ -1,0 +1,31 @@
+{# empty Twig template #}
+<thead><tr>
+    <th class="th_title">选择</th>
+    <th class="th_title">序号</th>
+    <th class="th_title">机构编码</th>
+    <th class="th_title">机构名称</th>
+    <th class="th_title">统一信用代码</th>
+    <th class="th_title">地址</th>
+    <th class="th_title">联系电话</th>
+
+    <th class="th_title">状态</th>
+    <th class="th_title">操作</th>
+</tr></thead>
+{% for item in roles_list %}
+    <tr>
+        <td><check type="checkbox"/></th>
+<th>{{item.Id}}</th>
+<th>{{item.OrgCode}}</th>
+<th>{{item.OrgName}}</th>
+<th>{{item.CreditCode}}</th>
+<th>{{item.OrgAddress}}</th>
+<th>{{item.OrgPhone}}</th>
+<th>{{item.OrgStatu}}</th>
+<td>
+    <input type="button" class="caozuo_1" onclick="toPage(160,{{item.Id}} )"   value="修改"/>
+    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
+</tr>
+{% endfor %}
+
+
+

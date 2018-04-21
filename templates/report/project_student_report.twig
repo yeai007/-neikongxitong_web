@@ -21,7 +21,7 @@
             </table>
             <table id="list">
                 <table>
-                    <tr>
+                   <thead> <tr>
                         <th class="th_title">选择</th>
                         <th class="th_title">序号</th>
                         <th class="th_title">学员姓名</th>
@@ -30,7 +30,7 @@
                         <th class="th_title">已交费金额</th>
                         <th class="th_title">开票状态</th>
                         <th class="th_title">日期</th>
-                    </tr>
+                    </tr></thead>
                     {% for item in list %}
                         <tr>
                             <th><input type='checkbox' name="line_check"/></th>

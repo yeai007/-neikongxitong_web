@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<style>
+    .error{
+        color:red;
+    }
+</style>
+<div>
+    <div>
+        <iframe name="myiframe" style="display:none;" onload="iframeLoad(this);"></iframe>
+        <form action="../../modules/action/actionCustomerLevel.php" method="post"
+              enctype='multipart/form-data' target="myiframe" id="commentForm" >
+            <div class="set_content_tb" >
+                <table class="tb_set" >
+                    <tr >
+                        <td>单位级别</td>
+                        <td class="td_left"><input  id="level_name" name="level_name" class="input_text" type="text" value="{{info.LevelName}}" required></td >
+                    </tr>
+                    <tr>
+                        <td>单位代码</td>
+                        <td  class="td_left"><input  id="level_code" name="level_code" class="input_text"  value="{{info.LevelCode}}"  type="text" required></td>
+                    </tr>
+                </table>
+                <div class="bottom_button">
+                    <input type="text" name="id" hidden="hidden" value="{{info.Id}}"/>
+                    <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
+                    <!--                    <input type="reset" name="reset" class="comm_button button_clear" value="清空"/>-->
+                    <input type="button" onclick="toClose({{mid}},{{pid}} )" name="close" class="comm_button button_close" value="关闭"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

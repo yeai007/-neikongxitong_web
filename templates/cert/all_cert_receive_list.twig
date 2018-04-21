@@ -1,25 +1,26 @@
 {# empty Twig template #}
-<tr>
-    <th class="th_title">选择</th>
-    <th class="th_title">序号</th>
-    <th class="th_title">项目编号</th>
-    <th class="th_title">项目名称</th>
-    <th class="th_title">培训科目</th>
-    <th class="th_title">培训类别</th>
-    <th class="th_title">姓名</th>
-    <th class="th_title">身份证号</th>
-    <th class="th_title">单位名称</th>
-    <th class="th_title">联系电话</th>
-    <th class="th_title">证书编号</th>
-    <th class="th_title">下次复审日期</th>
-    <th class="th_title">证书领取人</th>
-    <th class="th_title">领取人电话</th>
-    <th class="th_title">领取日期</th>
-    <th class="th_title">录入人</th>
-    <th class="th_title">录入日期</th>
-    <th class="th_title">操作</th>
-</tr>
-{% for item in cert_list %}
+<thead>
+    <tr>
+        <th class="th_title">选择</th>
+        <th class="th_title">序号</th>
+        <th class="th_title">项目编号</th>
+        <th class="th_title">项目名称</th>
+        <th class="th_title">培训科目</th>
+        <th class="th_title">培训类别</th>
+        <th class="th_title">姓名</th>
+        <th class="th_title">身份证号</th>
+        <th class="th_title">单位名称</th>
+        <th class="th_title">联系电话</th>
+        <th class="th_title">证书编号</th>
+        <th class="th_title">下次复审日期</th>
+        <th class="th_title">证书领取人</th>
+        <th class="th_title">领取人电话</th>
+        <th class="th_title">领取日期</th>
+        <th class="th_title">录入人</th>
+        <th class="th_title">录入日期</th>
+        <th class="th_title">操作</th>
+    </tr></thead>
+    {% for item in cert_list %}
     <tr>
         <td><check type="checkbox"/></th>
 <th>{{item.Id}}</th>
@@ -39,7 +40,7 @@
 <th>{{item.WritePersonName}}</th>
 <th>{{item.WriteDate}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/cert/setCertReceive.php', '证书领取管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(127,{{item.Id}} )"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

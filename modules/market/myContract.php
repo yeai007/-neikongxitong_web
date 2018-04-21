@@ -13,4 +13,4 @@ if (!isset($_SESSION['user'])) {
 require( "../../common.php");
 require (DT_ROOT . "/data/dbClass.php");
 $data = array();
-echo $twig->render('market/my_contract.xhtml', $data);
+echo $twig->render('market/my_contract.twig', $data);

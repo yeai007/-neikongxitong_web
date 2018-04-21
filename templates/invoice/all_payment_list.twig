@@ -1,4 +1,5 @@
 {# empty Twig template #}
+<thead>
 <tr>
     <th class="th_title">选择</th>
     <th class="th_title">序号</th>
@@ -14,7 +15,7 @@
     <th class="th_title">录入人</th>
     <th class="th_title">录入日期</th>
     <th class="th_title">操作</th>
-</tr>
+</tr></thead>
 {% for item in list %}
     <tr>
         <td><check type="checkbox"/></th>
@@ -31,7 +32,7 @@
 <th>{{item.WritePerson}}</th>
 <th>{{item.WriteDate}}</th>
 <td>
-    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/invoice/setPayment.php', '回款信息管理', 2, 'modify', '{{item.Id}}', '{{pagetype}}')"   value="修改"/>
+    <input type="button" class="caozuo_1" onclick="toPage(144,{{item.Id}} )"   value="修改"/>
     <input type="button" class="caozuo_3"  onclick="deleteThis({{item.Id}})" value="删除"/></td>
 </tr>
 {% endfor %}

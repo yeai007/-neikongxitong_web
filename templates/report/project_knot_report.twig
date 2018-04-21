@@ -6,21 +6,21 @@
         <div>
             <table id="list">
                 <table>
-                    {# empty Twig template #}
-                    <tr>
-                        <th class="th_title">选择</th>
-                        <th class="th_title">序号</th>
-                        <th class="th_title">项目编号</th>
-                        <th class="th_title">项目名称</th>
-                        <th class="th_title">应收金额</th>
-                        <th class="th_title">已收款金额</th>
-                        <th class="th_title">项目总支出</th>
-                        <th class="th_title">毛利润</th>
-                        <th class="th_title">结项情况</th>
-                        <th class="th_title">结项人</th>
-                        <th class="th_title">结项日期</th>
-                    </tr>
-                    {% for item in list %}
+
+                    <thead><tr>
+                            <th class="th_title">选择</th>
+                            <th class="th_title">序号</th>
+                            <th class="th_title">项目编号</th>
+                            <th class="th_title">项目名称</th>
+                            <th class="th_title">应收金额</th>
+                            <th class="th_title">已收款金额</th>
+                            <th class="th_title">项目总支出</th>
+                            <th class="th_title">毛利润</th>
+                            <th class="th_title">结项情况</th>
+                            <th class="th_title">结项人</th>
+                            <th class="th_title">结项日期</th>
+                        </tr></thead>
+                        {% for item in list %}
                         <tr>
                             <th><input type='checkbox' name="line_check"/></th>
                             <th>{{item.Id}}</th>

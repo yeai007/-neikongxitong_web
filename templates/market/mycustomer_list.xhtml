@@ -1,16 +1,16 @@
-<tr>
-    <th class="th_title">选择</th>
-    <th class="th_title">序号</th>
-    <th class="th_title">单位名称</th>
-    <th class="th_title">市场人员</th>
-    <th class="th_title">单位级别</th>
-    <th class="th_title">单位层次</th>
-    <th class="th_title">更新时间</th>
-    <th class="th_title">审核状态</th>
-    <th class="th_title">绩效级别</th>
-    <th class="th_title">拜访次数</th>
-    <th class="th_title">操作</th>
-</tr>
+<thead><tr>
+        <th class="th_title">选择</th>
+        <th class="th_title">序号</th>
+        <th class="th_title">单位名称</th>
+        <th class="th_title">市场人员</th>
+        <th class="th_title">单位级别</th>
+        <th class="th_title">单位层次</th>
+        <th class="th_title">更新时间</th>
+        <th class="th_title">审核状态</th>
+        <th class="th_title">绩效级别</th>
+        <th class="th_title">拜访次数</th>
+        <th class="th_title">操作</th>
+    </tr></thead>
 {% for item in customerlist %}
 <tr>
     <td><check type="checkbox"/></th>
@@ -24,8 +24,8 @@
         <th>{{item.PerformanceLevel}}</th>
         <th>{{item.VisitCount}}次</th>
         <td>
-            <input type="button" class="caozuo_2" onclick="toSubPage('../../modules/market/setMyCustomer.php', '我的客户管理', 2, 'see','{{item.CustomerId}}')" value="查看"/>
-            <input type="button" class="caozuo_1"  onclick="toSubPage('../../modules/market/setMyCustomer.php', '我的客户管理', 2, 'modify','{{item.CustomerId}}')"  value="修改"/>
+            <input type="button" class="caozuo_2" onclick="toPage(83,{{item.CustomerId}})" value="查看"/>
+            <input type="button" class="caozuo_1"  onclick="toPage(84,{{item.CustomerId}})"  value="修改"/>
             <input type="button" class="caozuo_3"  onclick="CommandConfirm({{item.CustomerId}})" value="删除"/></td>
 </tr>
 {% endfor %}

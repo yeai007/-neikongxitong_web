@@ -27,9 +27,12 @@ $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
 $UintId = _get("UintId");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 
 require DT_ROOT . '/Class/ApplyInvoiceClass.php';
 $info = new ApplyInvoiceClass();

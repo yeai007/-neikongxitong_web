@@ -12,9 +12,9 @@
                         <input type="button" class="btn_search" value="搜索"/></td>
                     <td>
                         {% if pagetype=='rec' %}
-                            <input type="button" class="add_new" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'rec', '', '{{pagetype}}')" value="添加签收信息"/>
+                            <input type="button" class="add_new" onclick="toPage(141)" value="添加签收信息"/>
                         {% elseif pagetype=='all' %}
-                            <input type="button" class="add_new" onclick="toSubPage('../../modules/invoice/setInvoiceInfo.php', '发票信息管理', 2, 'add', '', '{{pagetype}}')" value="添加发票信息"/>
+                            <input type="button" class="add_new" onclick="toPage(139)" value="添加发票信息"/>
                         {% endif %}
 
                         <input type="button" class="delete interval" value="批量删除"/>

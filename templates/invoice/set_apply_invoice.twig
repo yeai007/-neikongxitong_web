@@ -84,7 +84,7 @@
                     <input type="text" id="subid" name="subid" hidden="hidden" value="{{info.InvoiceSubId}}"/>
                     <input type="text" id="studentids" name="studentids" hidden="hidden" value="{{info.ProjectId}}"/>
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
-                    <input type="button" onclick="toPage('../../modules/invoice/allApplyInvoice.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button"  onclick="toClose({{mid}},{{pid}} )" name="close" class="comm_button button_close" value="关闭"/>
                     <!--设置弹出窗口-->  
                     <div id="AddSearchSourcePanel" style="display:none">
                     </div>  

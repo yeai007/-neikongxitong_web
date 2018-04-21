@@ -72,8 +72,8 @@ function toSub(obj)
                 id: $("#id").val()
             },
             function (data) {
-                alert(data);
-            });
+                alert(data.msg);
+            },'json');
 }
 function zTreeInit() {
     $.post('../../modules/setting/action/getDepartMenu.php', {id: $("#id").val()}, function (data) {

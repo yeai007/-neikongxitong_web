@@ -25,8 +25,11 @@ $data["pagetype"] = $pagetype;
 $data["user"] = $user;
 $readonly = false;
 $data["btn"] = "add";
-$request_id = _post("id");
-$request_type = _post("type");
+$request_data = _post("param");
+$data["mid"] = _post("mid");
+$data["pid"] = _post("pid");
+$request_id = $request_data;
+$request_type = _get("type");
 require DT_ROOT . '/Class/DepartMentClass.php';
 $info = new DepartMentClass();
 if (isset($request_id) && $request_id > 0 && isset($request_type)) {
@@ -38,10 +41,12 @@ if (isset($request_id) && $request_id > 0 && isset($request_type)) {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
         $data["btn"] = "modify";
+        echo $twig->render('setting/modify_depart.twig', $data);
     } elseif ($request_type == "delete") {
         $result = $info->getInfo($request_id);
         $data["info"] = $result;
     }
+} else {
+    $data["readonly"] = $readonly;
+    echo $twig->render('setting/set_depart.twig', $data);
 }
-$data["readonly"] = $readonly;
-echo $twig->render('setting/set_depart.twig', $data);

@@ -96,7 +96,7 @@
                     <input type="text" id="id" name="id" hidden="hidden" value="{{info.Id}}"/>
                     <input type="text" id="certid" name="certid" hidden="hidden" value="{{info.CertId}}"/>
                     <input type="submit" name="{{btn}}"  class="comm_button button_save" value="保存"/>
-                    <input type="button" onclick="toPage('../../modules/cert/allCertReceiveRecord.php?pagetype={{pagetype}}')" name="close" class="comm_button button_close" value="关闭"/>
+                    <input type="button" onclick="toClose({{mid}},{{pid}} )"  name="close" class="comm_button button_close" value="关闭"/>
                 </div>
             </div>
         </form>

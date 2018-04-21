@@ -1,0 +1,37 @@
+{# empty Twig template #}
+{% extends "base.twig" %}
+{% block title %}内控管理系统{% endblock %}
+{% block meta %}
+{% endblock %}
+{% block css %}
+    <link href="../../css/menu.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block js %}
+    <script src="../../js/index/index.js" type="text/javascript"></script>
+{% endblock %}
+{% block main %}{% endblock %}
+{% block leftsider %}
+    <div class="list">  
+        <a href="javascript:;" onclick="toPage(1);"> <img class="icon_top" src="{{url}}/image/home.png"/></a>
+        <img class="icon_top" src="{{url}}/image/load.png"/>
+        <img class="icon_top" src="{{url}}/image/setting.png"/>
+        <ul style="margin-top: 10px;margin-top: 10px;">  
+            {% include ('main/menu.twig') %}  
+        </ul>  
+    </div>
+{% endblock %}
+{% block rightsider %}
+    <div class="s-menu-gurd">       
+        <ul id="parent_menu" class="s-ctner-menus">
+            {#{% for item in menulist%}
+                <li class="s-menu-item" title="{{item.Id}}"> <span>{{item.Name}}</span></li>
+                {% endfor %}#}
+        </ul>
+    </div>
+    <div  class="s-ctner-menus_1" style="overflow:hidden;">
+        {% for item in menulist%}
+            <div id="{{item.Id}}" style="display:none">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,22 +1,23 @@
 {# empty Twig template #}
-<tr>
-    <th class="th_title">选择</th>
-    <th class="th_title">序号</th>
-    <th class="th_title">项目编号</th>
-    <th class="th_title">项目名称</th>
-    <th class="th_title">培训科目</th>
-    <th class="th_title">培训类别</th>
-    <th class="th_title">姓名</th>
-    <th class="th_title">身份证号</th>
-    <th class="th_title">单位名称</th>
-    <th class="th_title">联系电话</th>
-    <th class="th_title">证书编号</th>
-    <th class="th_title">下次复审日期</th>
-    <th class="th_title">距离天数</th>
-    <th class="th_title">下次提醒</th>
-    <th class="th_title">操作</th>
-</tr>
-{% for item in cert_list %}
+<thead>
+    <tr>
+        <th class="th_title">选择</th>
+        <th class="th_title">序号</th>
+        <th class="th_title">项目编号</th>
+        <th class="th_title">项目名称</th>
+        <th class="th_title">培训科目</th>
+        <th class="th_title">培训类别</th>
+        <th class="th_title">姓名</th>
+        <th class="th_title">身份证号</th>
+        <th class="th_title">单位名称</th>
+        <th class="th_title">联系电话</th>
+        <th class="th_title">证书编号</th>
+        <th class="th_title">下次复审日期</th>
+        <th class="th_title">距离天数</th>
+        <th class="th_title">下次提醒</th>
+        <th class="th_title">操作</th>
+    </tr></thead>
+    {% for item in cert_list %}
     <tr>
         <td><check type="checkbox"/></th>
 <th>{{item.CertId}}</th>
@@ -31,13 +32,13 @@
 <th>{{item.CertCode}}</th>
 <th>{{item.NextExamDate}}</th>
 <th>{{item.RemindDate}}</th>
-<th><select name="isremind" id="isremind">
-        <option value="{{item.CertId}}">是</option>
-        <option value="{{item.CertId}}">否</option>
+<th><select name="isremind" id="isremind" disable="diabled">
+        <option value="{{item.CertId}}" {% if item.IsRemind==0%}selected="selected"{% endif %}>是</option>
+        <option value="{{item.CertId}}" {% if item.IsRemind==1%}selected="selected"{% endif %}>否</option>
     </select></th>
 <td>
-<!--    <input type="button" class="caozuo_1" onclick="toSubPage('../../modules/cert/setCert.php', '证书管理', 2, 'modify', '{{item.CertId}}', '{{pagetype}}')"   value="修改"/>-->
-    <input type="button" class="caozuo_3"  onclick="deleteThis({{item.CertId}})" value="删除"/></td>
+    <input type="button" class="caozuo_3" onclick="{% if item.IsRemind==0%}remind({{item.CertId}}, '否'){% elseif item.IsRemind==1%}remind({{item.CertId}}, '是'){% endif %}"  value="修改"/><input type="button" class="caozuo_3"  onclick="deleteThis({{item.CertId}})" value="删除"/></td></td>
+
 </tr>
 {% endfor %}
 

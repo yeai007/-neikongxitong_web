@@ -1,0 +1,43 @@
+{# empty Twig template #}
+<link rel="stylesheet" href="{{url}}css/allcustomer.css" type="text/css" />
+<script src="{{url}}js/market/examcustomer.js" type="text/javascript"></script>
+<div id="main_page">
+    <div>
+        <div>
+            <table class="tb_view">
+                <tr>
+                    <td><label>单位级别</label> 
+                        <select class="select" name="customerlevel" id="customerlevel">
+                            {% for item in customerlevel %}
+                                <option class="select" value="{{item.Id}}" >{{item.LevelName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td ><label class="interval">单位层次</label> 
+                        <select class="select" name="PerformanceLevel" id="PerformanceLevel">
+                            {% for item in PerformanceLevel %}
+                                <option class="select" value="{{item.Id}}" >{{item.PerformanceLevelName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="select userrole" name="market" id="market">
+                            {% for item in market %}
+                                <option class="select" value="{{item.UserId}}" >{{item.UserName}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="search_box interval" placeholder="请输入搜索内容" id="search" name="search"/>
+                        <input type="button" class="btn_search" value="搜索"/>
+                    </td>
+                </tr>
+            </table>
+
+            <table id="list">
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="sub_page"></div>
